@@ -90,10 +90,11 @@
   }
 
   .sacred-invocation {
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
-    padding: 0.3rem 0.95rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 1rem;
     margin-bottom: 0.8rem;
+    gap: 0.25rem 0.6rem;
   }
 
   .hero-badge {
@@ -171,21 +172,49 @@
     gap: 1.5rem;
   }
 
+  .family-card {
+    padding: clamp(2.4rem, 4vw, 3.2rem) clamp(1.5rem, 3.5vw, 2.4rem);
+    outline-offset: -10px;
+  }
+
+  .child-name {
+    font-family: var(--font-calligraphy);
+    font-size: clamp(2.7rem, 7.8vw, 3.5rem);
+    line-height: 1.24;
+    color: var(--color-couple-blue);
+  }
+
+  .parents-names {
+    font-size: clamp(1.3rem, 3.8vw, 1.55rem);
+    line-height: 1.7;
+  }
+
   .countdown-grid {
-    gap: 0.5rem;
+    gap: 0.65rem;
   }
 
   .countdown-box {
-    padding: 0.85rem 0.4rem;
+    padding: 1.5rem 0.6rem;
+    outline-offset: -6px;
   }
 
   .countdown-number {
-    font-size: 1.8rem;
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+    font-weight: 700;
   }
 
   .countdown-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+
+  .event-card {
+    padding: clamp(2.4rem, 4vw, 3.2rem) clamp(1.5rem, 3.5vw, 2.4rem);
+    outline-offset: -10px;
+  }
+
+  .event-title {
+    font-size: clamp(1.9rem, 5.2vw, 2.4rem);
   }
 
   .venue-actions {
@@ -212,6 +241,24 @@
     justify-content: center;
     text-align: center;
   }
+
+  /* Closing Section Mobile Refinements */
+  .footer-section {
+    min-height: 75vh;
+    padding: clamp(3.5rem, 6vh, 4.5rem) 1.25rem clamp(5.5rem, 11vh, 7rem);
+  }
+
+  .footer-section::before {
+    width: 95vw;
+    height: 90%;
+    filter: blur(14px);
+  }
+
+  .footer-names {
+    white-space: normal;
+    font-size: clamp(2.8rem, 8.5vw, 4.0rem);
+    line-height: 1.22;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -224,7 +271,9 @@
 
   .sacred-invocation {
     font-size: 0.65rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 0.85rem;
+    gap: 0.2rem 0.5rem;
   }
 
   .hero-badge {
@@ -245,15 +294,81 @@
   }
 
   .event-card {
-    padding: 1.75rem 1.25rem;
+    padding: 2.2rem 1.25rem;
+    outline-offset: -8px;
   }
 
   .family-card {
-    padding: 1.75rem 1.25rem;
+    padding: 2.2rem 1.25rem;
+    outline-offset: -8px;
+  }
+
+  .card-flourish {
+    width: 26px;
+    height: 26px;
+  }
+
+  .card-flourish.top-left {
+    top: 12px;
+    left: 12px;
+  }
+  .card-flourish.top-right {
+    top: 12px;
+    right: 12px;
+  }
+  .card-flourish.bottom-left {
+    bottom: 12px;
+    left: 12px;
+  }
+  .card-flourish.bottom-right {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .child-name {
+    font-size: clamp(2.5rem, 8.5vw, 3.1rem);
+    line-height: 1.22;
+  }
+
+  .parents-names {
+    font-size: clamp(1.22rem, 4.2vw, 1.45rem);
+    line-height: 1.65;
+  }
+
+  .event-title {
+    font-size: clamp(1.75rem, 5.5vw, 2.15rem);
+  }
+
+  .event-day-number {
+    font-size: clamp(3.2rem, 10vw, 4.0rem);
   }
 
   .foreground-diya {
     display: none; /* Keep ultra-clean viewport on compact mobile screens */
+  }
+
+  /* Closing Section Small Mobile (<= 480px) */
+  .footer-section {
+    min-height: 70vh;
+    padding: clamp(3rem, 5vh, 4rem) 1rem clamp(6rem, 12vh, 7.5rem);
+  }
+
+  .footer-names {
+    font-size: clamp(2.6rem, 8.5vw, 3.3rem);
+    line-height: 1.22;
+  }
+
+  .footer-gratitude {
+    font-size: clamp(1.05rem, 4.4vw, 1.22rem);
+  }
+
+  .footer-family-blessings {
+    font-size: clamp(0.98rem, 4.1vw, 1.15rem);
+  }
+
+  .footer-copy {
+    font-size: clamp(0.75rem, 3.2vw, 0.85rem);
+    letter-spacing: 0.16em;
   }
 }
 
@@ -288,14 +403,91 @@
   .layer-pillar-left,
   .layer-pillar-right,
   .layer-cursor-glow,
-  .layer-middle-colonnade {
+  .layer-middle-colonnade,
+  .story-bg-art,
+  .story-photo-bg,
+  .story-sunlight-beam,
+  .story-closing-sunset-sky {
     transform: none !important;
+    animation: none !important;
   }
 
   .reveal-item,
   .reveal-fade {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Storytelling Background Tuning (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .story-photo-bg {
+    inset: -15px 0 -15px 0;
+    height: calc(100% + 30px);
+    object-position: center 20%;
+  }
+
+  .story-mandapam-photo {
+    object-position: center 22%;
+  }
+
+  .story-events-photo {
+    object-position: center 25%;
+  }
+
+  .story-venue-photo {
+    object-position: center 20%;
+  }
+
+  .story-family-overlay {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(251, 247, 240, 0.52) 0%,
+      rgba(247, 240, 229, 0.36) 50%,
+      rgba(245, 237, 224, 0.22) 100%
+    );
+  }
+
+  .story-events-overlay {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(245, 237, 224, 0.54) 0%,
+      rgba(232, 212, 181, 0.38) 50%,
+      rgba(242, 228, 206, 0.24) 100%
+    );
+  }
+
+  .story-countdown-overlay {
+    background: radial-gradient(
+      ellipse at 50% 45%,
+      rgba(242, 228, 206, 0.70) 0%,
+      rgba(232, 181, 141, 0.45) 50%,
+      rgba(239, 228, 210, 0.50) 100%
+    );
+  }
+
+  .story-venue-overlay {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(239, 228, 210, 0.56) 0%,
+      rgba(235, 219, 194, 0.40) 50%,
+      rgba(229, 207, 177, 0.26) 100%
+    );
+  }
+
+  .story-closing-overlay {
+    background: radial-gradient(
+      ellipse at 50% 35%,
+      rgba(229, 207, 177, 0.68) 0%,
+      rgba(222, 193, 160, 0.52) 50%,
+      rgba(212, 179, 142, 0.44) 100%
+    );
+  }
+
+  .story-sunlight-beam {
+    opacity: 0.35;
   }
 }
 

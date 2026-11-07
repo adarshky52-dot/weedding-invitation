@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phase 7 Continuous Scroll Contact Sheet</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 30px;
+      background: #110306;
+      color: #FAF5EE;
+      font-family: 'Cinzel', system-ui, -apple-system, sans-serif;
+      width: 2560px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #D4AF37;
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 32px;
+      letter-spacing: 0.1em;
+      color: #D4AF37;
+      text-transform: uppercase;
+    }
+    .sub {
+      margin: 0;
+      font-size: 18px;
+      color: #E8B58D;
+      letter-spacing: 0.05em;
+    }
+    .invocations {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #FFFDF9;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      letter-spacing: 0.04em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .frame-card {
+      background: #1D060B;
+      border: 1.5px solid #D4AF37;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+    }
+    .frame-img-box {
+      width: 100%;
+      height: 350px;
+      background: #000;
+      overflow: hidden;
+      position: relative;
+    }
+    .frame-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .frame-meta {
+      padding: 12px 16px;
+      background: linear-gradient(180deg, #1D060B 0%, #150307 100%);
+      border-top: 1px solid rgba(212, 175, 55, 0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .frame-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #FFFDF9;
+      letter-spacing: 0.02em;
+    }
+    .frame-num {
+      font-size: 13px;
+      color: #D4AF37;
+      font-weight: 700;
+      background: rgba(212, 175, 55, 0.15);
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      white-space: nowrap;
+    }
+    .footer-bar {
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(212, 175, 55, 0.4);
+      text-align: center;
+      color: #E8B58D;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Amrutha & Mohan Kumar — Phase 7 Continuous Scroll Journey</h1>
+    <p class="sub">Chronological Contact Sheet of All 16 Scroll Progressions & Architectural Transformations</p>
+    <div class="invocations">
+      <span>॥ श्री विश्वकर्मा परब्रह्मणे नमः ॥</span>
+      <span>॥ श्री काळिकादेवी प्रसन्न ॥</span>
+      <span>॥ श्री वीरभद्रेश्वर प्रसन्न ॥</span>
+      <span>॥ श्री आंजनेय स्वामी प्रसन्न ॥</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_01.png" alt="Hero Gateway Opening & Devanagari Invocations">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Hero Gateway Opening & Devanagari Invocations</span>
+        <span class="frame-num">Frame 01 (Y=0px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_02.png" alt="Push-In & Gateway Pillars Parting">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Push-In & Gateway Pillars Parting</span>
+        <span class="frame-num">Frame 02 (Y=350px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_03.png" alt="Transition into Mahamandapa Colonnade">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Transition into Mahamandapa Colonnade</span>
+        <span class="frame-num">Frame 03 (Y=700px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_04.png" alt="Family Blessings: Colonnade Aisle">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Family Blessings: Colonnade Aisle</span>
+        <span class="frame-num">Frame 04 (Y=1100px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_05.png" alt="Camera Tracks Down Colonnade">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Camera Tracks Down Colonnade</span>
+        <span class="frame-num">Frame 05 (Y=1500px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_06.png" alt="Wedding Mandapam with Marigolds & Lamps">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Wedding Mandapam with Marigolds & Lamps</span>
+        <span class="frame-num">Frame 06 (Y=1900px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_07.png" alt="Celebration Itinerary & Auspicious Lagna">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Celebration Itinerary & Auspicious Lagna</span>
+        <span class="frame-num">Frame 07 (Y=2300px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_08.png" alt="Camera Pans into Sunlit Courtyard">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Camera Pans into Sunlit Courtyard</span>
+        <span class="frame-num">Frame 08 (Y=2700px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_09.png" alt="Live Countdown: Courtyard Colonnade">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Live Countdown: Courtyard Colonnade</span>
+        <span class="frame-num">Frame 09 (Y=3100px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_10.png" alt="Countdown Timer Active">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Countdown Timer Active</span>
+        <span class="frame-num">Frame 10 (Y=3500px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_11.png" alt="Approach Stone Pavilion Plinth">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Approach Stone Pavilion Plinth</span>
+        <span class="frame-num">Frame 11 (Y=3900px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_12.png" alt="Venue: Kalyana Mantapa Stone Entrance">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Venue: Kalyana Mantapa Stone Entrance</span>
+        <span class="frame-num">Frame 12 (Y=4300px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_13.png" alt="Venue Map Alcove & Direction Buttons">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Venue Map Alcove & Direction Buttons</span>
+        <span class="frame-num">Frame 13 (Y=4700px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_14.png" alt="Camera Tilts Towards Evening Horizon">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Camera Tilts Towards Evening Horizon</span>
+        <span class="frame-num">Frame 14 (Y=5100px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_15.png" alt="Sanctum Twilight Sunset & Distant Gopuram">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Sanctum Twilight Sunset & Distant Gopuram</span>
+        <span class="frame-num">Frame 15 (Y=5450px)</span>
+      </div>
+    </div>
+    
+    <div class="frame-card">
+      <div class="frame-img-box">
+        <img src="frames/continuous_scroll_frame_16.png" alt="Traditional Closing & Family Blessings">
+      </div>
+      <div class="frame-meta">
+        <span class="frame-title">Traditional Closing & Family Blessings</span>
+        <span class="frame-num">Frame 16 (Y=5750px)</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-bar">
+    Daivajna Kalyana Mantapa, Davanagere, Karnataka • 5th & 6th December 2026 • Verified Continuous Viewport Stage Architecture
+  </div>
+</body>
+</html>

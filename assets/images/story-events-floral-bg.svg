@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 850" width="1600" height="850" fill="none">
+  <defs>
+    <!-- Soft Sunlight & Floral Gradients -->
+    <linearGradient id="eventGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B98A45" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#E8B58D" stop-opacity="0.55"/>
+      <stop offset="70%" stop-color="#E8D4B5" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#B98A45" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <linearGradient id="eventJasmineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9" stop-opacity="0.75"/>
+      <stop offset="60%" stop-color="#F7F0E5" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#E8B58D" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="eventMarigoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F3A953" stop-opacity="0.65"/>
+      <stop offset="60%" stop-color="#D99A59" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8C4E1A" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <linearGradient id="sunbeamGrad1" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9" stop-opacity="0.25"/>
+      <stop offset="40%" stop-color="#E8B58D" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#E8D4B5" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="sunbeamGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8B58D" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#E8D4B5" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#F7F0E5" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Warm Lamp Flame Filter -->
+    <filter id="eventLampGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- =========================================================================
+       1. WARM VOLUMETRIC MORNING SUNLIGHT RAYS
+       ========================================================================= -->
+  <g opacity="0.85">
+    <polygon points="150,-50 480,-50 820,900 320,900" fill="url(#sunbeamGrad1)"/>
+    <polygon points="620,-50 920,-50 1380,900 950,900" fill="url(#sunbeamGrad2)"/>
+    <polygon points="1050,-50 1320,-50 1680,800 1350,900" fill="url(#sunbeamGrad1)" opacity="0.6"/>
+  </g>
+
+  <!-- =========================================================================
+       2. UPPER ARCHITECTURAL JALI LATTICE FRIEZE
+       ========================================================================= -->
+  <g opacity="0.45" stroke="url(#eventGoldGrad)" stroke-width="1.2" fill="none">
+    <!-- Horizontal Boundary Lines -->
+    <line x1="80" y1="20" x2="1520" y2="20" stroke-width="1.8"/>
+    <line x1="80" y1="45" x2="1520" y2="45" stroke-width="1.2"/>
+    
+    <!-- Repeating Star-Lotus Jali Pattern -->
+    <g transform="translate(100, 32.5)">
+      <pattern id="jaliPattern" width="60" height="25" patternUnits="userSpaceOnUse">
+        <path d="M15 0 L30 12.5 L15 25 L0 12.5 Z" stroke="#B98A45" stroke-width="0.8" opacity="0.5"/>
+        <circle cx="15" cy="12.5" r="3" fill="#E8B58D" opacity="0.4"/>
+        <path d="M45 0 L60 12.5 L45 25 L30 12.5 Z" stroke="#B98A45" stroke-width="0.8" opacity="0.5"/>
+        <circle cx="45" cy="12.5" r="3" fill="#E8B58D" opacity="0.4"/>
+      </pattern>
+      <rect x="0" y="-12.5" width="1400" height="25" fill="url(#jaliPattern)"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       3. SACRED FLORAL GARLAND TORANAS (JASMINE & MARIGOLD FESTOONS)
+       ========================================================================= -->
+  <g opacity="0.8">
+    <!-- Primary Draped Jasmine Garland (Double Scalloped) -->
+    <path d="M40 45 C240 130 520 150 780 90 C800 85 840 85 860 90 C1120 150 1400 130 1560 45" 
+          stroke="url(#eventJasmineGrad)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="8,6" fill="none"/>
+    
+    <!-- Rich Golden Marigold Swag Hanging Below -->
+    <path d="M80 45 C280 155 540 175 790 110 C805 105 835 105 850 110 C1100 175 1360 155 1520 45" 
+          stroke="url(#eventMarigoldGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- Subtle Tertiary Delicate Jasmine Thread -->
+    <path d="M140 45 C320 175 560 195 800 130 C820 125 840 125 860 130 C1100 195 1320 175 1460 45" 
+          stroke="url(#eventJasmineGrad)" stroke-width="1.8" stroke-dasharray="5,5" fill="none" opacity="0.6"/>
+
+    <!-- Auspicious Mango Leaves Along the Top String -->
+    <g fill="#765044" opacity="0.45">
+      <path d="M220 45 C223 65 230 78 235 88 C240 78 247 65 250 45 Z"/>
+      <path d="M380 45 C383 65 390 78 395 88 C400 78 407 65 410 45 Z"/>
+      <path d="M540 45 C543 65 550 78 555 88 C560 78 567 65 570 45 Z"/>
+      <path d="M700 45 C703 65 710 78 715 88 C720 78 727 65 730 45 Z"/>
+      <path d="M900 45 C903 65 910 78 915 88 C920 78 927 65 930 45 Z"/>
+      <path d="M1060 45 C1063 65 1070 78 1075 88 C1080 78 1087 65 1090 45 Z"/>
+      <path d="M1220 45 C1223 65 1230 78 1235 88 C1240 78 1247 65 1250 45 Z"/>
+      <path d="M1380 45 C1383 65 1390 78 1395 88 C1400 78 1407 65 1410 45 Z"/>
+    </g>
+
+    <!-- Flower Rosette Cluster Medallions at Festoon Crests -->
+    <g transform="translate(820, 88)">
+      <circle cx="0" cy="0" r="10" fill="url(#eventMarigoldGrad)"/>
+      <circle cx="0" cy="0" r="5" fill="url(#eventJasmineGrad)"/>
+    </g>
+    <g transform="translate(480, 115)">
+      <circle cx="0" cy="0" r="7" fill="url(#eventMarigoldGrad)"/>
+      <circle cx="0" cy="0" r="3.5" fill="url(#eventJasmineGrad)"/>
+    </g>
+    <g transform="translate(1160, 115)">
+      <circle cx="0" cy="0" r="7" fill="url(#eventMarigoldGrad)"/>
+      <circle cx="0" cy="0" r="3.5" fill="url(#eventJasmineGrad)"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       4. HANGING SACRED BRASS DEEPAMS (THOOKU VILAKKU)
+       ========================================================================= -->
+  <g opacity="0.65" filter="url(#eventLampGlow)">
+    <!-- Left Hanging Lamp -->
+    <g transform="translate(220, 140)">
+      <line x1="0" y1="-95" x2="0" y2="0" stroke="url(#eventGoldGrad)" stroke-width="1.4"/>
+      <!-- Lamp Bowl & Wicks -->
+      <path d="M-14 10 C-14 4 -6 0 0 0 C6 0 14 4 14 10 Z" fill="url(#eventGoldGrad)"/>
+      <circle cx="0" cy="12" r="3" fill="#B98A45"/>
+      <!-- Flickering Flame -->
+      <path d="M0 -3 C-3 3 0 7 0 7 C0 7 3 3 0 -3 Z" fill="#FFFDF9"/>
+      <circle cx="0" cy="2" r="6" fill="#F3A953" opacity="0.5"/>
+    </g>
+
+    <!-- Right Hanging Lamp -->
+    <g transform="translate(1380, 140)">
+      <line x1="0" y1="-95" x2="0" y2="0" stroke="url(#eventGoldGrad)" stroke-width="1.4"/>
+      <path d="M-14 10 C-14 4 -6 0 0 0 C6 0 14 4 14 10 Z" fill="url(#eventGoldGrad)"/>
+      <circle cx="0" cy="12" r="3" fill="#B98A45"/>
+      <path d="M0 -3 C-3 3 0 7 0 7 C0 7 3 3 0 -3 Z" fill="#FFFDF9"/>
+      <circle cx="0" cy="2" r="6" fill="#F3A953" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       5. SUBTLE SIDE PILLAR SILHOUETTES FRAMING THE ITINERARY
+       ========================================================================= -->
+  <g opacity="0.35">
+    <rect x="70" y="45" width="24" height="740" fill="url(#eventGoldGrad)"/>
+    <rect x="62" y="785" width="40" height="25" fill="url(#eventGoldGrad)"/>
+    <rect x="1506" y="45" width="24" height="740" fill="url(#eventGoldGrad)"/>
+    <rect x="1498" y="785" width="40" height="25" fill="url(#eventGoldGrad)"/>
+  </g>
+</svg>
+

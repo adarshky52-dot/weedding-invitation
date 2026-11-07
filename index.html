@@ -16,7 +16,10 @@
   <!-- Google Fonts: Editorial Classical Serifs & Modern Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Marcellus&family=Noto+Sans+Devanagari:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Local Fonts for Offline & Fast Cross-Browser Reliability -->
+  <link rel="stylesheet" href="css/fonts.css">
 
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/variables.css">
@@ -31,69 +34,128 @@
   <canvas id="petals-canvas" aria-hidden="true"></canvas>
 
   <!-- =========================================================================
-       1. HERO STAGE: Full-Screen Cinematic Opening & Parallax Layers
+       CINEMATIC VIEWPORT STAGE: Connected Continuous Temple Journey (Phase 7)
        ========================================================================= -->
-  <header class="hero-stage" id="hero">
-    <!-- Parallax 3D Scene Wrapper (receives subtle perspective rotation, keeping text stable) -->
-    <div class="parallax-scene" id="parallax-scene" aria-hidden="true">
-      <!-- Parallax Layer 1: Distant Sunrise Sky & Horizon Sun (Movement: ~4px) -->
-      <div class="parallax-layer layer-sky" data-parallax-layer="1">
-        <img src="assets/images/temple-sunrise-sky.jpg" alt="" class="sky-sunset-img" width="1920" height="1080" loading="eager">
-        <div class="golden-sun-orb"></div>
+  <div id="cinematic-stage" class="cinematic-stage" aria-hidden="true">
+    <div class="parallax-scene" id="parallax-scene">
+      
+      <!-- Scene 1: Grand Gopuram Gateway & Sunrise Mist (Opening / Hero) -->
+      <div class="stage-scene scene-hero is-active" id="stage-scene-1" data-scene="hero">
+        <!-- Parallax Layer 1: Distant Sunrise Sky & Horizon Sun -->
+        <div class="parallax-layer layer-sky" data-parallax-layer="1">
+          <img src="assets/images/temple-sunrise-sky.jpg" alt="" class="sky-sunset-img" width="1920" height="1080" loading="eager">
+          <div class="golden-sun-orb"></div>
+        </div>
+
+        <!-- Parallax Layer 2: Central Temple Gopuram & Sanctum -->
+        <div class="parallax-layer layer-temple-photo" data-parallax-layer="2">
+          <img src="assets/images/temple-hero-bg.jpg" alt="" class="temple-hero-img" width="1920" height="1080" loading="eager">
+        </div>
+
+        <!-- Animated Volumetric Sunrise Light Rays (God Rays) -->
+        <div class="parallax-layer layer-light-rays" data-parallax-layer="1.5">
+          <div class="light-ray ray-1"></div>
+          <div class="light-ray ray-2"></div>
+          <div class="light-ray ray-3"></div>
+        </div>
+
+        <!-- Warm Golden-Hour Ambient Lighting Tint -->
+        <div class="layer-golden-light"></div>
+
+        <!-- Parallax Layer 5: Ambient Cursor-Follow Light Glow -->
+        <div class="layer-cursor-glow" data-parallax-layer="5"></div>
+
+        <!-- Parallax Layer 3: Middle Architectural Layer -->
+        <div class="parallax-layer layer-middle-colonnade" data-parallax-layer="3">
+          <img src="assets/images/temple-middle-colonnade.svg" alt="" class="middle-colonnade-img" width="1600" height="900" loading="eager">
+        </div>
+
+        <div class="parallax-layer layer-arch" data-parallax-layer="3">
+          <img src="assets/images/mandapam-arch.svg" alt="" width="1200" height="90" loading="eager">
+        </div>
+
+        <!-- Contrast Scrim / Atmosphere Vignette -->
+        <div class="parallax-layer layer-scrim"></div>
       </div>
 
-      <!-- Parallax Layer 2: Central Temple Gopuram & Sanctum (Movement: ~10px) -->
-      <div class="parallax-layer layer-temple-photo" data-parallax-layer="2">
-        <img src="assets/images/temple-hero-bg.jpg" alt="" class="temple-hero-img" width="1920" height="1080" loading="eager">
+      <!-- Scene 2: Covered Colonnade Walkway & Mahamandapa (Family) -->
+      <div class="stage-scene scene-family" id="stage-scene-2" data-scene="family">
+        <div class="stage-scene-media">
+          <img src="assets/images/story-family-mandapam-bg.jpg" alt="" class="stage-scene-img" width="1376" height="768" loading="eager">
+          <div class="stage-overlay stage-overlay-family"></div>
+          <div class="stage-sunbeam stage-mandapam-sunlight"></div>
+        </div>
       </div>
 
-      <!-- Animated Volumetric Sunrise Light Rays (God Rays) -->
-      <div class="parallax-layer layer-light-rays" data-parallax-layer="1.5" aria-hidden="true">
-        <div class="light-ray ray-1"></div>
-        <div class="light-ray ray-2"></div>
-        <div class="light-ray ray-3"></div>
+      <!-- Scene 3: Sacred Wedding Mandapam with Marigolds & Brass Lamps (Events) -->
+      <div class="stage-scene scene-events" id="stage-scene-3" data-scene="events">
+        <div class="stage-scene-media">
+          <img src="assets/images/story-events-wedding-bg.jpg" alt="" class="stage-scene-img" width="1376" height="768" loading="eager">
+          <div class="stage-overlay stage-overlay-events"></div>
+          <div class="stage-sunbeam stage-events-sunlight"></div>
+        </div>
       </div>
 
-      <!-- Warm Golden-Hour Ambient Lighting Tint -->
-      <div class="layer-golden-light"></div>
-
-      <!-- Parallax Layer 5: Ambient Cursor-Follow Light Glow (Movement: ~30px) -->
-      <div class="layer-cursor-glow" data-parallax-layer="5"></div>
-
-      <!-- Parallax Layer 3: Middle Architectural Layer (Colonnade, Plinth, Oil Lamps & Torana Arch) (Movement: ~16px) -->
-      <div class="parallax-layer layer-middle-colonnade" data-parallax-layer="3">
-        <img src="assets/images/temple-middle-colonnade.svg" alt="" class="middle-colonnade-img" width="1600" height="900" loading="eager">
+      <!-- Scene 4: Sunlit Temple Courtyard Colonnade (Countdown) -->
+      <div class="stage-scene scene-countdown" id="stage-scene-4" data-scene="countdown">
+        <div class="stage-scene-media">
+          <img src="assets/images/story-countdown-courtyard-bg.jpg" alt="" class="stage-scene-img" width="1376" height="768" loading="eager">
+          <div class="stage-overlay stage-overlay-countdown"></div>
+          <div class="stage-sunbeam stage-countdown-sunlight"></div>
+        </div>
       </div>
 
-      <div class="parallax-layer layer-arch" data-parallax-layer="3">
-        <img src="assets/images/mandapam-arch.svg" alt="" width="1200" height="90" loading="eager">
+      <!-- Scene 5: Dravidian Temple Architecture & Stone Pavilion (Venue Atmosphere) -->
+      <div class="stage-scene scene-venue" id="stage-scene-5" data-scene="venue">
+        <div class="stage-scene-media">
+          <img src="assets/images/story-venue-davanagere-bg.jpg" alt="" class="stage-scene-img" width="1376" height="768" loading="eager">
+          <div class="stage-overlay stage-overlay-venue"></div>
+          <div class="stage-sunbeam stage-venue-sunlight"></div>
+        </div>
       </div>
 
-      <!-- Contrast Scrim / Atmosphere Vignette (Preserves Strong Text Readability) -->
-      <div class="parallax-layer layer-scrim"></div>
+      <!-- Scene 6: Sanctum Twilight Horizon Silhouette (Closing) -->
+      <div class="stage-scene scene-closing" id="stage-scene-6" data-scene="closing">
+        <div class="stage-scene-media">
+          <img src="assets/images/story-closing-sunset-bg.jpg" alt="" class="stage-scene-img" width="1376" height="768" loading="eager">
+          <div class="stage-overlay stage-overlay-closing"></div>
+          <div class="stage-sunbeam stage-closing-sunlight"></div>
+        </div>
+      </div>
 
-      <!-- Parallax Layer 4: Foreground Symmetrical Dravidian Stone Framing Pillars (Movement: ~24px) -->
-      <div class="layer-pillar-left" data-parallax-layer="4">
+      <!-- Persistent Foreground Symmetrical Dravidian Stone Framing Pillars -->
+      <div class="layer-pillar-left stage-framing-pillar pillar-left" data-parallax-layer="4">
         <img src="assets/images/temple-pillar-left.svg" alt="" width="120" height="1000" loading="eager">
       </div>
-      <div class="layer-pillar-right" data-parallax-layer="4">
+      <div class="layer-pillar-right stage-framing-pillar pillar-right" data-parallax-layer="4">
         <img src="assets/images/temple-pillar-right.svg" alt="" width="120" height="1000" loading="eager">
       </div>
 
-      <!-- Foreground Auspicious Temple Deepams (Sacred Flickering Flames) -->
-      <div class="foreground-diya diya-left" data-parallax-layer="4.5" aria-hidden="true">
+      <!-- Foreground Auspicious Temple Deepams -->
+      <div class="foreground-diya diya-left stage-foreground-diya" data-parallax-layer="4.5">
         <img src="assets/images/diya.svg" alt="" width="56" height="90" loading="lazy">
       </div>
-      <div class="foreground-diya diya-right" data-parallax-layer="4.5" aria-hidden="true">
+      <div class="foreground-diya diya-right stage-foreground-diya" data-parallax-layer="4.5">
         <img src="assets/images/diya.svg" alt="" width="56" height="90" loading="lazy">
       </div>
-    </div>
 
-    <!-- Central Hero Content: Spacious Luxury Editorial Composition (Outside 3D tilt for perfect clarity) -->
+      <!-- Ambient Global Scrim -->
+      <div class="stage-global-scrim"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       1. HERO STAGE: Full-Screen Cinematic Opening & Editorial Inscription
+       ========================================================================= -->
+  <header class="hero-stage" id="hero">
+    <!-- Central Hero Content: Spacious Luxury Editorial Composition -->
     <div class="hero-content">
-      <p class="sacred-invocation">
-        || Sri Prasanna Ganapathaye Namaha &bull; Sri Venkateshwaraya Namaha ||
-      </p>
+      <div class="sacred-invocation" aria-label="Auspicious Invocations">
+        <span class="invocation-line">॥ श्री विश्वकर्मा परब्रह्मणे नमः ॥</span>
+        <span class="invocation-line">॥ श्री काळिकादेवी प्रसन्न ॥</span>
+        <span class="invocation-line">॥ श्री वीरभद्रेश्वर प्रसन्न ॥</span>
+        <span class="invocation-line">॥ श्री आंजनेय स्वामी प्रसन्न ॥</span>
+      </div>
 
       <div class="hero-badge">
         <span>Auspicious Wedding Invitation</span>
@@ -121,7 +183,8 @@
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          View Events &amp; Muhurtham
+          View Events &amp; Muhurtha
+        
         </a>
         <a href="#venue" class="btn-secondary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -159,33 +222,39 @@
 
       <div class="family-grid">
         <!-- Bride's Family Card -->
-        <div class="family-card">
+        <div class="family-card scroll-reveal stagger-1">
           <span class="card-flourish top-left" aria-hidden="true"></span>
           <span class="card-flourish top-right" aria-hidden="true"></span>
           <span class="card-flourish bottom-left" aria-hidden="true"></span>
           <span class="card-flourish bottom-right" aria-hidden="true"></span>
-          <img src="assets/images/diya.svg" alt="" class="family-card-icon" aria-hidden="true">
+          <div class="card-crest-halo">
+            <img src="assets/images/diya.svg" alt="" class="family-card-icon" aria-hidden="true">
+          </div>
           <div class="family-side">Bride's Family</div>
           <h3 class="child-name">Amrutha K.V.</h3>
           <div class="relation-label">Beloved Daughter of</div>
           <div class="parents-names">
             Smt. Kavitha<br>&amp; Sri Vishwamurthy K.V.
           </div>
+          <div class="card-inner-divider" aria-hidden="true"></div>
         </div>
 
         <!-- Groom's Family Card -->
-        <div class="family-card">
+        <div class="family-card scroll-reveal stagger-2">
           <span class="card-flourish top-left" aria-hidden="true"></span>
           <span class="card-flourish top-right" aria-hidden="true"></span>
           <span class="card-flourish bottom-left" aria-hidden="true"></span>
           <span class="card-flourish bottom-right" aria-hidden="true"></span>
-          <img src="assets/images/diya.svg" alt="" class="family-card-icon" aria-hidden="true">
+          <div class="card-crest-halo">
+            <img src="assets/images/diya.svg" alt="" class="family-card-icon" aria-hidden="true">
+          </div>
           <div class="family-side">Groom's Family</div>
           <h3 class="child-name">Mohan Kumar P.A.</h3>
           <div class="relation-label">Beloved Son of</div>
           <div class="parents-names">
             Smt. Shakunthalamma<br>&amp; Late Sri Prabhakar Aarkachari
           </div>
+          <div class="card-inner-divider" aria-hidden="true"></div>
         </div>
       </div>
     </div>
@@ -210,7 +279,7 @@
 
       <div class="events-grid">
         <!-- Reception Card -->
-        <article class="event-card">
+        <article class="event-card scroll-reveal stagger-1">
           <span class="card-flourish top-left" aria-hidden="true"></span>
           <span class="card-flourish top-right" aria-hidden="true"></span>
           <span class="card-flourish bottom-left" aria-hidden="true"></span>
@@ -264,14 +333,14 @@
         </article>
 
         <!-- Wedding Muhurtham Card (Featured) -->
-        <article class="event-card featured-card">
+        <article class="event-card featured-card scroll-reveal stagger-2">
           <span class="card-flourish top-left" aria-hidden="true"></span>
           <span class="card-flourish top-right" aria-hidden="true"></span>
           <span class="card-flourish bottom-left" aria-hidden="true"></span>
           <span class="card-flourish bottom-right" aria-hidden="true"></span>
 
           <div class="event-header">
-            <span class="event-badge">Sacred Muhurtham</span>
+            <span class="event-badge">Sacred Muhurtha</span>
             <h3 class="event-title">The Wedding Ceremony</h3>
           </div>
 
@@ -287,7 +356,7 @@
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              <span><strong>Muhurtham:</strong> 8:30 AM – 9:25 AM</span>
+              <span><strong>Muhurtha:</strong> 8:30 AM – 9:25 AM</span>
             </li>
             <li class="event-detail-item">
               <div class="lagna-highlight">
@@ -326,7 +395,7 @@
   <section class="section countdown-section" id="countdown">
     <div class="container container-narrow">
       <span class="section-tagline">Counting Down The Moments</span>
-      <h2 class="section-title text-gold-gradient">To The Sacred Muhurtham</h2>
+      <h2 class="section-title text-gold-gradient">To The Sacred Muhurtha</h2>
       <div class="ornament-divider" aria-hidden="true">
         <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
       </div>
@@ -334,7 +403,7 @@
         6 December 2026 &bull; 8:30 AM IST
       </p>
 
-      <div class="countdown-grid" role="timer" aria-live="polite">
+      <div class="countdown-grid scroll-reveal" role="timer" aria-live="polite">
         <div class="countdown-box">
           <div class="countdown-number" id="count-days">--</div>
           <div class="countdown-label">Days</div>
@@ -372,8 +441,12 @@
         </p>
       </div>
 
-      <div class="venue-card-wrapper">
+      <div class="venue-card-wrapper scroll-reveal">
         <div class="venue-card-inner">
+          <span class="card-flourish top-left" aria-hidden="true"></span>
+          <span class="card-flourish top-right" aria-hidden="true"></span>
+          <span class="card-flourish bottom-left" aria-hidden="true"></span>
+          <span class="card-flourish bottom-right" aria-hidden="true"></span>
           <h3 class="venue-kalyana-name text-gold-shimmer">Daivajna Kalyana Mantapa</h3>
           <p class="venue-address-text">
             Renuka Layout, P.B. Road, Davanagere – 577 002, Karnataka
@@ -415,12 +488,8 @@
   <!-- =========================================================================
        6. TRADITIONAL CLOSING & GRATITUDE
        ========================================================================= -->
-  <footer class="footer-section">
+  <footer class="footer-section" id="closing">
     <div class="container container-narrow">
-      <div class="footer-blessing-shloka">
-        || Maangalyam Tantunaanena Mama Jeevana Hetunaa ||<br>
-        || Kanthe Badhnaami Subhage Tvam Jeeva Sharadaam Shatam ||
-      </div>
       <div class="ornament-divider" aria-hidden="true">
         <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
       </div>
@@ -434,7 +503,7 @@
         With the affectionate blessings of our parents &amp; family
       </p>
       <p class="footer-copy">
-        Davanagere, Karnataka &bull; December 2026
+        DAVANAGERE, KARNATAKA &bull; DECEMBER 2026
       </p>
     </div>
   </footer>
@@ -456,10 +525,8 @@
     <span class="audio-label" id="audio-toggle-text">Music: Play</span>
   </button>
 
-  <!-- Optional HTML5 audio source if an MP3 file is placed locally -->
-  <audio id="wedding-bg-audio" preload="none" aria-hidden="true">
-    <source src="assets/audio/wedding-bg.mp3" type="audio/mpeg">
-  </audio>
+  <!-- Optional HTML5 audio container if an MP3 file is supplied locally -->
+  <audio id="wedding-bg-audio" preload="none" aria-hidden="true"></audio>
 
   <!-- Toast Notification -->
   <div id="toast-notice" class="toast-notice" role="status" aria-live="polite">

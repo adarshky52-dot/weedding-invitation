@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800" fill="none">
+  <defs>
+    <!-- Architectural Stone & Antique Gold Gradients -->
+    <linearGradient id="venueStoneGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#765044" stop-opacity="0.38"/>
+      <stop offset="30%" stop-color="#B98A45" stop-opacity="0.48"/>
+      <stop offset="70%" stop-color="#E8D4B5" stop-opacity="0.52"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <linearGradient id="venueGoldBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#765044" stop-opacity="0.25"/>
+      <stop offset="25%" stop-color="#B98A45" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#F7F0E5" stop-opacity="0.6"/>
+      <stop offset="75%" stop-color="#B98A45" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <linearGradient id="venuePillarShaft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#765044" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#B98A45" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#E8D4B5" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <radialGradient id="venueCourtyardSunlight" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#E8B58D" stop-opacity="0.3"/>
+      <stop offset="45%" stop-color="#E8D4B5" stop-opacity="0.18"/>
+      <stop offset="85%" stop-color="#F7F0E5" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#F7F0E5" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="venueDiyaFlameGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFDF9" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#E8B58D" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#B98A45" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Courtyard Golden Lighting Halo -->
+  <rect x="0" y="0" width="1600" height="800" fill="url(#venueCourtyardSunlight)"/>
+
+  <!-- =========================================================================
+       1. TOP ARCHITECTURAL ENTABLATURE & DRAVIDIAN CORNICE (KAPOTA)
+       ========================================================================= -->
+  <g opacity="0.75">
+    <!-- Primary Lintel Architrave Beam -->
+    <rect x="80" y="30" width="1440" height="16" rx="3" fill="url(#venueGoldBeam)"/>
+    <!-- Kapota Cornice with Kudus (Arched decorative dormer motifs) -->
+    <path d="M120 46 C240 54 360 48 480 46 C600 44 720 48 840 46 C960 44 1080 48 1200 46 C1320 44 1400 50 1480 46 L1480 56 L120 56 Z" 
+          fill="url(#venueStoneGrad)"/>
+    <rect x="120" y="56" width="1360" height="4" fill="url(#venueGoldBeam)"/>
+
+    <!-- Central Gopuram Silhouette Crest -->
+    <g transform="translate(800, 30)">
+      <path d="M-30 0 L-22 -14 L-12 -14 L-8 -26 L0 -34 L8 -26 L12 -14 L22 -14 L30 0 Z" fill="url(#venueStoneGrad)"/>
+      <circle cx="0" cy="-34" r="3.5" fill="#B98A45"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       2. LEFT COLONNADE WING (TRADITIONAL DRAVIDIAN STONE PILLARS)
+       ========================================================================= -->
+  <g opacity="0.6">
+    <!-- Left Outer Primary Pillar -->
+    <g transform="translate(100, 60)">
+      <!-- Capital Bracket -->
+      <path d="M0 0 L65 0 C60 16 50 24 35 28 L35 42 L0 42 Z" fill="url(#venueStoneGrad)"/>
+      <!-- Stambha Shaft -->
+      <rect x="10" y="42" width="28" height="620" fill="url(#venuePillarShaft)"/>
+      <line x1="18" y1="42" x2="18" y2="662" stroke="#765044" stroke-width="1.2" opacity="0.5"/>
+      <line x1="28" y1="42" x2="28" y2="662" stroke="#FFFDF9" stroke-width="1.2" opacity="0.4"/>
+      <!-- Decorative Shaft Medallion (Padma Bandha) -->
+      <circle cx="24" cy="220" r="10" fill="url(#venueStoneGrad)"/>
+      <circle cx="24" cy="220" r="5" fill="#FFFDF9" opacity="0.5"/>
+      <!-- Base Adhisthana -->
+      <rect x="2" y="662" width="44" height="18" fill="url(#venueStoneGrad)"/>
+      <rect x="-6" y="680" width="60" height="26" rx="2" fill="url(#venueGoldBeam)"/>
+    </g>
+
+    <!-- Left Secondary Inner Pillar -->
+    <g transform="translate(210, 60)" opacity="0.75">
+      <rect x="6" y="42" width="20" height="620" fill="url(#venuePillarShaft)"/>
+      <rect x="0" y="662" width="32" height="20" fill="url(#venueStoneGrad)"/>
+    </g>
+
+    <!-- Wall Niche (Koshtha) with Auspicious Deepam Flame -->
+    <g transform="translate(148, 380)">
+      <path d="M0 0 C0 -18 20 -28 40 -28 C60 -28 80 -18 80 0 L80 90 L0 90 Z" fill="url(#venueStoneGrad)" opacity="0.4"/>
+      <rect x="-5" y="90" width="90" height="8" rx="2" fill="url(#venueGoldBeam)"/>
+      <!-- Deepam Oil Lamp inside Niche -->
+      <path d="M25 76 C25 68 32 64 40 64 C48 64 55 68 55 76 Z" fill="#B98A45"/>
+      <!-- Flame Aura -->
+      <circle cx="40" cy="56" r="14" fill="url(#venueDiyaFlameGlow)"/>
+      <path d="M40 50 C38 54 40 58 40 58 C40 58 42 54 40 50 Z" fill="#FFFDF9"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       3. RIGHT COLONNADE WING (SYMMETRICAL ARCHITECTURAL OPPOSITION)
+       ========================================================================= -->
+  <g opacity="0.6">
+    <!-- Right Outer Primary Pillar -->
+    <g transform="translate(1435, 60)">
+      <path d="M65 0 L0 0 C5 16 15 24 30 28 L30 42 L65 42 Z" fill="url(#venueStoneGrad)"/>
+      <rect x="27" y="42" width="28" height="620" fill="url(#venuePillarShaft)"/>
+      <line x1="37" y1="42" x2="37" y2="662" stroke="#765044" stroke-width="1.2" opacity="0.5"/>
+      <line x1="47" y1="42" x2="47" y2="662" stroke="#FFFDF9" stroke-width="1.2" opacity="0.4"/>
+      <circle cx="41" cy="220" r="10" fill="url(#venueStoneGrad)"/>
+      <circle cx="41" cy="220" r="5" fill="#FFFDF9" opacity="0.5"/>
+      <rect x="19" y="662" width="44" height="18" fill="url(#venueStoneGrad)"/>
+      <rect x="11" y="680" width="60" height="26" rx="2" fill="url(#venueGoldBeam)"/>
+    </g>
+
+    <!-- Right Secondary Inner Pillar -->
+    <g transform="translate(1365, 60)" opacity="0.75">
+      <rect x="6" y="42" width="20" height="620" fill="url(#venuePillarShaft)"/>
+      <rect x="0" y="662" width="32" height="20" fill="url(#venueStoneGrad)"/>
+    </g>
+
+    <!-- Wall Niche (Koshtha) with Auspicious Deepam Flame -->
+    <g transform="translate(1372, 380)">
+      <path d="M0 0 C0 -18 20 -28 40 -28 C60 -28 80 -18 80 0 L80 90 L0 90 Z" fill="url(#venueStoneGrad)" opacity="0.4"/>
+      <rect x="-5" y="90" width="90" height="8" rx="2" fill="url(#venueGoldBeam)"/>
+      <path d="M25 76 C25 68 32 64 40 64 C48 64 55 68 55 76 Z" fill="#B98A45"/>
+      <circle cx="40" cy="56" r="14" fill="url(#venueDiyaFlameGlow)"/>
+      <path d="M40 50 C38 54 40 58 40 58 C40 58 42 54 40 50 Z" fill="#FFFDF9"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       4. BASE COURTYARD STONE PLINTH & TRADITIONAL RANGOLI PAVING
+       ========================================================================= -->
+  <g opacity="0.5">
+    <line x1="0" y1="740" x2="1600" y2="740" stroke="url(#venueGoldBeam)" stroke-width="2"/>
+    <line x1="80" y1="760" x2="1520" y2="760" stroke="url(#venueStoneGrad)" stroke-width="1.2" stroke-dasharray="10,6"/>
+  </g>
+</svg>
+

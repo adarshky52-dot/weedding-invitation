@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--maroon-950);
+  background: transparent !important;
   perspective: 1200px; /* Enables realistic 3D perspective depth */
 }
 
@@ -163,6 +163,8 @@
   filter: brightness(1.02) contrast(1.02) saturate(1.04); /* Pristine natural illumination */
   transform: scale(1.05); /* Slight pre-scale prevents edge clipping on parallax moves */
   transform-origin: center center;
+  will-change: transform;
+  animation: templeBreathe 24s ease-in-out infinite alternate;
   /* Seamless upper-right sky blend: reveals Layer 1 sunrise sky while keeping left gopuram & courtyard 100% solid */
   -webkit-mask-image: radial-gradient(
     ellipse 65% 55% at 75% 20%,
@@ -389,14 +391,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 740px;
-  height: 90%;
+  max-width: 780px;
+  height: 92%;
   border-radius: 50%;
   background: radial-gradient(
-    ellipse 58% 52% at 50% 50%,
-    rgba(24, 14, 12, 0.38) 0%,
-    rgba(20, 12, 10, 0.22) 50%,
-    rgba(16, 10, 9, 0.08) 75%,
+    ellipse 60% 54% at 50% 50%,
+    rgba(20, 10, 8, 0.44) 0%,
+    rgba(18, 9, 8, 0.26) 48%,
+    rgba(16, 8, 7, 0.10) 74%,
     transparent 90%
   );
   filter: blur(34px);
@@ -408,19 +410,19 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.38rem 1.3rem;
+  padding: 0.4rem 1.35rem;
   border-radius: var(--radius-pill);
-  background: rgba(113, 60, 56, 0.45); /* Muted wedding maroon #713C38 glass accent */
-  border: 1px solid rgba(217, 154, 89, 0.45); /* Soft antique gold #D99A59 */
+  background: rgba(88, 38, 42, 0.55); /* Muted wedding maroon #713C38 glass accent */
+  border: 1px solid rgba(217, 154, 89, 0.55); /* Soft antique gold #D99A59 */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   font-family: var(--font-title);
-  font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.82rem);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--warm-ivory); /* #F2E4CE warm ivory */
+  color: #FFF8EA; /* Luminous warm ivory */
   margin-bottom: clamp(0.85rem, 2vh, 1.6rem);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), inset 0 0 10px rgba(217, 154, 89, 0.12);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.40), inset 0 0 10px rgba(217, 154, 89, 0.15);
 }
 
 .couple-names-wrapper {
@@ -442,19 +444,19 @@
   background: linear-gradient(
     135deg,
     #FFFFFF 0%,
-    #F7EFE4 22%,       /* Luminous warm ivory */
-    #E8B58D 45%,       /* Soft warm sunset peach */
-    #FFFFFF 55%,       /* Soft gold shimmer glint */
-    #C68444 75%,       /* Rich antique gold with depth */
-    #9E5D24 100%       /* Deep burnished antique bronze-gold definition */
+    #FAF5EE 18%,       /* Crisp luminous ivory */
+    #E8B58D 42%,       /* Soft warm sunset peach */
+    #FFFFFF 52%,       /* Soft gold shimmer glint */
+    #C68444 72%,       /* Rich antique gold with depth */
+    #8C4E1A 100%       /* Deep burnished antique bronze-gold definition */
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: goldShimmerSweep 9s ease-in-out infinite;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.98))
-          drop-shadow(0 4px 14px rgba(18, 9, 8, 0.92))
-          drop-shadow(0 8px 30px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 2px 3px rgba(12, 6, 5, 0.98))
+          drop-shadow(0 4px 14px rgba(16, 8, 7, 0.92))
+          drop-shadow(0 8px 28px rgba(0, 0, 0, 0.70));
 }
 
 .couple-ampersand {
@@ -465,10 +467,11 @@
   font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.9rem);
   font-style: italic;
   font-weight: 400;
-  color: var(--antique-gold); /* #D99A59 */
+  color: #E5A866; /* Vibrant antique gold */
   margin: -0.1rem 0;
-  opacity: 0.95;
+  opacity: 0.98;
   position: relative;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 
 .couple-ampersand::before,
@@ -477,25 +480,25 @@
   display: inline-block;
   width: clamp(22px, 3.5vw, 48px);
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--antique-gold));
+  background: linear-gradient(90deg, transparent, #E5A866);
   margin: 0 clamp(0.5rem, 1.2vw, 1rem);
 }
 
 .couple-ampersand::after {
-  background: linear-gradient(90deg, var(--antique-gold), transparent);
+  background: linear-gradient(90deg, #E5A866, transparent);
 }
 
 .invitation-quote {
   font-family: var(--font-title);
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
-  color: var(--warm-ivory); /* #F2E4CE */
+  font-size: clamp(0.98rem, 0.92rem + 0.3vw, 1.18rem);
+  color: #FBF5EB; /* Crisp warm ivory */
   font-style: italic;
   font-weight: 400;
-  max-width: 540px;
+  max-width: 550px;
   margin: 0 auto clamp(1rem, 2.4vh, 2rem);
   line-height: 1.75;
   letter-spacing: 0.015em;
-  text-shadow: 0 2px 10px rgba(18, 10, 8, 0.95), 0 0 22px rgba(35, 18, 14, 0.6);
+  text-shadow: 0 2px 8px rgba(15, 8, 7, 0.98), 0 0 16px rgba(20, 10, 8, 0.75);
 }
 
 .hero-actions {
@@ -563,7 +566,7 @@
   padding: 0.85rem 1.85rem;
   background: linear-gradient(135deg, #F2E4CE 0%, #D99A59 45%, #B98A45 100%);
   color: #2F1412; /* Deep muted temple maroon text */
-  font-family: var(--font-sans);
+  font-family: var(--font-serif-reading);
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -610,7 +613,7 @@
   color: var(--color-deep-text);
   border: 1.5px solid var(--color-antique-gold);
   border-radius: var(--radius-pill);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif-reading);
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -629,7 +632,13 @@
   box-shadow: 0 8px 24px rgba(113, 60, 56, 0.35);
 }
 
-/* Hero Section Specialization: Preserves Approved Translucent Maroon Glass Styling in Hero */
+/* Hero Section Specialization: Preserves Approved Translucent Maroon Glass Styling & Font in Hero */
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.08em;
+}
+
 .hero-actions .btn-secondary {
   background: rgba(113, 60, 56, 0.55);
   color: var(--warm-ivory);
@@ -646,72 +655,99 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. Section Headers & Ornamental Layout
+   4. Section Headers & Ornamental Layout (Phase 8C High-Contrast Hierarchy)
    -------------------------------------------------------------------------- */
 .section-header {
   text-align: center;
-  margin-bottom: clamp(2rem, 5vh, 3.5rem);
+  max-width: 820px;
+  margin: 0 auto clamp(2rem, 4vh, 3.25rem);
   position: relative;
+  z-index: 2;
+}
+
+/* Subtle feathered warm halo behind section header for stone contrast */
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 680px);
+  height: 120%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 253, 248, 0.88) 0%,
+    rgba(247, 240, 229, 0.65) 45%,
+    rgba(247, 240, 229, 0.25) 70%,
+    transparent 100%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .section-tagline {
   display: inline-block;
-  font-family: var(--font-title);
-  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.85rem);
-  letter-spacing: 0.22em;
+  font-family: var(--font-serif-heading);
+  font-variant: small-caps;
+  font-size: clamp(0.92rem, 0.85rem + 0.25vw, 1.15rem);
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--color-antique-gold);
-  font-weight: 600;
+  color: #996924; /* Deep, regal antique gold */
+  font-weight: 700;
   margin-bottom: 0.5rem;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 .section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
-  color: var(--color-deep-text);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-family: var(--font-serif-heading);
+  font-size: clamp(2.5rem, 2.0rem + 2.2vw, 3.8rem);
+  color: var(--color-muted-maroon);
+  font-weight: 600;
+  letter-spacing: 0.04em;
   margin-bottom: 0.4rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
 }
 
 .section-subtitle {
-  font-family: var(--font-title);
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
-  color: var(--color-temple-brown);
+  font-family: var(--font-serif-reading);
+  font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+  color: var(--color-deep-text); /* #2E221E */
+  font-weight: 500;
   font-style: italic;
-  max-width: 620px;
+  max-width: 640px;
   margin: 0.4rem auto 0;
-  line-height: 1.65;
+  line-height: 1.7;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85);
 }
 
 /* --------------------------------------------------------------------------
-   5. Family Lineage & Divine Blessings Section
+   5. Family Lineage & Divine Blessings Section (Authentic Stationery Cards)
    -------------------------------------------------------------------------- */
 .family-section {
   position: relative;
-  background: linear-gradient(180deg, #FBF7F0 0%, var(--color-ivory) 45%, #F4EADB 100%);
-  border-top: 1px solid rgba(185, 138, 69, 0.28);
-  border-bottom: 1px solid rgba(185, 138, 69, 0.28);
+  background: transparent !important;
   padding: clamp(3.5rem, 7vh, 6rem) 0;
+  overflow: hidden;
 }
 
 .family-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.75rem, 3.5vw, 3rem);
+  gap: clamp(2rem, 4vw, 3.5rem);
   margin-top: var(--space-lg);
 }
 
 .family-card {
   position: relative;
-  background: #FFFFFF;
-  border: 1px solid rgba(185, 138, 69, 0.35);
-  outline: 1px solid rgba(185, 138, 69, 0.18);
-  outline-offset: -8px;
+  background: var(--card-bg-stationery);
+  border: var(--card-border-outer);
+  outline: var(--card-border-inner);
+  outline-offset: -12px;
   border-radius: var(--radius-md);
-  padding: clamp(2.5rem, 5vw, 3.75rem) clamp(1.75rem, 4vw, 3rem);
+  padding: clamp(2.8rem, 5vw, 4rem) clamp(2rem, 4vw, 3.25rem);
   text-align: center;
-  box-shadow: 0 12px 35px -8px rgba(118, 80, 68, 0.08), 0 2px 6px rgba(118, 80, 68, 0.04);
+  box-shadow: var(--card-shadow-stationery);
   transition: transform var(--duration-normal) var(--ease-cinematic), box-shadow var(--duration-normal) ease;
   overflow: hidden;
 }
@@ -720,50 +756,68 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 20%;
-  right: 20%;
+  left: 12%;
+  right: 12%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--color-antique-gold), transparent);
+  background: linear-gradient(90deg, transparent, #C49852, transparent);
 }
 
 .family-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px -10px rgba(118, 80, 68, 0.14), 0 0 1px 1px rgba(185, 138, 69, 0.4);
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-stationery-hover);
+}
+
+.card-crest-halo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #FFF9ED 0%, #E8D4B5 100%);
+  border: 2px solid #C49852;
+  outline: 1px solid rgba(196, 152, 82, 0.45);
+  outline-offset: -5px;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 4px 18px rgba(196, 152, 82, 0.32);
 }
 
 .family-card-icon {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto 1.25rem;
-  filter: drop-shadow(0 2px 6px rgba(185, 138, 69, 0.3));
-  opacity: 0.95;
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 2px 6px rgba(185, 138, 69, 0.4));
+  opacity: 0.98;
 }
 
 .family-side {
-  font-family: var(--font-title);
-  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem);
-  color: var(--color-antique-gold);
-  letter-spacing: 0.2em;
+  font-family: var(--font-serif-heading);
+  font-variant: small-caps;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.12rem);
+  color: #996924;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .child-name {
-  font-family: var(--font-names);
-  font-size: clamp(2rem, 1.8rem + 1vw, 2.6rem);
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  color: var(--color-deep-text);
-  margin-bottom: 0.4rem;
+  font-family: var(--font-calligraphy);
+  font-size: clamp(3.0rem, 2.4rem + 2.4vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-couple-blue); /* #24477D rich royal blue */
+  line-height: 1.24;
+  margin: 0.2rem 0 0.45rem;
+  text-shadow: 0 1px 2px rgba(36, 71, 125, 0.18);
 }
 
 .relation-label {
-  font-family: var(--font-title);
-  font-size: var(--text-sm);
+  font-family: var(--font-serif-reading);
+  font-size: clamp(1.02rem, 0.96rem + 0.2vw, 1.18rem);
   font-style: italic;
-  color: var(--color-temple-brown);
-  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #63473E;
+  margin-bottom: 1.25rem;
   position: relative;
   display: inline-block;
 }
@@ -772,66 +826,145 @@
 .relation-label::after {
   content: '';
   display: inline-block;
-  width: 24px;
+  width: 30px;
   height: 1px;
-  background: rgba(185, 138, 69, 0.35);
+  background: rgba(196, 152, 82, 0.55);
   vertical-align: middle;
-  margin: 0 0.6rem;
+  margin: 0 0.75rem;
 }
 
 .parents-names {
-  font-family: var(--font-title);
-  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
-  color: var(--color-deep-text);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(1.42rem, 1.28rem + 0.55vw, 1.82rem);
+  color: var(--color-deep-text); /* #2E221E */
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.75;
   letter-spacing: 0.015em;
 }
 
-/* Delicate Antique Gold Corner Flourishes */
+/* Authentic Antique Gold Corner Flourishes */
 .card-flourish {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 36px;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.92;
+  z-index: 2;
+}
+
+.card-flourish::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.card-flourish::after {
+  content: '◆';
+  position: absolute;
+  font-size: 8px;
+  color: var(--color-gold-frame);
+  line-height: 1;
 }
 
 .card-flourish.top-left {
-  top: 14px;
-  left: 14px;
-  border-top: 1.5px solid var(--color-antique-gold);
-  border-left: 1.5px solid var(--color-antique-gold);
+  top: 16px;
+  left: 16px;
+  border-top: 2px solid var(--color-gold-frame);
+  border-left: 2px solid var(--color-gold-frame);
+}
+.card-flourish.top-left::before {
+  top: 4px;
+  left: 4px;
+  border-top: 1px solid var(--color-gold-frame);
+  border-left: 1px solid var(--color-gold-frame);
+}
+.card-flourish.top-left::after {
+  top: 2px;
+  left: 2px;
 }
 
 .card-flourish.top-right {
-  top: 14px;
-  right: 14px;
-  border-top: 1.5px solid var(--color-antique-gold);
-  border-right: 1.5px solid var(--color-antique-gold);
+  top: 16px;
+  right: 16px;
+  border-top: 2px solid var(--color-gold-frame);
+  border-right: 2px solid var(--color-gold-frame);
+}
+.card-flourish.top-right::before {
+  top: 4px;
+  right: 4px;
+  border-top: 1px solid var(--color-gold-frame);
+  border-right: 1px solid var(--color-gold-frame);
+}
+.card-flourish.top-right::after {
+  top: 2px;
+  right: 2px;
 }
 
 .card-flourish.bottom-left {
-  bottom: 14px;
-  left: 14px;
-  border-bottom: 1.5px solid var(--color-antique-gold);
-  border-left: 1.5px solid var(--color-antique-gold);
+  bottom: 16px;
+  left: 16px;
+  border-bottom: 2px solid var(--color-gold-frame);
+  border-left: 2px solid var(--color-gold-frame);
+}
+.card-flourish.bottom-left::before {
+  bottom: 4px;
+  left: 4px;
+  border-bottom: 1px solid var(--color-gold-frame);
+  border-left: 1px solid var(--color-gold-frame);
+}
+.card-flourish.bottom-left::after {
+  bottom: 2px;
+  left: 2px;
 }
 
 .card-flourish.bottom-right {
-  bottom: 14px;
-  right: 14px;
-  border-bottom: 1.5px solid var(--color-antique-gold);
-  border-right: 1.5px solid var(--color-antique-gold);
+  bottom: 16px;
+  right: 16px;
+  border-bottom: 2px solid var(--color-gold-frame);
+  border-right: 2px solid var(--color-gold-frame);
+}
+.card-flourish.bottom-right::before {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 1px solid var(--color-gold-frame);
+  border-right: 1px solid var(--color-gold-frame);
+}
+.card-flourish.bottom-right::after {
+  bottom: 2px;
+  right: 2px;
+}
+
+.card-inner-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.6rem auto 0;
+  max-width: 160px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C49852, transparent);
+  position: relative;
+}
+
+.card-inner-divider::after {
+  content: '◆';
+  position: absolute;
+  font-size: 8px;
+  color: var(--color-antique-gold);
+  background: var(--color-ivory-warm);
+  padding: 0 5px;
+  line-height: 1;
 }
 
 /* --------------------------------------------------------------------------
-   6. Auspicious Wedding Events & Sacred Muhurtham Section
+   6. Auspicious Wedding Events & Sacred Muhurtham (Stationery Cards)
    -------------------------------------------------------------------------- */
 .events-section {
   position: relative;
-  background: linear-gradient(180deg, #F4EADB 0%, var(--color-champagne) 50%, #F1E2CD 100%);
+  background: transparent !important;
   padding: clamp(3.5rem, 7vh, 6rem) 0;
+  overflow: hidden;
 }
 
 .events-grid {
@@ -843,39 +976,47 @@
 
 .event-card {
   position: relative;
-  background: #FFFFFF;
-  border: 1px solid rgba(185, 138, 69, 0.4);
-  outline: 1px solid rgba(185, 138, 69, 0.2);
-  outline-offset: -8px;
+  background: var(--card-bg-stationery);
+  border: var(--card-border-outer);
+  outline: var(--card-border-inner);
+  outline-offset: -12px;
   border-radius: var(--radius-md);
-  padding: clamp(2.5rem, 4.5vw, 3.5rem) clamp(1.8rem, 3.5vw, 2.75rem);
-  box-shadow: 0 15px 35px -8px rgba(118, 80, 68, 0.1), 0 0 1px 1px rgba(185, 138, 69, 0.25);
+  padding: clamp(2.8rem, 5vw, 3.8rem) clamp(2rem, 4vw, 3rem);
+  box-shadow: var(--card-shadow-stationery);
   display: flex;
   flex-direction: column;
   transition: transform var(--duration-normal) var(--ease-cinematic), box-shadow var(--duration-normal) ease;
   overflow: hidden;
 }
 
-.event-card.featured-card {
-  border: 1.5px solid var(--color-antique-gold);
-  outline: 1px solid rgba(185, 138, 69, 0.35);
-  outline-offset: -8px;
-  box-shadow: 0 20px 45px -8px rgba(118, 80, 68, 0.16), 0 0 20px rgba(185, 138, 69, 0.15);
-}
-
-.event-card.featured-card::before {
+.event-card::before {
   content: '';
   position: absolute;
   top: 0;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C49852, transparent);
+}
+
+.event-card.featured-card {
+  background: var(--card-bg-featured);
+  border: 2px solid #C49852;
+  outline: 1.5px solid rgba(196, 152, 82, 0.5);
+  outline-offset: -12px;
+  box-shadow: 0 26px 65px -12px rgba(45, 20, 15, 0.28), 0 0 28px rgba(196, 152, 82, 0.24);
+}
+
+.event-card.featured-card::before {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #D99A59 0%, #B98A45 50%, #713C38 100%);
+  background: linear-gradient(90deg, #D99A59 0%, #C49852 50%, #713C38 100%);
 }
 
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 24px 50px -10px rgba(118, 80, 68, 0.18), 0 0 25px rgba(185, 138, 69, 0.25);
+  box-shadow: var(--card-shadow-stationery-hover);
 }
 
 .event-header {
@@ -886,32 +1027,32 @@
 
 .event-badge {
   display: inline-block;
-  padding: 0.35rem 1.15rem;
-  font-family: var(--font-title);
-  font-size: var(--text-xs);
-  letter-spacing: 0.18em;
+  padding: 0.42rem 1.35rem;
+  font-family: var(--font-serif-heading);
+  font-variant: small-caps;
+  font-size: clamp(0.85rem, 0.8rem + 0.15vw, 0.98rem);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-temple-brown);
-  background: rgba(185, 138, 69, 0.12);
-  border: 1px solid rgba(185, 138, 69, 0.35);
+  color: #FFF9F0;
+  background: #713C38;
+  border: 1.5px solid #C49852;
   border-radius: var(--radius-pill);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: var(--space-sm);
+  box-shadow: 0 4px 14px rgba(113, 60, 56, 0.28);
 }
 
 .featured-card .event-badge {
-  background: var(--color-muted-maroon);
-  color: #F7F0E5;
-  border-color: var(--color-muted-maroon);
-  box-shadow: 0 3px 10px rgba(113, 60, 56, 0.3);
+  background: linear-gradient(135deg, #713C38 0%, #542220 100%);
+  box-shadow: 0 4px 16px rgba(113, 60, 56, 0.35);
 }
 
 .event-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.2vw, 2.4rem);
-  color: var(--color-deep-text);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(2.2rem, 1.85rem + 1.2vw, 2.9rem);
+  color: var(--color-muted-maroon);
   font-weight: 600;
-  margin-bottom: var(--space-xs);
+  margin: 0.6rem 0 0.8rem;
 }
 
 .event-date-box {
@@ -919,40 +1060,44 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(247, 240, 229, 0.65);
-  border: 1px dashed rgba(185, 138, 69, 0.45);
+  background: linear-gradient(170deg, #FFFFFF 0%, #F8F1E3 60%, #EFE5D2 100%);
+  border: 1.5px solid #C49852;
+  outline: 1px dashed rgba(196, 152, 82, 0.45);
+  outline-offset: -7px;
   border-radius: var(--radius-md);
-  padding: 1.25rem 1rem;
+  padding: 1.5rem 1.2rem;
   margin: var(--space-md) 0;
   text-align: center;
+  box-shadow: inset 0 2px 8px rgba(196, 152, 82, 0.12), 0 4px 16px rgba(118, 80, 68, 0.08);
 }
 
 .event-day-name {
-  font-family: var(--font-title);
-  font-size: var(--text-sm);
-  color: var(--color-antique-gold);
-  letter-spacing: 0.22em;
+  font-family: var(--font-serif-heading);
+  font-variant: small-caps;
+  font-size: clamp(1.05rem, 0.98rem + 0.2vw, 1.2rem);
+  color: #8C5E1E;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .event-day-number {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 4.2vw, 3.8rem);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(3.8rem, 3.2rem + 2.5vw, 5.0rem);
   color: var(--color-antique-gold);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   margin: 0.25rem 0;
-  text-shadow: 0 1px 2px rgba(118, 80, 68, 0.15);
+  text-shadow: 0 2px 4px rgba(118, 80, 68, 0.22);
 }
 
 .event-month-year {
-  font-family: var(--font-title);
-  font-size: var(--text-base);
-  color: var(--color-temple-brown);
-  letter-spacing: 0.16em;
+  font-family: var(--font-serif-heading);
+  font-size: clamp(1.05rem, 1.0rem + 0.2vw, 1.22rem);
+  color: #5C3E36;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .event-details-list {
@@ -960,35 +1105,38 @@
   margin: var(--space-md) 0;
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
+  gap: 1.1rem;
   flex-grow: 1;
 }
 
 .event-detail-item {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  gap: 1rem;
+  font-family: var(--font-serif-reading);
+  font-size: clamp(1.05rem, 0.98rem + 0.2vw, 1.18rem);
   color: var(--color-deep-text);
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .event-detail-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
-  color: var(--color-antique-gold);
+  color: #996924;
 }
 
 .lagna-highlight {
-  background: rgba(232, 212, 181, 0.45);
-  border-left: 3.5px solid var(--color-antique-gold);
-  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, rgba(232, 212, 181, 0.7) 0%, rgba(247, 240, 229, 0.5) 100%);
+  border-left: 5px solid var(--color-muted-maroon);
+  border-right: 1px solid rgba(196, 152, 82, 0.4);
+  border-top: 1px solid rgba(196, 152, 82, 0.4);
+  border-bottom: 1px solid rgba(196, 152, 82, 0.4);
+  padding: 0.95rem 1.25rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  color: var(--color-deep-text);
-  font-family: var(--font-title);
-  font-size: 1rem;
+  color: var(--color-muted-maroon);
+  font-family: var(--font-serif-reading);
+  font-size: clamp(1.08rem, 1.02rem + 0.2vw, 1.22rem);
   font-weight: 600;
   width: 100%;
 }
@@ -1003,41 +1151,40 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. Live Wedding Countdown Section
+   7. Live Wedding Countdown Section (Stationery Plaques)
    -------------------------------------------------------------------------- */
 .countdown-section {
   position: relative;
   text-align: center;
   padding: clamp(3.5rem, 7vh, 5.5rem) 0;
-  background: linear-gradient(180deg, #F1E2CD 0%, var(--color-ivory) 50%, #F5EDE0 100%);
-  border-top: 1px solid rgba(185, 138, 69, 0.28);
-  border-bottom: 1px solid rgba(185, 138, 69, 0.28);
+  background: transparent !important;
+  overflow: hidden;
 }
 
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.75rem, 2vw, 1.75rem);
-  max-width: 680px;
+  gap: clamp(0.85rem, 2.2vw, 1.85rem);
+  max-width: 720px;
   margin: clamp(1.5rem, 3.5vh, 2.5rem) auto 0;
 }
 
 .countdown-box {
-  background: #FFFFFF;
-  border: 1px solid rgba(185, 138, 69, 0.4);
-  outline: 1px solid rgba(185, 138, 69, 0.2);
-  outline-offset: -5px;
+  background: linear-gradient(165deg, #FFFFFF 0%, #FAF3E6 50%, #F5ECDB 100%);
+  border: 2px solid #C49852;
+  outline: 1px solid rgba(196, 152, 82, 0.45);
+  outline-offset: -8px;
   border-radius: var(--radius-md);
-  padding: clamp(1.2rem, 3vw, 2rem) clamp(0.6rem, 1.8vw, 1.4rem);
-  box-shadow: 0 8px 24px -4px rgba(118, 80, 68, 0.08), inset 0 0 10px rgba(232, 212, 181, 0.25);
+  padding: clamp(1.8rem, 4vw, 2.8rem) clamp(1rem, 2.5vw, 1.8rem);
+  box-shadow: 0 18px 45px -8px rgba(45, 20, 15, 0.22), 0 3px 12px rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
-  transition: transform var(--duration-normal) var(--ease-cinematic);
+  transition: transform var(--duration-normal) var(--ease-cinematic), box-shadow var(--duration-normal) ease;
 }
 
 .countdown-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px -6px rgba(118, 80, 68, 0.14);
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-stationery-hover);
 }
 
 .countdown-box::before {
@@ -1046,71 +1193,77 @@
   top: 0;
   left: 20%;
   right: 20%;
-  height: 2px;
-  background: var(--color-antique-gold);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C49852, transparent);
 }
 
 .countdown-number {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(2.8rem, 2.2rem + 2.6vw, 4.6rem);
+  font-variant-numeric: tabular-nums;
   color: var(--color-antique-gold);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
-  margin-bottom: 0.35rem;
-  text-shadow: 0 1px 2px rgba(118, 80, 68, 0.15);
+  margin-bottom: 0.4rem;
+  background: linear-gradient(135deg, #C49852 0%, #996924 60%, #6D4815 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(118, 80, 68, 0.22));
 }
 
 .countdown-label {
-  font-family: var(--font-sans);
-  font-size: clamp(0.68rem, 0.65rem + 0.15vw, 0.8rem);
-  letter-spacing: 0.18em;
+  font-family: var(--font-serif-reading);
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 1.0rem);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-temple-brown);
+  color: #5C3E36;
   font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   8. Venue & Location Section
+   8. Venue & Location Section (Grand Kalyana Mantapa Stationery Panel)
    -------------------------------------------------------------------------- */
 .venue-section {
   position: relative;
   padding: clamp(3.5rem, 7vh, 6rem) 0;
-  background: linear-gradient(180deg, #F5EDE0 0%, var(--color-champagne) 50%, #EBDBC2 100%);
+  background: transparent !important;
+  overflow: hidden;
 }
 
 .venue-card-wrapper {
-  max-width: 860px;
-  margin: var(--space-lg) auto 0;
-  background: #FFFFFF;
-  border: 1px solid rgba(185, 138, 69, 0.4);
-  outline: 1px solid rgba(185, 138, 69, 0.2);
-  outline-offset: -8px;
+  max-width: 900px;
+  margin: var(--space-xl) auto 0;
+  background: linear-gradient(168deg, #FFFDF9 0%, #FAF3E6 45%, #F4EADA 100%);
+  border: 2px solid #C49852;
+  outline: 1.5px solid rgba(196, 152, 82, 0.45);
+  outline-offset: -12px;
   border-radius: var(--radius-lg);
-  box-shadow: 0 18px 45px -8px rgba(118, 80, 68, 0.12);
+  box-shadow: 0 28px 70px -14px rgba(45, 20, 15, 0.3), 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   position: relative;
 }
 
 .venue-card-inner {
-  padding: clamp(2.2rem, 5vw, 3.5rem) clamp(1.75rem, 4vw, 3rem);
+  padding: clamp(2.6rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 2.5vh, 2rem);
   text-align: center;
+  position: relative;
 }
 
 .venue-kalyana-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
-  color: var(--color-deep-text);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(2.3rem, 1.9rem + 1.4vw, 3.2rem);
+  color: var(--color-muted-maroon);
   font-weight: 600;
   margin-bottom: var(--space-sm);
 }
 
 .venue-address-text {
-  font-family: var(--font-title);
-  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
-  color: var(--color-temple-brown);
-  line-height: 1.65;
-  max-width: 580px;
-  margin: 0 auto clamp(1.25rem, 3vh, 2rem);
+  font-family: var(--font-serif-reading);
+  font-size: clamp(1.15rem, 1.08rem + 0.35vw, 1.35rem);
+  color: var(--color-deep-text);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 auto clamp(1.4rem, 3vh, 2.2rem);
 }
 
 .venue-actions {
@@ -1118,23 +1271,31 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.15rem;
   margin-bottom: var(--space-md);
 }
 
 .venue-map-container {
-  width: 100%;
-  height: clamp(280px, 40vh, 400px);
+  width: calc(100% - clamp(2.4rem, 5.5vw, 4rem));
+  margin: 0 auto clamp(1.5rem, 3.5vh, 2.5rem);
+  height: clamp(300px, 42vh, 420px);
   position: relative;
   background: #E8D4B5;
-  border-top: 1px solid rgba(185, 138, 69, 0.35);
+  border: 2px solid #C49852;
+  outline: 1px solid rgba(196, 152, 82, 0.35);
+  outline-offset: -7px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 32px rgba(118, 80, 68, 0.15), inset 0 0 15px rgba(196, 152, 82, 0.2);
+  overflow: hidden;
 }
 
 .venue-map-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: calc(var(--radius-md) - 2px);
   filter: contrast(1.02) saturate(0.95);
+  background: #EAD8BF;
 }
 
 /* --------------------------------------------------------------------------
@@ -1351,52 +1512,395 @@
 .footer-section {
   position: relative;
   text-align: center;
-  padding: clamp(3.5rem, 7vh, 5.5rem) 0 clamp(2.5rem, 5vh, 3.5rem);
-  background: linear-gradient(180deg, #EBDBC2 0%, #E2CEB2 100%);
-  border-top: 1.5px solid rgba(185, 138, 69, 0.4);
+  min-height: 84vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(5rem, 9vh, 7rem) 1.5rem clamp(5.5rem, 11vh, 8rem);
+  background: transparent !important;
+  overflow: hidden;
 }
 
-.footer-blessing-shloka {
-  font-family: var(--font-title);
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
-  color: var(--color-temple-brown);
-  letter-spacing: 0.12em;
-  line-height: 1.85;
-  margin-bottom: var(--space-sm);
-  font-style: italic;
-  font-weight: 500;
+/* Subtle localized feathered radial vignette behind central text area only */
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(94vw, 880px);
+  height: min(90vh, 520px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(18, 4, 7, 0.44) 0%,
+    rgba(18, 4, 7, 0.26) 45%,
+    rgba(18, 4, 7, 0.08) 72%,
+    transparent 96%
+  );
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-section .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 860px;
+}
+
+.footer-section .ornament-divider {
+  margin: 0 auto clamp(0.75rem, 1.5vh, 1.25rem) auto;
+  max-width: 260px;
+  opacity: 0.9;
+}
+
+.footer-section .ornament-divider .divider-icon {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85)) brightness(1.2) sepia(0.2);
 }
 
 .footer-gratitude {
-  font-family: var(--font-title);
-  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
-  color: var(--color-deep-text);
-  margin-bottom: var(--space-md);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.55rem);
+  color: #FAF2E6; /* Warm luminous ivory */
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 0 0 clamp(0.85rem, 1.8vh, 1.4rem) 0;
   line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(10, 2, 4, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
+/* Closing Couple Names: Prominent Calligraphic Treatment */
 .footer-names {
-  font-family: var(--font-names);
-  font-size: clamp(2.2rem, 1.8rem + 1.6vw, 3.2rem);
-  font-weight: 600;
-  color: var(--color-deep-text);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-calligraphy);
+  font-size: clamp(3.6rem, 2.8rem + 3.4vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.22;
+  margin: 0.2rem 0 clamp(0.85rem, 1.8vh, 1.35rem) 0;
+  white-space: nowrap;
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #FFF8EA 22%,
+    #FBE7C6 45%,
+    #F3D097 68%,
+    #D6E3F8 85%,
+    #FFFFFF 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #FFF5E4;
+  filter: drop-shadow(0 2px 10px rgba(12, 3, 5, 0.98)) drop-shadow(0 4px 26px rgba(48, 79, 133, 0.45));
 }
 
 .footer-family-blessings {
-  font-family: var(--font-title);
-  font-size: var(--text-sm);
-  color: var(--color-temple-brown);
+  font-family: var(--font-serif-heading);
+  font-size: clamp(1.15rem, 1.08rem + 0.3vw, 1.35rem);
+  color: #EBD6BC;
   font-style: italic;
-  margin-bottom: var(--space-lg);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+  margin: 0 0 clamp(1.6rem, 3.2vh, 2.4rem) 0;
+  text-shadow: 0 2px 8px rgba(12, 3, 5, 0.95), 0 1px 3px rgba(0, 0, 0, 0.85);
 }
 
 .footer-copy {
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 0.68rem + 0.15vw, 0.8rem);
-  color: var(--color-temple-brown);
-  letter-spacing: 0.12em;
+  font-family: var(--font-serif-heading);
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 1.0rem);
+  color: #ECC77D;
+  letter-spacing: 0.22em;
+  font-variant: small-caps;
   text-transform: uppercase;
-  opacity: 0.85;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.95;
+  text-shadow: 0 2px 8px rgba(12, 3, 5, 0.95), 0 1px 3px rgba(0, 0, 0, 0.85);
 }
+
+/* ==========================================================================
+   PHASE 7 — CINEMATIC VIEWPORT STAGE & CONNECTED TEMPLE JOURNEY
+   ========================================================================== */
+
+/* Fixed Viewport Stage Canvas */
+.cinematic-stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #241416;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* Perspective Scene Canvas */
+.cinematic-stage .parallax-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Connected Stage Scenes */
+.stage-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.75s;
+}
+
+.stage-scene.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Scene Inner Photographic Media Wrapper */
+.stage-scene-media {
+  position: absolute;
+  inset: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  overflow: hidden;
+}
+
+.stage-scene-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* Specific Scene Architectural Framing & Adjustments (Naturally Illuminated) */
+.scene-family .stage-scene-img {
+  object-position: center 30%;
+  filter: saturate(1.06) contrast(1.03) brightness(1.06);
+}
+
+.scene-events .stage-scene-img {
+  object-position: center 36%;
+  filter: saturate(1.08) contrast(1.04) brightness(1.06);
+}
+
+.scene-countdown .stage-scene-img {
+  object-position: center 40%;
+  filter: saturate(1.06) contrast(1.04) brightness(1.06);
+}
+
+.scene-venue .stage-scene-img {
+  object-position: center 34%;
+  filter: saturate(1.06) contrast(1.03) brightness(1.06);
+}
+
+.scene-closing .stage-scene-img {
+  object-position: center 28%;
+  filter: saturate(1.05) contrast(1.02) brightness(1.04);
+}
+
+/* Photorealistic Atmosphere Overlays for Stage Scenes (Subtle & Naturally Illuminated) */
+.stage-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 1. Family Stage Atmosphere */
+.stage-overlay-family {
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    rgba(255, 252, 247, 0.16) 0%,
+    rgba(247, 240, 229, 0.08) 55%,
+    transparent 100%
+  );
+}
+
+.stage-mandapam-sunlight {
+  background: radial-gradient(
+    ellipse at 50% 20%,
+    rgba(245, 205, 165, 0.22) 0%,
+    rgba(232, 181, 141, 0.10) 45%,
+    transparent 75%
+  );
+}
+
+/* 2. Events Stage Atmosphere */
+.stage-overlay-events {
+  background: radial-gradient(
+    ellipse at 50% 48%,
+    rgba(255, 250, 242, 0.16) 0%,
+    rgba(242, 228, 206, 0.08) 55%,
+    transparent 100%
+  );
+}
+
+.stage-events-sunlight {
+  background: radial-gradient(
+    ellipse at 65% 22%,
+    rgba(255, 245, 225, 0.24) 0%,
+    rgba(232, 181, 141, 0.12) 42%,
+    transparent 75%
+  );
+  animation: storySunlightDrift 38s ease-in-out infinite alternate;
+}
+
+/* 3. Countdown Stage Atmosphere */
+.stage-overlay-countdown {
+  background: radial-gradient(
+    ellipse at 50% 38%,
+    rgba(255, 248, 235, 0.18) 0%,
+    rgba(239, 228, 210, 0.08) 55%,
+    transparent 100%
+  );
+}
+
+.stage-countdown-sunlight {
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(255, 245, 220, 0.32) 0%,
+    rgba(232, 181, 141, 0.16) 38%,
+    transparent 68%
+  );
+  animation: storyGoldenHourGleam 24s ease-in-out infinite alternate;
+}
+
+/* 4. Venue Stage Atmosphere */
+.stage-overlay-venue {
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    rgba(255, 250, 242, 0.16) 0%,
+    rgba(235, 219, 194, 0.08) 55%,
+    transparent 100%
+  );
+}
+
+.stage-venue-sunlight {
+  background: radial-gradient(
+    ellipse at 50% 28%,
+    rgba(255, 245, 225, 0.22) 0%,
+    rgba(232, 181, 141, 0.10) 45%,
+    transparent 75%
+  );
+  animation: storySunlightDrift 45s ease-in-out infinite alternate;
+}
+
+/* 5. Closing Stage Atmosphere */
+.stage-overlay-closing {
+  background: radial-gradient(
+    ellipse at 50% 35%,
+    rgba(255, 245, 225, 0.12) 0%,
+    rgba(232, 181, 141, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+.stage-closing-sunlight {
+  background: radial-gradient(
+    ellipse at 50% 28%,
+    rgba(255, 240, 215, 0.26) 0%,
+    rgba(232, 181, 141, 0.14) 42%,
+    rgba(113, 60, 56, 0.05) 80%,
+    transparent 100%
+  );
+  animation: storySunsetHaze 32s ease-in-out infinite alternate;
+}
+
+/* Stage Sunbeams */
+.stage-sunbeam {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+/* Persistent Architectural Framing Pillars */
+.stage-framing-pillar {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: clamp(55px, 8vw, 120px);
+  z-index: 5;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.stage-framing-pillar.pillar-left {
+  left: 0;
+}
+
+.stage-framing-pillar.pillar-right {
+  right: 0;
+}
+
+.stage-framing-pillar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: drop-shadow(2px 0 10px rgba(0, 0, 0, 0.50));
+}
+
+.stage-framing-pillar.pillar-right img {
+  filter: drop-shadow(-2px 0 10px rgba(0, 0, 0, 0.50));
+}
+
+/* Persistent Foreground Deepams */
+.stage-foreground-diya {
+  position: absolute;
+  bottom: clamp(14px, 3.2vh, 32px);
+  z-index: 6;
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 0 18px rgba(230, 138, 34, 0.8));
+}
+
+.stage-foreground-diya.diya-left {
+  left: clamp(16px, 3.5vw, 42px);
+}
+
+.stage-foreground-diya.diya-right {
+  right: clamp(16px, 3.5vw, 42px);
+}
+
+.stage-foreground-diya img {
+  width: clamp(38px, 4.2vw, 56px);
+  height: auto;
+  display: block;
+}
+
+/* Global Ambient Atmosphere Scrim */
+.stage-global-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 50%,
+    rgba(29, 3, 7, 0.22) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
 

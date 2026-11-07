@@ -183,15 +183,149 @@
   }
 }
 
-/* 5. Deepam flame breathing halo */
+/* 5. Deepam flame breathing halo (maintains translate centering) */
 @keyframes diyaAuraPulse {
   0%, 100% {
-    transform: scale(0.94);
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 0.90;
+  }
+}
+
+/* 6. Subtle temple environmental breathe */
+@keyframes templeBreathe {
+  0%, 100% {
+    transform: scale(1.05) translateY(0);
+  }
+  50% {
+    transform: scale(1.062) translateY(-4px);
+  }
+}
+
+/* 7. Cinematic typography reveal keyframe */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Reveal System (IntersectionObserver & Fallback)
+   -------------------------------------------------------------------------- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger transitions for grouped elements */
+.stagger-1 { transition-delay: 0.10s; }
+.stagger-2 { transition-delay: 0.22s; }
+.stagger-3 { transition-delay: 0.34s; }
+.stagger-4 { transition-delay: 0.46s; }
+
+/* --------------------------------------------------------------------------
+   Phase 6: Cinematic Natural Storytelling Keyframes
+   -------------------------------------------------------------------------- */
+
+/* Slow sunlight ray atmospheric drift */
+@keyframes storySunlightDrift {
+  0% {
+    transform: translate3d(-18px, 0, 0) scale(1);
     opacity: 0.65;
   }
   50% {
-    transform: scale(1.08);
+    transform: translate3d(18px, -10px, 0) scale(1.05);
+    opacity: 0.90;
+  }
+  100% {
+    transform: translate3d(-18px, 0, 0) scale(1);
+    opacity: 0.65;
+  }
+}
+
+/* Golden-hour ambient radiance pulse */
+@keyframes storyGoldenHourGleam {
+  0%, 100% {
+    opacity: 0.70;
+    transform: scale(0.98);
+  }
+  50% {
     opacity: 0.95;
+    transform: scale(1.03);
+  }
+}
+
+/* Twilight sunset atmospheric haze shift */
+@keyframes storySunsetHaze {
+  0%, 100% {
+    opacity: 0.65;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.88;
+    transform: translate3d(12px, -8px, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: prefers-reduced-motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal,
+  .reveal-item,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .layer-sky img,
+  .light-ray,
+  .golden-sun-orb,
+  .foreground-diya::after,
+  .couple-name,
+  .story-sunlight-beam,
+  .story-bg-art,
+  .story-countdown-art,
+  .story-closing-sunset-sky,
+  .story-photo-bg,
+  .cinematic-stage,
+  .stage-scene,
+  .stage-scene-img,
+  .stage-framing-pillar,
+  .stage-foreground-diya,
+  .stage-sunbeam {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .stage-scene {
+    transition: opacity 0.3s ease !important;
   }
 }
 

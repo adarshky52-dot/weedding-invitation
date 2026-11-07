@@ -55,16 +55,18 @@ body::before {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 500;
+  font-family: var(--font-serif-heading);
+  font-weight: 600;
   line-height: 1.25;
   color: var(--color-deep-text);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 p {
-  color: var(--color-temple-brown);
+  font-family: var(--font-serif-reading);
+  color: var(--color-deep-text);
   margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
 a {
@@ -73,7 +75,7 @@ a {
   transition: color var(--duration-fast) var(--ease-smooth);
 }
 
-a:hover, a:focus-visible {
+a:hover {
   color: var(--color-muted-maroon);
 }
 
@@ -82,12 +84,13 @@ button {
   cursor: pointer;
   border: none;
   background: none;
-  outline: none;
 }
 
+a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--gold-300);
-  outline-offset: 4px;
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 img, svg {
@@ -120,12 +123,13 @@ img, svg {
   overflow: hidden;
 }
 
-/* Golden text styling */
+/* Golden text styling with deep editorial contrast */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #5C3224 0%, #B98A45 50%, #765044 100%);
+  background: linear-gradient(135deg, #2D1A14 0%, #6E3F1A 35%, #B98A45 65%, #2D1A14 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.90));
 }
 
 .text-gold-shimmer {
@@ -170,26 +174,33 @@ img, svg {
   filter: drop-shadow(0 1px 4px rgba(118, 80, 68, 0.25));
 }
 
-/* Sacred Sanskrit Invocation header */
+/* Sacred Invocations Crest */
 .sacred-invocation {
   text-align: center;
-  font-family: var(--font-title);
-  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.88rem);
-  letter-spacing: 0.18em;
-  color: #F7EFE2; /* Crisp warm ivory */
+  font-family: var(--font-devanagari);
+  font-size: clamp(0.72rem, 0.68rem + 0.22vw, 0.88rem);
+  letter-spacing: 0.04em;
+  color: #FFFDF9; /* Luminous warm ivory */
   opacity: 0.98;
-  text-transform: uppercase;
   margin-bottom: clamp(0.6rem, 1.4vh, 1.1rem);
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 0.35rem 1.25rem;
+  gap: 0.35rem 0.75rem;
+  padding: 0.45rem 1.4rem;
   border-radius: var(--radius-pill);
-  background: rgba(22, 13, 11, 0.42); /* Localized translucent warm backing */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(217, 154, 89, 0.30);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.85);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  background: rgba(18, 9, 8, 0.58); /* Translucent warm backing for high contrast */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(217, 154, 89, 0.50);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.98), 0 2px 8px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.40);
+  line-height: 1.6;
+}
+
+.sacred-invocation .invocation-line {
+  white-space: nowrap;
+  display: inline-block;
 }
 

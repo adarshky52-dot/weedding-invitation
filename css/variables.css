@@ -70,12 +70,49 @@
   --grad-card-dark: linear-gradient(160deg, rgba(46, 26, 24, 0.88) 0%, rgba(24, 14, 13, 0.94) 100%);
   --grad-card-ivory: linear-gradient(160deg, rgba(250, 247, 242, 0.97) 0%, rgba(242, 228, 206, 0.95) 100%);
 
+  /* ==========================================================================
+     PHASE 8C: Authentic South Indian Wedding Stationery & Typography System
+     ========================================================================== */
+  --font-calligraphy: 'Great Vibes', cursive;
+  --font-serif-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-serif-reading: Georgia, 'Cormorant Garamond', serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Nirmala UI', sans-serif;
+
   /* Typography Scales: Luxury Wedding Editorial */
   --font-names: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-display: 'Cinzel', 'Playfair Display', Georgia, serif;
-  --font-title: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Marcellus', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  --font-title: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body: Georgia, 'Cormorant Garamond', serif;
+  --font-sans: Georgia, 'Plus Jakarta Sans', sans-serif;
+
+  /* Traditional Printed Invitation Palette Tokens */
+  --color-ivory-warm: #F7F0E5;        /* Warm ivory invitation paper */
+  --color-ivory-soft: #FFFDF7;        /* Soft luminous ivory parchment */
+  --color-antique-gold: #B98A45;      /* Refined antique gold ornamentation */
+  --color-gold-frame: #C49852;        /* Frame gold for authentic double-borders */
+  --color-champagne: #E8D4B5;         /* Soft champagne parchment */
+  --color-temple-brown: #765044;      /* Natural temple brown stone */
+  --color-deep-text: #2E221E;         /* Deep high-contrast editorial text */
+  --color-muted-maroon: #713C38;      /* Muted wedding maroon accent */
+  --color-couple-blue: #24477D;       /* Rich royal blue couple calligraphy */
+
+  /* Authentic South Indian Lagnapatrika Stationery Card Tokens */
+  --card-bg-stationery: linear-gradient(
+    168deg,
+    #FFFDF9 0%,
+    #FAF3E6 45%,
+    #F4EADA 100%
+  );
+  --card-bg-featured: linear-gradient(
+    168deg,
+    #FFFFFF 0%,
+    #FAF5EC 40%,
+    #F5ECDD 100%
+  );
+  --card-border-outer: 2px solid #C49852;
+  --card-border-inner: 1.5px solid rgba(196, 152, 82, 0.45);
+  --card-shadow-stationery: 0 24px 60px -12px rgba(45, 20, 15, 0.26), 0 4px 18px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  --card-shadow-stationery-hover: 0 30px 70px -14px rgba(45, 20, 15, 0.32), 0 0 1px 1.5px rgba(196, 152, 82, 0.7);
 
   /* Fluid Font Sizes */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.85rem);

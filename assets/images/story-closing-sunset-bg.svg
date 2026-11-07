@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 650" width="1600" height="650" fill="none">
+  <defs>
+    <!-- Sunset Twilight & Sacred Floral Gradients -->
+    <linearGradient id="sunsetSkyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#E8B58D" stop-opacity="0.35"/>
+      <stop offset="45%" stop-color="#D99A59" stop-opacity="0.25"/>
+      <stop offset="80%" stop-color="#713C38" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="sunsetGoldLotus" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#E8B58D" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#B98A45" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <radialGradient id="sunsetSunAura" cx="50%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#FFF5E5" stop-opacity="0.5"/>
+      <stop offset="35%" stop-color="#E8B58D" stop-opacity="0.25"/>
+      <stop offset="75%" stop-color="#B98A45" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#713C38" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="sunsetDiyaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFDF9" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#F3A953" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#713C38" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Twilight Sunset Glow -->
+  <rect x="0" y="0" width="1600" height="650" fill="url(#sunsetSunAura)"/>
+  <rect x="0" y="0" width="1600" height="650" fill="url(#sunsetSkyGrad)"/>
+
+  <!-- =========================================================================
+       1. DISTANT HORIZON TEMPLE KALASHA & GOPURAM SILHOUETTE
+       ========================================================================= -->
+  <g opacity="0.38" fill="#765044">
+    <!-- Center Gopuram Pinnacle Crest -->
+    <path d="M785 140 L792 110 L798 90 L800 80 L802 90 L808 110 L815 140 Z"/>
+    <circle cx="800" cy="78" r="4" fill="#B98A45"/>
+    <!-- Supporting Tiers -->
+    <path d="M770 160 L830 160 L822 140 L778 140 Z"/>
+    <path d="M755 180 L845 180 L836 160 L764 160 Z"/>
+    <path d="M740 200 L860 200 L850 180 L750 180 Z"/>
+
+    <!-- Left Horizon Spire -->
+    <path d="M380 210 L385 185 L388 175 L390 170 L392 175 L395 185 L400 210 Z" opacity="0.6"/>
+    <circle cx="390" cy="168" r="2.5" fill="#B98A45"/>
+
+    <!-- Right Horizon Spire -->
+    <path d="M1200 210 L1205 185 L1208 175 L1210 170 L1212 175 L1215 185 L1220 210 Z" opacity="0.6"/>
+    <circle cx="1210" cy="168" r="2.5" fill="#B98A45"/>
+  </g>
+
+  <!-- =========================================================================
+       2. SACRED BLOOMING LOTUS FLOWERS (KAMALA) ON LOWER FLANKS
+       ========================================================================= -->
+  <!-- Left Side Blooming Lotus Bloom -->
+  <g transform="translate(180, 520)" opacity="0.75">
+    <!-- Outer Petals -->
+    <path d="M0 0 C-45 -20 -80 -10 -95 20 C-65 30 -30 25 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <path d="M0 0 C45 -20 80 -10 95 20 C65 30 30 25 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <!-- Middle Petals -->
+    <path d="M0 0 C-30 -40 -60 -45 -70 -20 C-45 -10 -20 -5 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <path d="M0 0 C30 -40 60 -45 70 -20 C45 -10 20 -5 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <!-- Center Upright Petals -->
+    <path d="M0 0 C-18 -55 -15 -75 0 -85 C15 -75 18 -55 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <circle cx="0" cy="-35" r="4" fill="#FFFDF9"/>
+    <!-- Lotus Base Leaf -->
+    <path d="M-80 30 C-40 40 40 40 80 30 C50 50 -50 50 -80 30 Z" fill="#765044" opacity="0.5"/>
+  </g>
+
+  <!-- Right Side Blooming Lotus Bloom -->
+  <g transform="translate(1420, 520)" opacity="0.75">
+    <path d="M0 0 C-45 -20 -80 -10 -95 20 C-65 30 -30 25 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <path d="M0 0 C45 -20 80 -10 95 20 C65 30 30 25 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <path d="M0 0 C-30 -40 -60 -45 -70 -20 C-45 -10 -20 -5 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <path d="M0 0 C30 -40 60 -45 70 -20 C45 -10 20 -5 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <path d="M0 0 C-18 -55 -15 -75 0 -85 C15 -75 18 -55 0 0 Z" fill="url(#sunsetGoldLotus)"/>
+    <circle cx="0" cy="-35" r="4" fill="#FFFDF9"/>
+    <path d="M-80 30 C-40 40 40 40 80 30 C50 50 -50 50 -80 30 Z" fill="#765044" opacity="0.5"/>
+  </g>
+
+  <!-- =========================================================================
+       3. SACRED EVENING DEEPAMS FLANKING THE FINAL BLESSINGS
+       ========================================================================= -->
+  <g opacity="0.7">
+    <!-- Left Diya -->
+    <g transform="translate(320, 560)">
+      <circle cx="0" cy="0" r="18" fill="url(#sunsetDiyaGlow)"/>
+      <path d="M-15 10 C-15 4 -6 0 0 0 C6 0 15 4 15 10 Z" fill="#B98A45"/>
+      <path d="M0 -4 C-3 2 0 6 0 6 C0 6 3 2 0 -4 Z" fill="#FFFDF9"/>
+    </g>
+    <!-- Right Diya -->
+    <g transform="translate(1280, 560)">
+      <circle cx="0" cy="0" r="18" fill="url(#sunsetDiyaGlow)"/>
+      <path d="M-15 10 C-15 4 -6 0 0 0 C6 0 15 4 15 10 Z" fill="#B98A45"/>
+      <path d="M0 -4 C-3 2 0 6 0 6 C0 6 3 2 0 -4 Z" fill="#FFFDF9"/>
+    </g>
+  </g>
+
+  <!-- Base Decorative Ornamental Scalloped Frieze -->
+  <path d="M0 640 Q400 625 800 640 T1600 640" stroke="#B98A45" stroke-width="1.5" opacity="0.4" fill="none"/>
+</svg>
+

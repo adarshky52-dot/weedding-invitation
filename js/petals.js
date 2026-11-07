@@ -37,9 +37,9 @@
 
   // Dynamic device-based density tuning (keeps 60fps and elegant whisper-light density)
   const isMobile = width <= 768;
-  const PETAL_COUNT = isMobile ? 6 : 10;
-  const MOTE_COUNT = isMobile ? 18 : 32;
-  const MAX_TRAIL_SPARKS = 18;
+  const PETAL_COUNT = isMobile ? 5 : 9;
+  const MOTE_COUNT = isMobile ? 16 : 28;
+  const MAX_TRAIL_SPARKS = isMobile ? 10 : 16;
 
   // Petal Palette - Soft, translucent and elegant (Warm Sunset Temple Palette)
   const PETAL_TYPES = [
@@ -125,8 +125,10 @@
       // Vertical drift with dampening
       this.y += this.speedY + this.vy;
 
-      // Horizontal sway + external cursor breeze
-      this.x += Math.sin(this.swayAngle) * this.swayRadius + this.speedX + mouseBreezeX * this.z + this.vx;
+      // Horizontal sway + external cursor breeze + non-repetitive organic natural wind
+      const now = performance.now();
+      const naturalWind = (Math.sin(now * 0.0006) * 0.35 + Math.sin(now * 0.0017) * 0.2) * this.z;
+      this.x += Math.sin(this.swayAngle) * this.swayRadius + this.speedX + mouseBreezeX * this.z + naturalWind + this.vx;
 
       // Recycle when off screen
       if (this.y > height + 40) {
@@ -220,8 +222,11 @@
       this.vx *= 0.90;
       this.vy *= 0.90;
 
+      const now = performance.now();
+      const moteWind = (Math.sin(now * 0.0008) * 0.2 + Math.sin(now * 0.0021) * 0.1) * this.z;
+
       this.y += this.speedY + this.vy;
-      this.x += this.speedX + mouseBreezeX * 0.5 * this.z + this.vx;
+      this.x += this.speedX + mouseBreezeX * 0.5 * this.z + moteWind + this.vx;
 
       // Recycle when motes drift off top or sides
       if (this.y < -15) {

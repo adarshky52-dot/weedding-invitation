@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amrutha & Mohan Kumar — Continuous Scroll Journey Player</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #0E0306;
+      color: #FAF5EE;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    header { text-align: center; margin-bottom: 16px; }
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      color: #D4AF37;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .invocations-bar {
+      margin-top: 6px;
+      font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+      color: #FFFDF9;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+      opacity: 0.95;
+    }
+    .player-container {
+      width: 100%;
+      max-width: 1080px;
+      background: #170407;
+      border: 1.5px solid #D4AF37;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+    }
+    .stage-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #000;
+      overflow: hidden;
+    }
+    .stage-viewport img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: block;
+    }
+    .stage-viewport img.active {
+      opacity: 1;
+    }
+    .caption-strip {
+      background: linear-gradient(180deg, rgba(29, 6, 11, 0.95) 0%, rgba(18, 4, 7, 0.98) 100%);
+      padding: 14px 20px;
+      border-top: 1px solid rgba(212, 175, 55, 0.35);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .caption-text {
+      font-size: 1.05rem;
+      color: #FFFDF9;
+      font-weight: 500;
+    }
+    .scroll-y-badge {
+      font-size: 0.85rem;
+      color: #D4AF37;
+      background: rgba(212, 175, 55, 0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      font-weight: 600;
+    }
+    .controls-bar {
+      padding: 14px 20px 20px;
+      background: #120407;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    button.play-btn {
+      background: linear-gradient(135deg, #713C38 0%, #4A0713 100%);
+      color: #FAF5EE;
+      border: 1.5px solid #D4AF37;
+      padding: 8px 24px;
+      border-radius: 24px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+    button.play-btn:hover {
+      background: #D4AF37;
+      color: #170407;
+    }
+    input[type=range] {
+      flex: 1;
+      min-width: 160px;
+      accent-color: #D4AF37;
+      cursor: pointer;
+      height: 6px;
+    }
+    .counter {
+      font-size: 0.9rem;
+      color: #E8B58D;
+      min-width: 65px;
+      text-align: right;
+    }
+    .speed-select {
+      background: #1D060B;
+      color: #FAF5EE;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 6px 12px;
+      border-radius: 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .contact-sheet-link {
+      margin-top: 18px;
+      color: #D4AF37;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px dashed #D4AF37;
+      padding-bottom: 2px;
+    }
+    .contact-sheet-link:hover {
+      color: #FFF;
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Continuous South Indian Temple Wedding Scroll Journey</h1>
+    <div class="invocations-bar">
+      <span>॥ श्री विश्वकर्मा परब्रह्मणे नमः ॥</span>
+      <span>॥ श्री काळिकादेवी प्रसन्न ॥</span>
+      <span>॥ श्री वीरभद्रेश्वर प्रसन्न ॥</span>
+      <span>॥ श्री आंजनेय स्वामी प्रसन्न ॥</span>
+    </div>
+  </header>
+
+  <div class="player-container">
+    <div class="stage-viewport" id="viewport">
+      <img src="assets/evidence/frames/continuous_scroll_frame_01.png" id="frame-0" class="active" alt="Hero Gateway Opening & Devanagari Invocations">
+      <img src="assets/evidence/frames/continuous_scroll_frame_02.png" id="frame-1" class="" alt="Push-In & Gateway Pillars Parting">
+      <img src="assets/evidence/frames/continuous_scroll_frame_03.png" id="frame-2" class="" alt="Transition into Mahamandapa Colonnade">
+      <img src="assets/evidence/frames/continuous_scroll_frame_04.png" id="frame-3" class="" alt="Family Blessings: Colonnade Aisle">
+      <img src="assets/evidence/frames/continuous_scroll_frame_05.png" id="frame-4" class="" alt="Camera Tracks Down Colonnade">
+      <img src="assets/evidence/frames/continuous_scroll_frame_06.png" id="frame-5" class="" alt="Wedding Mandapam with Marigolds & Lamps">
+      <img src="assets/evidence/frames/continuous_scroll_frame_07.png" id="frame-6" class="" alt="Celebration Itinerary & Auspicious Lagna">
+      <img src="assets/evidence/frames/continuous_scroll_frame_08.png" id="frame-7" class="" alt="Camera Pans into Sunlit Courtyard">
+      <img src="assets/evidence/frames/continuous_scroll_frame_09.png" id="frame-8" class="" alt="Live Countdown: Courtyard Colonnade">
+      <img src="assets/evidence/frames/continuous_scroll_frame_10.png" id="frame-9" class="" alt="Countdown Timer Active">
+      <img src="assets/evidence/frames/continuous_scroll_frame_11.png" id="frame-10" class="" alt="Approach Stone Pavilion Plinth">
+      <img src="assets/evidence/frames/continuous_scroll_frame_12.png" id="frame-11" class="" alt="Venue: Kalyana Mantapa Stone Entrance">
+      <img src="assets/evidence/frames/continuous_scroll_frame_13.png" id="frame-12" class="" alt="Venue Map Alcove & Direction Buttons">
+      <img src="assets/evidence/frames/continuous_scroll_frame_14.png" id="frame-13" class="" alt="Camera Tilts Towards Evening Horizon">
+      <img src="assets/evidence/frames/continuous_scroll_frame_15.png" id="frame-14" class="" alt="Sanctum Twilight Sunset & Distant Gopuram">
+      <img src="assets/evidence/frames/continuous_scroll_frame_16.png" id="frame-15" class="" alt="Traditional Closing & Family Blessings">
+    </div>
+    
+    <div class="caption-strip">
+      <div class="caption-text" id="caption">Hero Gateway Opening & Devanagari Invocations</div>
+      <div class="scroll-y-badge" id="scroll-badge">Scroll Y = 0 px</div>
+    </div>
+
+    <div class="controls-bar">
+      <button class="play-btn" id="play-btn">Play Journey</button>
+      <input type="range" id="scrubber" min="0" max="15" value="0" step="1" aria-label="Scroll scrubber">
+      <span class="counter" id="counter">1 / 16</span>
+      <select class="speed-select" id="speed-select" aria-label="Playback speed">
+        <option value="1200">Slow (1.2s)</option>
+        <option value="800" selected>Normal (0.8s)</option>
+        <option value="450">Fast (0.45s)</option>
+      </select>
+    </div>
+  </div>
+
+  <a href="assets/evidence/contact_sheet_continuous_scroll.png" target="_blank" class="contact-sheet-link">
+    View High-Resolution 16-Frame Contact Sheet (PNG)
+  </a>
+
+  <script>
+    const points = [{"idx":"01","y":0,"label":"Hero Gateway Opening & Devanagari Invocations"},{"idx":"02","y":350,"label":"Push-In & Gateway Pillars Parting"},{"idx":"03","y":700,"label":"Transition into Mahamandapa Colonnade"},{"idx":"04","y":1100,"label":"Family Blessings: Colonnade Aisle"},{"idx":"05","y":1500,"label":"Camera Tracks Down Colonnade"},{"idx":"06","y":1900,"label":"Wedding Mandapam with Marigolds & Lamps"},{"idx":"07","y":2300,"label":"Celebration Itinerary & Auspicious Lagna"},{"idx":"08","y":2700,"label":"Camera Pans into Sunlit Courtyard"},{"idx":"09","y":3100,"label":"Live Countdown: Courtyard Colonnade"},{"idx":"10","y":3500,"label":"Countdown Timer Active"},{"idx":"11","y":3900,"label":"Approach Stone Pavilion Plinth"},{"idx":"12","y":4300,"label":"Venue: Kalyana Mantapa Stone Entrance"},{"idx":"13","y":4700,"label":"Venue Map Alcove & Direction Buttons"},{"idx":"14","y":5100,"label":"Camera Tilts Towards Evening Horizon"},{"idx":"15","y":5450,"label":"Sanctum Twilight Sunset & Distant Gopuram"},{"idx":"16","y":5750,"label":"Traditional Closing & Family Blessings"}];
+    const scrubber = document.getElementById('scrubber');
+    const caption = document.getElementById('caption');
+    const badge = document.getElementById('scroll-badge');
+    const counter = document.getElementById('counter');
+    const playBtn = document.getElementById('play-btn');
+    const speedSelect = document.getElementById('speed-select');
+
+    let current = 0;
+    let isPlaying = false;
+    let timer = null;
+
+    function renderFrame(idx) {
+      document.querySelectorAll('.stage-viewport img').forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+      });
+      scrubber.value = idx;
+      caption.textContent = points[idx].label;
+      badge.textContent = 'Scroll Y = ' + points[idx].y + ' px';
+      counter.textContent = (idx + 1) + ' / ' + points.length;
+      current = idx;
+    }
+
+    scrubber.addEventListener('input', (e) => {
+      renderFrame(parseInt(e.target.value, 10));
+    });
+
+    function togglePlay() {
+      if (isPlaying) {
+        clearInterval(timer);
+        isPlaying = false;
+        playBtn.textContent = 'Play Journey';
+      } else {
+        isPlaying = true;
+        playBtn.textContent = 'Pause';
+        const delay = parseInt(speedSelect.value, 10);
+        timer = setInterval(() => {
+          let next = (current + 1) % points.length;
+          renderFrame(next);
+        }, delay);
+      }
+    }
+
+    playBtn.addEventListener('click', togglePlay);
+
+    speedSelect.addEventListener('change', () => {
+      if (isPlaying) {
+        clearInterval(timer);
+        const delay = parseInt(speedSelect.value, 10);
+        timer = setInterval(() => {
+          let next = (current + 1) % points.length;
+          renderFrame(next);
+        }, delay);
+      }
+    });
+
+    // Keyboard navigation (Left/Right arrow, Space)
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.code === 'ArrowRight') {
+        renderFrame((current + 1) % points.length);
+      } else if (e.code === 'ArrowLeft') {
+        renderFrame((current - 1 + points.length) % points.length);
+      }
+    });
+  </script>
+</body>
+</html>

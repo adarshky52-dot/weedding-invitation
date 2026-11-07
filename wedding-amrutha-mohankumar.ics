@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Amrutha & Mohan Kumar//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-muhurtham-20261206@amrutha-mohankumar
+DTSTAMP:20261107T074529Z
+DTSTART:20261206T030000Z
+DTEND:20261206T035500Z
+SUMMARY:Amrutha & Mohan Kumar Wedding (Muhurtham)
+DESCRIPTION:Sacred Muhurtham ceremony of Amrutha K.V. and Mohan Kumar P.A. 
+ (Dhanusu Lagna: 8:30 AM - 9:25 AM) at Daivajna Kalyana Mantapa\, Davanager
+ e.
+LOCATION:Daivajna Kalyana Mantapa\, Renuka Layout\, P.B. Road\, Davanagere 
+ – 577 002\, Karnataka
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Amrutha & Mohan Kumar//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-reception-20261205@amrutha-mohankumar
+DTSTAMP:20261107T074529Z
+DTSTART:20261205T140000Z
+SUMMARY:Amrutha & Mohan Kumar Wedding Reception
+DESCRIPTION:Wedding Reception of Amrutha K.V. and Mohan Kumar P.A. (7:30 PM
+  onwards) at Daivajna Kalyana Mantapa\, Davanagere.
+LOCATION:Daivajna Kalyana Mantapa\, Renuka Layout\, P.B. Road\, Davanagere 
+ – 577 002\, Karnataka
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

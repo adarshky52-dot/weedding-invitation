@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" fill="none">
+  <defs>
+    <!-- Antique Gold & Warm Temple Granite Gradients -->
+    <linearGradient id="mandaPillarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#765044" stop-opacity="0.35"/>
+      <stop offset="35%" stop-color="#B98A45" stop-opacity="0.45"/>
+      <stop offset="65%" stop-color="#E8D4B5" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <linearGradient id="mandaGoldTrim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F7F0E5" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#B98A45" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <linearGradient id="mandaBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#765044" stop-opacity="0.2"/>
+      <stop offset="25%" stop-color="#B98A45" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#E8B58D" stop-opacity="0.55"/>
+      <stop offset="75%" stop-color="#B98A45" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <radialGradient id="mandaSunlightGlow" cx="50%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#E8B58D" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#E8D4B5" stop-opacity="0.2"/>
+      <stop offset="75%" stop-color="#F7F0E5" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#F7F0E5" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="mandaGarlandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B98A45" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#E8B58D" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#FFFDF9" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#E8B58D" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#B98A45" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Morning Mandapam Sunlight Glow -->
+  <rect x="0" y="0" width="1600" height="700" fill="url(#mandaSunlightGlow)"/>
+
+  <!-- =========================================================================
+       TOP HORIZONTAL MANDAPAM BEAMS & ORNAMENTAL LINTELS
+       ========================================================================= -->
+  <g opacity="0.85">
+    <!-- Top Primary Lintel Beam -->
+    <rect x="60" y="35" width="1480" height="18" rx="3" fill="url(#mandaBeamGrad)"/>
+    <rect x="100" y="53" width="1400" height="5" fill="url(#mandaGoldTrim)"/>
+    
+    <!-- Secondary Decorative Frieze with Auspicious Motifs -->
+    <rect x="140" y="58" width="1320" height="14" fill="url(#mandaPillarGrad)" opacity="0.6"/>
+
+    <!-- Central Kalasha & Sacred Lotus Finial -->
+    <g transform="translate(800, 35)">
+      <path d="M0 -22 L9 -2 L-9 -2 Z" fill="url(#mandaGoldTrim)"/>
+      <circle cx="0" cy="5" r="14" fill="url(#mandaGoldTrim)"/>
+      <circle cx="0" cy="5" r="7" fill="#F7F0E5" opacity="0.7"/>
+      <path d="M-18 6 C-14 -6 -4 -12 0 -22 C4 -12 14 -6 18 6 Z" stroke="url(#mandaGoldTrim)" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Side Kalash Finials on Beam Axis -->
+    <g transform="translate(240, 35)">
+      <circle cx="0" cy="5" r="9" fill="url(#mandaGoldTrim)"/>
+      <path d="M0 -12 L5 0 L-5 0 Z" fill="url(#mandaGoldTrim)"/>
+    </g>
+    <g transform="translate(1360, 35)">
+      <circle cx="0" cy="5" r="9" fill="url(#mandaGoldTrim)"/>
+      <path d="M0 -12 L5 0 L-5 0 Z" fill="url(#mandaGoldTrim)"/>
+    </g>
+    <g transform="translate(500, 35)">
+      <circle cx="0" cy="5" r="7" fill="url(#mandaGoldTrim)"/>
+    </g>
+    <g transform="translate(1100, 35)">
+      <circle cx="0" cy="5" r="7" fill="url(#mandaGoldTrim)"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       TRADITIONAL CEREMONIAL TORANA & JASMINE GARLAND SWAGS
+       ========================================================================= -->
+  <g opacity="0.75">
+    <!-- Main Sweeping Jasmine Garland -->
+    <path d="M120 72 C300 125 500 145 740 100 C770 94 830 94 860 100 C1100 145 1300 125 1480 72" 
+          stroke="url(#mandaGarlandGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- Secondary Beaded Garland Swag -->
+    <path d="M160 72 C340 140 520 160 760 115 C780 110 820 110 840 115 C1080 160 1260 140 1440 72" 
+          stroke="url(#mandaGarlandGrad)" stroke-width="1.5" stroke-dasharray="6,5" fill="none"/>
+    
+    <!-- Sacred Mango Leaf Motifs (Maavilai) Along Beam -->
+    <g fill="url(#mandaGoldTrim)" opacity="0.6">
+      <path d="M300 72 C302 88 308 96 312 104 C316 96 322 88 324 72 Z"/>
+      <path d="M450 72 C452 88 458 96 462 104 C466 96 472 88 474 72 Z"/>
+      <path d="M600 72 C602 88 608 96 612 104 C616 96 622 88 624 72 Z"/>
+      <path d="M980 72 C982 88 988 96 992 104 C996 96 1002 88 1004 72 Z"/>
+      <path d="M1130 72 C1132 88 1138 96 1142 104 C1146 96 1152 88 1154 72 Z"/>
+      <path d="M1280 72 C1282 88 1288 96 1292 104 C1296 96 1302 88 1304 72 Z"/>
+    </g>
+
+    <!-- Hanging Temple Brass Bells (Ghanta) -->
+    <g transform="translate(380, 110)">
+      <line x1="0" y1="-38" x2="0" y2="0" stroke="url(#mandaGoldTrim)" stroke-width="1.5"/>
+      <path d="M-8 12 C-8 6 -5 0 0 0 C5 0 8 6 8 12 Z" fill="url(#mandaGoldTrim)"/>
+      <circle cx="0" cy="14" r="3" fill="url(#mandaGoldTrim)"/>
+    </g>
+    <g transform="translate(680, 125)">
+      <line x1="0" y1="-53" x2="0" y2="0" stroke="url(#mandaGoldTrim)" stroke-width="1.5"/>
+      <path d="M-8 12 C-8 6 -5 0 0 0 C5 0 8 6 8 12 Z" fill="url(#mandaGoldTrim)"/>
+      <circle cx="0" cy="14" r="3" fill="url(#mandaGoldTrim)"/>
+    </g>
+    <g transform="translate(920, 125)">
+      <line x1="0" y1="-53" x2="0" y2="0" stroke="url(#mandaGoldTrim)" stroke-width="1.5"/>
+      <path d="M-8 12 C-8 6 -5 0 0 0 C5 0 8 6 8 12 Z" fill="url(#mandaGoldTrim)"/>
+      <circle cx="0" cy="14" r="3" fill="url(#mandaGoldTrim)"/>
+    </g>
+    <g transform="translate(1220, 110)">
+      <line x1="0" y1="-38" x2="0" y2="0" stroke="url(#mandaGoldTrim)" stroke-width="1.5"/>
+      <path d="M-8 12 C-8 6 -5 0 0 0 C5 0 8 6 8 12 Z" fill="url(#mandaGoldTrim)"/>
+      <circle cx="0" cy="14" r="3" fill="url(#mandaGoldTrim)"/>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       DRAVIDIAN MANDAPAM PILLARS (LEFT & RIGHT ARCHITECTURAL WINGS)
+       ========================================================================= -->
+  <!-- Left Outer Pillar -->
+  <g opacity="0.65">
+    <!-- Capital Bracket (Pushpa Potika) -->
+    <path d="M110 72 L180 72 C172 88 160 98 140 102 L140 114 L110 114 Z" fill="url(#mandaPillarGrad)"/>
+    <path d="M140 102 C158 104 176 116 172 126 C158 122 146 116 136 116 Z" fill="url(#mandaGoldTrim)"/>
+    <!-- Capital Phalaka & Kumbha -->
+    <rect x="114" y="114" width="42" height="12" fill="url(#mandaPillarGrad)"/>
+    <rect x="110" y="126" width="50" height="6" fill="url(#mandaGoldTrim)"/>
+    <!-- Pillar Shaft -->
+    <rect x="120" y="132" width="30" height="480" fill="url(#mandaPillarGrad)"/>
+    <line x1="128" y1="132" x2="128" y2="612" stroke="#765044" stroke-width="1.2" opacity="0.5"/>
+    <line x1="142" y1="132" x2="142" y2="612" stroke="#F7F0E5" stroke-width="1.2" opacity="0.4"/>
+    <!-- Pillar Base (Oma & Adhisthana) -->
+    <rect x="110" y="612" width="50" height="16" fill="url(#mandaPillarGrad)"/>
+    <rect x="100" y="628" width="70" height="24" rx="2" fill="url(#mandaBeamGrad)"/>
+  </g>
+
+  <!-- Left Inner Pillar -->
+  <g opacity="0.45">
+    <rect x="230" y="72" width="22" height="540" fill="url(#mandaPillarGrad)"/>
+    <rect x="224" y="612" width="34" height="24" fill="url(#mandaBeamGrad)"/>
+  </g>
+
+  <!-- Right Inner Pillar -->
+  <g opacity="0.45">
+    <rect x="1348" y="72" width="22" height="540" fill="url(#mandaPillarGrad)"/>
+    <rect x="1342" y="612" width="34" height="24" fill="url(#mandaBeamGrad)"/>
+  </g>
+
+  <!-- Right Outer Pillar -->
+  <g opacity="0.65">
+    <!-- Capital Bracket (Pushpa Potika) -->
+    <path d="M1490 72 L1420 72 C1428 88 1440 98 1460 102 L1460 114 L1490 114 Z" fill="url(#mandaPillarGrad)"/>
+    <path d="M1460 102 C1442 104 1424 116 1428 126 C1442 122 1454 116 1464 116 Z" fill="url(#mandaGoldTrim)"/>
+    <!-- Capital Phalaka & Kumbha -->
+    <rect x="1444" y="114" width="42" height="12" fill="url(#mandaPillarGrad)"/>
+    <rect x="1440" y="126" width="50" height="6" fill="url(#mandaGoldTrim)"/>
+    <!-- Pillar Shaft -->
+    <rect x="1450" y="132" width="30" height="480" fill="url(#mandaPillarGrad)"/>
+    <line x1="1458" y1="132" x2="1458" y2="612" stroke="#765044" stroke-width="1.2" opacity="0.5"/>
+    <line x1="1472" y1="132" x2="1472" y2="612" stroke="#F7F0E5" stroke-width="1.2" opacity="0.4"/>
+    <!-- Pillar Base (Oma & Adhisthana) -->
+    <rect x="1440" y="612" width="50" height="16" fill="url(#mandaPillarGrad)"/>
+    <rect x="1430" y="628" width="70" height="24" rx="2" fill="url(#mandaBeamGrad)"/>
+  </g>
+
+  <!-- Base Courtyard Plinth Subtle Horizon Line -->
+  <line x1="0" y1="652" x2="1600" y2="652" stroke="url(#mandaBeamGrad)" stroke-width="2" opacity="0.4"/>
+</svg>
+

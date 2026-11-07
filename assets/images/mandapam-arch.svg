@@ -1,5 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="1200" height="90" fill="none">
   <defs>
+    <style>
+      @keyframes bellSwayLeft {
+        0%, 100% { transform: rotate(-1.4deg); }
+        50% { transform: rotate(1.4deg); }
+      }
+      @keyframes bellSwayRight {
+        0%, 100% { transform: rotate(1.4deg); }
+        50% { transform: rotate(-1.4deg); }
+      }
+      .bell-left {
+        transform-origin: 0 0;
+        animation: bellSwayLeft 5.8s ease-in-out infinite;
+      }
+      .bell-right {
+        transform-origin: 0 0;
+        animation: bellSwayRight 5.8s ease-in-out infinite;
+      }
+      .bell-delay-1 { animation-delay: -1.4s; }
+      .bell-delay-2 { animation-delay: -2.9s; }
+      @media (prefers-reduced-motion: reduce) {
+        .bell-left, .bell-right { animation: none; }
+      }
+    </style>
     <linearGradient id="toranaGold" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#4A2F08" stop-opacity="0.4"/>
       <stop offset="15%" stop-color="#D4AF37" stop-opacity="0.9"/>
@@ -37,42 +60,42 @@
 
   <!-- Symmetrical Hanging Sacred Temple Bells & Mango Leaf Tassels (Ghanta) -->
   <!-- Center-Left Bell -->
-  <g transform="translate(480, 48)" filter="url(#bellGlow)">
+  <g transform="translate(480, 48)" filter="url(#bellGlow)" class="bell-left">
     <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
     <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
     <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
   </g>
 
   <!-- Mid-Left Bell -->
-  <g transform="translate(320, 40)" filter="url(#bellGlow)">
+  <g transform="translate(320, 40)" filter="url(#bellGlow)" class="bell-left bell-delay-1">
     <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
     <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
     <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
   </g>
 
   <!-- Outer-Left Bell -->
-  <g transform="translate(180, 28)" filter="url(#bellGlow)">
+  <g transform="translate(180, 28)" filter="url(#bellGlow)" class="bell-left bell-delay-2">
     <line x1="0" y1="0" x2="0" y2="16" stroke="#D4AF37" stroke-width="1.5"/>
     <polygon points="-5,16 5,16 0,25" fill="url(#toranaGold)"/>
     <circle cx="0" cy="27" r="2" fill="#FFF5D6"/>
   </g>
 
   <!-- Center-Right Bell -->
-  <g transform="translate(720, 48)" filter="url(#bellGlow)">
+  <g transform="translate(720, 48)" filter="url(#bellGlow)" class="bell-right">
     <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
     <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
     <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
   </g>
 
   <!-- Mid-Right Bell -->
-  <g transform="translate(880, 40)" filter="url(#bellGlow)">
+  <g transform="translate(880, 40)" filter="url(#bellGlow)" class="bell-right bell-delay-1">
     <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
     <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
     <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
   </g>
 
   <!-- Outer-Right Bell -->
-  <g transform="translate(1020, 28)" filter="url(#bellGlow)">
+  <g transform="translate(1020, 28)" filter="url(#bellGlow)" class="bell-right bell-delay-2">
     <line x1="0" y1="0" x2="0" y2="16" stroke="#D4AF37" stroke-width="1.5"/>
     <polygon points="-5,16 5,16 0,25" fill="url(#toranaGold)"/>
     <circle cx="0" cy="27" r="2" fill="#FFF5D6"/>
