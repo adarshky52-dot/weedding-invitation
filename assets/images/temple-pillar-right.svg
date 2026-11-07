@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 1000" width="120" height="1000" fill="none">
+  <defs>
+    <!-- Warm Temple Granite Gradient matching the sunset photo -->
+    <linearGradient id="pillarStoneRight" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0E0705" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#1E120C" stop-opacity="0.92"/>
+      <stop offset="65%" stop-color="#362217" stop-opacity="0.88"/>
+      <stop offset="85%" stop-color="#543725" stop-opacity="0.85"/>
+      <stop offset="97%" stop-color="#C59D35" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#E5C158" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="goldCarvingRight" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#6B4608" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#C9A032" stop-opacity="0.85"/>
+      <stop offset="95%" stop-color="#FFEFA8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFEFA8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="innerEdgeFadeRight" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.4"/>
+      <stop offset="80%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <g id="symmetrical-pillar-right" transform="translate(120, 0) scale(-1, 1)">
+    <!-- Top Potika Corbel Bracket -->
+    <path d="M0 0 L120 0 C105 22 90 35 60 40 L55 60 L45 60 C45 74 35 82 25 86 L0 86 Z" fill="url(#pillarStoneRight)"/>
+    <path d="M60 40 C85 43 110 60 105 76 C85 72 70 60 55 60 Z" fill="url(#goldCarvingRight)"/>
+    <circle cx="100" cy="78" r="3.5" fill="#FFEFA8" opacity="0.85"/>
+
+    <!-- Capital / Kumbha & Phalaka -->
+    <path d="M0 86 L48 86 L54 98 L44 112 L0 112 Z" fill="url(#pillarStoneRight)"/>
+    <rect x="0" y="112" width="44" height="8" fill="url(#goldCarvingRight)"/>
+    <path d="M0 120 L44 120 C40 132 32 142 22 142 L0 142 Z" fill="url(#pillarStoneRight)"/>
+
+    <!-- Carved Floral Necklace band (Mala Sthana) -->
+    <rect x="0" y="142" width="36" height="15" fill="url(#goldCarvingRight)"/>
+    <circle cx="9" cy="150" r="2" fill="#FFF8DE"/>
+    <circle cx="19" cy="150" r="2" fill="#FFF8DE"/>
+    <circle cx="29" cy="150" r="2" fill="#FFF8DE"/>
+
+    <!-- Main Pillar Shaft (Stambha) - Slender & Architectural -->
+    <rect x="0" y="157" width="34" height="690" fill="url(#pillarStoneRight)"/>
+    
+    <!-- Vertical Flutes with Warm Golden-Hour Highlights -->
+    <line x1="8" y1="157" x2="8" y2="847" stroke="#120906" stroke-width="1.5"/>
+    <line x1="10" y1="157" x2="10" y2="847" stroke="#482F20" stroke-width="1.2"/>
+    <line x1="19" y1="157" x2="19" y2="847" stroke="#120906" stroke-width="1.5"/>
+    <line x1="21" y1="157" x2="21" y2="847" stroke="#664430" stroke-width="1.2"/>
+    <line x1="30" y1="157" x2="30" y2="847" stroke="#120906" stroke-width="1.5"/>
+    <line x1="32" y1="157" x2="32" y2="847" stroke="#C59D35" stroke-width="1.2" opacity="0.75"/>
+
+    <!-- Mid-Shaft Ornate Medallion Band -->
+    <rect x="0" y="475" width="38" height="24" fill="url(#goldCarvingRight)"/>
+    <circle cx="19" cy="487" r="7.5" fill="#241710" stroke="#FFEFA8" stroke-width="1.2"/>
+    <circle cx="19" cy="487" r="2.5" fill="#FFEFA8"/>
+
+    <!-- Lower Shaft Band -->
+    <rect x="0" y="820" width="38" height="18" fill="url(#goldCarvingRight)"/>
+
+    <!-- Sculpted Base / Adhisthana -->
+    <path d="M0 847 L42 847 L50 870 L38 892 L0 892 Z" fill="url(#pillarStoneRight)"/>
+    <path d="M0 892 L54 892 L60 932 L48 954 L0 954 Z" fill="url(#pillarStoneRight)"/>
+    <path d="M10 900 C20 900 32 910 32 926 C32 938 22 944 12 944 Z" fill="url(#goldCarvingRight)" opacity="0.5"/>
+
+    <!-- Pedestal Plinth (Upapitha) -->
+    <rect x="0" y="954" width="65" height="46" fill="url(#pillarStoneRight)"/>
+    <line x1="0" y1="958" x2="65" y2="958" stroke="#C59D35" stroke-width="1.5"/>
+    <line x1="0" y1="995" x2="65" y2="995" stroke="#C59D35" stroke-width="2"/>
+
+    <!-- Soft Edge Fade for Natural Background Integration -->
+    <rect x="0" y="0" width="120" height="1000" fill="url(#innerEdgeFadeRight)"/>
+  </g>
+</svg>

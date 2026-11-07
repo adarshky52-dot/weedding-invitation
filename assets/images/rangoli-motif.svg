@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <defs>
+    <linearGradient id="kolamGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#F5E4B5" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#C59B27" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(100, 100)" stroke="url(#kolamGold)" stroke-width="1.5">
+    <!-- Center Lotus Core -->
+    <circle cx="0" cy="0" r="14" fill="#D4AF37" fill-opacity="0.15"/>
+    <circle cx="0" cy="0" r="6" fill="#F5E4B5"/>
+
+    <!-- 8 Petals radiating outwards -->
+    <path d="M0 -14 C-10 -28 -10 -42 0 -52 C10 -42 10 -28 0 -14 Z"/>
+    <path d="M0 14 C-10 28 -10 42 0 52 C10 42 10 28 0 14 Z"/>
+    <path d="M-14 0 C-28 -10 -42 -10 -52 0 C-42 10 -28 10 -14 0 Z"/>
+    <path d="M14 0 C28 -10 42 -10 52 0 C42 10 28 10 14 0 Z"/>
+
+    <!-- Diagonal Petals -->
+    <g transform="rotate(45)">
+      <path d="M0 -14 C-8 -26 -8 -38 0 -48 C8 -38 8 -26 0 -14 Z"/>
+      <path d="M0 14 C-8 26 -8 38 0 48 C8 38 8 26 0 14 Z"/>
+      <path d="M-14 0 C-26 -8 -38 -8 -48 0 C-38 8 -26 8 -14 0 Z"/>
+      <path d="M14 0 C26 -8 38 -8 48 0 C38 8 26 8 14 0 Z"/>
+    </g>
+
+    <!-- Outer Concentric Flourish Rings -->
+    <circle cx="0" cy="0" r="68" stroke-dasharray="4,4" stroke-width="1"/>
+    <circle cx="0" cy="0" r="76" stroke-width="1"/>
+
+    <!-- 8 Outer Sacred Beads -->
+    <circle cx="0" cy="-76" r="3" fill="#D4AF37"/>
+    <circle cx="0" cy="76" r="3" fill="#D4AF37"/>
+    <circle cx="-76" cy="0" r="3" fill="#D4AF37"/>
+    <circle cx="76" cy="0" r="3" fill="#D4AF37"/>
+    <circle cx="-54" cy="-54" r="3" fill="#D4AF37"/>
+    <circle cx="54" cy="-54" r="3" fill="#D4AF37"/>
+    <circle cx="-54" cy="54" r="3" fill="#D4AF37"/>
+    <circle cx="54" cy="54" r="3" fill="#D4AF37"/>
+  </g>
+</svg>
+

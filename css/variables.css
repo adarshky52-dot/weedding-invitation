@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Design Tokens & CSS Variables
+   Amrutha & Mohan Kumar Wedding Invitation
+   ========================================================================== */
+
+:root {
+  /* ==========================================================================
+     PHASE 2: Global Colour System Tokens (Mandatory Specifications)
+     ========================================================================== */
+  --color-ivory: #F7F0E5;          /* Warm ivory invitation paper */
+  --color-champagne: #E8D4B5;      /* Soft champagne parchment */
+  --color-antique-gold: #B98A45;   /* Refined antique gold ornamentation */
+  --color-temple-brown: #765044;   /* Natural temple brown stone */
+  --color-muted-maroon: #713C38;   /* Muted wedding maroon accent */
+  --color-deep-text: #392C27;      /* Deep high-contrast editorial text */
+
+  /* ==========================================================================
+     Warm Sunset Temple Palette (Primary Design Reference)
+     ========================================================================== */
+  --sunset-peach: #E8B58D;       /* Warm sunset peach - natural golden hour light */
+  --antique-gold: #D99A59;       /* Soft antique gold - refined temple metallic */
+  --warm-ivory: #F2E4CE;         /* Warm ivory - premium editorial titles & text */
+  --temple-brown: #765044;       /* Natural temple brown - authentic granite stone */
+  --temple-brown-dark: #3E241C;  /* Deep temple stone shadows */
+  --wedding-maroon: #713C38;     /* Muted wedding maroon - subtle decorative accents */
+  --wedding-maroon-dark: #462220;/* Deep muted maroon - button bases */
+  --wedding-maroon-glass: rgba(113, 60, 56, 0.55);
+
+  /* Color Palette: Soft Antique & Champagne Gold */
+  --gold-100: #FFFDF8;
+  --gold-200: #F2E4CE; /* Warm ivory */
+  --gold-300: #E8B58D; /* Warm sunset peach */
+  --gold-400: #D99A59; /* Soft antique gold */
+  --gold-500: #B87B3D;
+  --gold-600: #8E5D2A;
+  --gold-700: #6B431C;
+
+  /* Color Palette: Refined Muted Temple Maroon */
+  --maroon-950: #1C1412; /* Natural temple dusk tone instead of pitch black-maroon */
+  --maroon-900: #2C1816;
+  --maroon-800: #462220;
+  --maroon-700: #5C2B28;
+  --maroon-600: #713C38; /* Muted wedding maroon */
+
+  /* Color Palette: Warm Ivory & Natural Sandstone */
+  --ivory-50: #FAF7F2;
+  --ivory-100: #F2E4CE; /* Warm ivory */
+  --ivory-200: #E8DBCE;
+  --ivory-300: #D8C7B5;
+  --ivory-400: #C2AE9B;
+
+  /* Color Palette: Temple Stone & Dusk Granite */
+  --stone-950: #120D0B;
+  --stone-900: #1C1412;
+  --stone-800: #2E201B;
+  --stone-700: #4B3731;
+  --stone-600: #765044; /* Natural temple brown */
+
+  /* Sunset Atmosphere & Distant Sky Horizons */
+  --sunset-sky-shadow: #1F222E;  /* Natural blue-grey shadows in distant sky */
+  --sunset-sky-mid: #3E323A;     /* Muted dusk transitional atmosphere */
+  --sunset-sky-stone: #765044;   /* Natural granite horizon */
+  --sunset-sky-warm: #E8B58D;    /* Peach sunset glow */
+
+  /* Premium Gradients */
+  --grad-gold-metallic: linear-gradient(135deg, #F2E4CE 0%, #D99A59 50%, #A86D32 100%);
+  --grad-gold-shimmer: linear-gradient(90deg, #D99A59 0%, #F2E4CE 30%, #E8B58D 60%, #D99A59 100%);
+  --grad-gold-border: linear-gradient(135deg, rgba(217, 154, 89, 0.7) 0%, rgba(242, 228, 206, 0.95) 50%, rgba(184, 123, 61, 0.6) 100%);
+  --grad-hero-sky: linear-gradient(180deg, #1C1E2A 0%, #2D2633 28%, #4A353B 55%, #765044 78%, #E8B58D 100%);
+  --grad-card-dark: linear-gradient(160deg, rgba(46, 26, 24, 0.88) 0%, rgba(24, 14, 13, 0.94) 100%);
+  --grad-card-ivory: linear-gradient(160deg, rgba(250, 247, 242, 0.97) 0%, rgba(242, 228, 206, 0.95) 100%);
+
+  /* Typography Scales: Luxury Wedding Editorial */
+  --font-names: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-display: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-title: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Marcellus', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Fluid Font Sizes */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.85rem);
+  --text-sm: clamp(0.85rem, 0.8rem + 0.35vw, 0.95rem);
+  --text-base: clamp(1rem, 0.95rem + 0.4vw, 1.125rem);
+  --text-lg: clamp(1.15rem, 1.05rem + 0.55vw, 1.35rem);
+  --text-xl: clamp(1.35rem, 1.2rem + 0.8vw, 1.75rem);
+  --text-2xl: clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem);
+  --text-3xl: clamp(2.2rem, 1.8rem + 1.8vw, 3.2rem);
+  --text-4xl: clamp(2.8rem, 2.2rem + 2.8vw, 4.5rem);
+  --text-hero: clamp(3.2rem, 2.5rem + 4vw, 5.8rem);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+  --space-3xl: 7.5rem;
+
+  /* Shadows & Elevations */
+  --shadow-gold-subtle: 0 4px 20px rgba(212, 175, 55, 0.15);
+  --shadow-gold-glow: 0 0 35px rgba(212, 175, 55, 0.35);
+  --shadow-card-elevated: 0 20px 45px -10px rgba(10, 2, 4, 0.65), 0 0 1px 1px rgba(212, 175, 55, 0.3);
+  --shadow-pillar: 15px 0 35px rgba(0, 0, 0, 0.6);
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+
+  /* Z-Index Hierarchy */
+  --z-bg: 0;
+  --z-parallax-sky: 1;
+  --z-parallax-gopuram: 2;
+  --z-parallax-glow: 3;
+  --z-parallax-pillars: 4;
+  --z-content: 10;
+  --z-canvas-petals: 15;
+  --z-floating-ui: 30;
+  --z-modal: 50;
+  --z-curtain: 100;
+}
+

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160" width="100" height="160" fill="none">
+  <defs>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7A5212"/>
+      <stop offset="35%" stop-color="#E5C158"/>
+      <stop offset="65%" stop-color="#FFE89E"/>
+      <stop offset="100%" stop-color="#5E3E0C"/>
+    </linearGradient>
+    <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF7D6" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#FFB300" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#FF5722" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FF5722" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFCA28" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#FF8F00" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FF6F00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Golden Halo -->
+  <circle cx="50" cy="40" r="38" fill="url(#haloGlow)" class="diya-halo"/>
+
+  <!-- Flame Core with gentle animation class -->
+  <g class="diya-flame">
+    <ellipse cx="50" cy="40" rx="14" ry="24" fill="url(#flameGlow)"/>
+    <!-- Teardrop inner flame -->
+    <path d="M50 20 C42 35 44 48 50 52 C56 48 58 35 50 20 Z" fill="#FFFBE6"/>
+    <!-- Wick -->
+    <line x1="50" y1="52" x2="50" y2="58" stroke="#3E2723" stroke-width="2"/>
+  </g>
+
+  <!-- Brass Oil Reservoir / Deepam Cup -->
+  <path d="M22 62 C22 55 78 55 78 62 C78 78 58 84 50 84 C42 84 22 78 22 62 Z" fill="url(#brassGrad)"/>
+  <ellipse cx="50" cy="62" rx="28" ry="6" fill="#A0721E" stroke="#FFE89E" stroke-width="1.5"/>
+
+  <!-- Stem / Central Column -->
+  <rect x="46" y="84" width="8" height="36" fill="url(#brassGrad)"/>
+  <circle cx="50" cy="100" r="8" fill="url(#brassGrad)"/>
+  <circle cx="50" cy="100" r="4" fill="#FFE89E"/>
+
+  <!-- Stepped Circular Base -->
+  <path d="M30 120 L70 120 L78 138 L22 138 Z" fill="url(#brassGrad)"/>
+  <rect x="18" y="138" width="64" height="12" rx="3" fill="url(#brassGrad)"/>
+  <line x1="18" y1="140" x2="82" y2="140" stroke="#FFE89E" stroke-width="1.5"/>
+</svg>
+

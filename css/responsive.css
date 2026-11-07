@@ -1,0 +1,301 @@
+/* ==========================================================================
+   Responsive & Accessibility Overrides
+   Amrutha & Mohan Kumar Wedding Invitation
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tablet & Medium Screens (<= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .layer-pillar-left,
+  .layer-pillar-right {
+    width: clamp(32px, 4.5vw, 55px);
+    opacity: 0.65;
+  }
+
+  .layer-arch img {
+    max-height: 55px;
+  }
+
+  .hero-content {
+    padding: clamp(1.5rem, 4vh, 3rem) clamp(1.5rem, 5vw, 3rem);
+    max-width: 760px;
+  }
+
+  .hero-content::before {
+    max-width: 650px;
+    height: 85%;
+  }
+
+  .couple-name {
+    font-size: clamp(2.3rem, 1.8rem + 3.2vw, 4rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Devices (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .section {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Slender pillar framing hugs screen edge on mobile with organic blend */
+  .layer-pillar-left {
+    left: 0;
+    width: clamp(24px, 4.5vw, 36px);
+    opacity: 0.40;
+  }
+
+  .layer-pillar-right {
+    right: 0;
+    width: clamp(24px, 4.5vw, 36px);
+    opacity: 0.40;
+  }
+
+  .layer-pillar-left img,
+  .layer-pillar-right img {
+    width: 100%;
+  }
+
+  .layer-arch img {
+    max-height: 44px;
+    opacity: 0.85;
+  }
+
+  .hero-content::before {
+    max-width: 95%;
+    height: 92%;
+    filter: blur(24px);
+  }
+
+  .golden-sun-orb {
+    width: 180px;
+    height: 180px;
+    top: 20%;
+    opacity: 0.22;
+  }
+
+  .layer-cursor-glow {
+    width: clamp(240px, 55vw, 340px);
+    height: clamp(240px, 55vw, 340px);
+    filter: blur(35px);
+    opacity: 0.55;
+  }
+
+  .hero-content {
+    padding: clamp(1.25rem, 3.5vh, 2.5rem) 1.25rem;
+    max-width: 100%;
+  }
+
+  .sacred-invocation {
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    padding: 0.3rem 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-badge {
+    padding: 0.32rem 1.1rem;
+    font-size: 0.68rem;
+    margin-bottom: 1rem;
+  }
+
+  .couple-names-wrapper {
+    margin: 0.35rem 0 0.8rem;
+  }
+
+  .couple-name {
+    font-size: clamp(2.2rem, 8.5vw, 3.2rem);
+    line-height: 1.15;
+  }
+
+  .couple-ampersand {
+    font-size: 1.6rem;
+    margin: 0.1rem 0;
+  }
+
+  .couple-ampersand::before,
+  .couple-ampersand::after {
+    width: 20px;
+    margin: 0 0.5rem;
+  }
+
+  .invitation-quote {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.8rem;
+  }
+
+  .scroll-hint {
+    bottom: 0.85rem;
+    font-size: 0.62rem;
+  }
+
+  .foreground-diya {
+    bottom: 0.8rem;
+    opacity: 0.75;
+  }
+  .foreground-diya.diya-left {
+    left: 0.8rem;
+  }
+  .foreground-diya.diya-right {
+    right: 0.8rem;
+  }
+  .foreground-diya img {
+    width: 32px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .family-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .countdown-grid {
+    gap: 0.5rem;
+  }
+
+  .countdown-box {
+    padding: 0.85rem 0.4rem;
+  }
+
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  .venue-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .venue-actions .btn-primary,
+  .venue-actions .btn-secondary {
+    width: 100%;
+  }
+
+  /* Safe areas for iOS Home Bar / Notches */
+  .floating-audio-btn {
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+    right: max(1.25rem, env(safe-area-inset-right));
+    padding: 0.55rem 0.95rem;
+    font-size: 0.75rem;
+  }
+
+  .toast-notice {
+    bottom: max(5rem, calc(env(safe-area-inset-bottom) + 4rem));
+    width: calc(100% - 2.5rem);
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile Devices (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 1rem 0.85rem;
+  }
+
+  .sacred-invocation {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-badge {
+    padding: 0.28rem 0.85rem;
+    font-size: 0.62rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .couple-name {
+    font-size: clamp(1.95rem, 9vw, 2.6rem);
+    line-height: 1.12;
+  }
+
+  .invitation-quote {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .event-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .family-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .foreground-diya {
+    display: none; /* Keep ultra-clean viewport on compact mobile screens */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #petals-canvas {
+    display: none !important;
+  }
+
+  .golden-sun-orb,
+  .text-gold-shimmer,
+  .diya-flame,
+  .diya-halo,
+  .float-slow,
+  .pulse-gold {
+    animation: none !important;
+  }
+
+  .parallax-scene,
+  .parallax-layer,
+  .layer-pillar-left,
+  .layer-pillar-right,
+  .layer-cursor-glow,
+  .layer-middle-colonnade {
+    transform: none !important;
+  }
+
+  .reveal-item,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+

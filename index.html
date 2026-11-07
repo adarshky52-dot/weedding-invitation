@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Amrutha & Mohan Kumar — Wedding Invitation</title>
+  <meta name="description" content="Wedding celebration invitation of Amrutha K.V. and Mohan Kumar P.A. on 5th & 6th December 2026 at Daivajna Kalyana Mantapa, Davanagere.">
+  
+  <!-- Open Graph / WhatsApp Social Sharing Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amrutha & Mohan Kumar — Wedding Invitation">
+  <meta property="og:description" content="Join us to celebrate the union of Amrutha K.V. and Mohan Kumar P.A. on 5th & 6th December 2026 at Davanagere.">
+  <meta property="og:image" content="assets/images/temple-hero-bg.jpg">
+  <meta name="theme-color" content="#1D0307">
+
+  <!-- Google Fonts: Editorial Classical Serifs & Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Floating Flower Petals Canvas Simulation (Jasmine & Marigold) -->
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       1. HERO STAGE: Full-Screen Cinematic Opening & Parallax Layers
+       ========================================================================= -->
+  <header class="hero-stage" id="hero">
+    <!-- Parallax 3D Scene Wrapper (receives subtle perspective rotation, keeping text stable) -->
+    <div class="parallax-scene" id="parallax-scene" aria-hidden="true">
+      <!-- Parallax Layer 1: Distant Sunrise Sky & Horizon Sun (Movement: ~4px) -->
+      <div class="parallax-layer layer-sky" data-parallax-layer="1">
+        <img src="assets/images/temple-sunrise-sky.jpg" alt="" class="sky-sunset-img" width="1920" height="1080" loading="eager">
+        <div class="golden-sun-orb"></div>
+      </div>
+
+      <!-- Parallax Layer 2: Central Temple Gopuram & Sanctum (Movement: ~10px) -->
+      <div class="parallax-layer layer-temple-photo" data-parallax-layer="2">
+        <img src="assets/images/temple-hero-bg.jpg" alt="" class="temple-hero-img" width="1920" height="1080" loading="eager">
+      </div>
+
+      <!-- Animated Volumetric Sunrise Light Rays (God Rays) -->
+      <div class="parallax-layer layer-light-rays" data-parallax-layer="1.5" aria-hidden="true">
+        <div class="light-ray ray-1"></div>
+        <div class="light-ray ray-2"></div>
+        <div class="light-ray ray-3"></div>
+      </div>
+
+      <!-- Warm Golden-Hour Ambient Lighting Tint -->
+      <div class="layer-golden-light"></div>
+
+      <!-- Parallax Layer 5: Ambient Cursor-Follow Light Glow (Movement: ~30px) -->
+      <div class="layer-cursor-glow" data-parallax-layer="5"></div>
+
+      <!-- Parallax Layer 3: Middle Architectural Layer (Colonnade, Plinth, Oil Lamps & Torana Arch) (Movement: ~16px) -->
+      <div class="parallax-layer layer-middle-colonnade" data-parallax-layer="3">
+        <img src="assets/images/temple-middle-colonnade.svg" alt="" class="middle-colonnade-img" width="1600" height="900" loading="eager">
+      </div>
+
+      <div class="parallax-layer layer-arch" data-parallax-layer="3">
+        <img src="assets/images/mandapam-arch.svg" alt="" width="1200" height="90" loading="eager">
+      </div>
+
+      <!-- Contrast Scrim / Atmosphere Vignette (Preserves Strong Text Readability) -->
+      <div class="parallax-layer layer-scrim"></div>
+
+      <!-- Parallax Layer 4: Foreground Symmetrical Dravidian Stone Framing Pillars (Movement: ~24px) -->
+      <div class="layer-pillar-left" data-parallax-layer="4">
+        <img src="assets/images/temple-pillar-left.svg" alt="" width="120" height="1000" loading="eager">
+      </div>
+      <div class="layer-pillar-right" data-parallax-layer="4">
+        <img src="assets/images/temple-pillar-right.svg" alt="" width="120" height="1000" loading="eager">
+      </div>
+
+      <!-- Foreground Auspicious Temple Deepams (Sacred Flickering Flames) -->
+      <div class="foreground-diya diya-left" data-parallax-layer="4.5" aria-hidden="true">
+        <img src="assets/images/diya.svg" alt="" width="56" height="90" loading="lazy">
+      </div>
+      <div class="foreground-diya diya-right" data-parallax-layer="4.5" aria-hidden="true">
+        <img src="assets/images/diya.svg" alt="" width="56" height="90" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Central Hero Content: Spacious Luxury Editorial Composition (Outside 3D tilt for perfect clarity) -->
+    <div class="hero-content">
+      <p class="sacred-invocation">
+        || Sri Prasanna Ganapathaye Namaha &bull; Sri Venkateshwaraya Namaha ||
+      </p>
+
+      <div class="hero-badge">
+        <span>Auspicious Wedding Invitation</span>
+      </div>
+
+      <div class="couple-names-wrapper">
+        <h1 class="couple-name">Amrutha K.V.</h1>
+        <div class="couple-ampersand">&amp;</div>
+        <h1 class="couple-name">Mohan Kumar P.A.</h1>
+      </div>
+
+      <div class="ornament-divider" aria-hidden="true">
+        <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
+      </div>
+
+      <p class="invitation-quote">
+        Together with our families, we cordially invite you to share in our joy and celebrate the sacred bond of holy matrimony.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#events" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          View Events &amp; Muhurtham
+        </a>
+        <a href="#venue" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Venue &amp; Location
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Down Hint -->
+    <a href="#family" class="scroll-hint" aria-label="Scroll down to read invitation">
+      <span>Scroll</span>
+      <div class="scroll-hint-mouse" aria-hidden="true"></div>
+    </a>
+  </header>
+
+
+  <!-- =========================================================================
+       2. FAMILY LINEAGE & DIVINE BLESSINGS
+       ========================================================================= -->
+  <section class="section family-section" id="family">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Family Blessings</span>
+        <h2 class="section-title text-gold-gradient">With the Divine Grace of God</h2>
+        <div class="ornament-divider" aria-hidden="true">
+          <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
+        </div>
+        <p class="section-subtitle">
+          Seeking the warm blessings of our beloved elders, family, and cherished ancestors
+        </p>
+      </div>
+
+      <div class="family-grid">
+        <!-- Bride's Family Card -->
+        <div class="family-card">
+          <span class="card-flourish top-left" aria-hidden="true"></span>
+          <span class="card-flourish top-right" aria-hidden="true"></span>
+          <span class="card-flourish bottom-left" aria-hidden="true"></span>
+          <span class="card-flourish bottom-right" aria-hidden="true"></span>
+          <img src="assets/images/diya.svg" alt="" class="family-card-icon" aria-hidden="true">
+          <div class="family-side">Bride's Family</div>
+          <h3 class="child-name">Amrutha K.V.</h3>
+          <div class="relation-label">Beloved Daughter of</div>
+          <div class="parents-names">
+            Smt. Kavitha<br>&amp; Sri Vishwamurthy K.V.
+          </div>
+        </div>
+
+        <!-- Groom's Family Card -->
+        <div class="family-card">
+          <span class="card-flourish top-left" aria-hidden="true"></span>
+          <span class="card-flourish top-right" aria-hidden="true"></span>
+          <span class="card-flourish bottom-left" aria-hidden="true"></span>
+          <span class="card-flourish bottom-right" aria-hidden="true"></span>
+          <img src="assets/images/diya.svg" alt="" class="family-card-icon" aria-hidden="true">
+          <div class="family-side">Groom's Family</div>
+          <h3 class="child-name">Mohan Kumar P.A.</h3>
+          <div class="relation-label">Beloved Son of</div>
+          <div class="parents-names">
+            Smt. Shakunthalamma<br>&amp; Late Sri Prabhakar Aarkachari
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. CELEBRATION EVENTS & SACRED MUHURTHAM
+       ========================================================================= -->
+  <section class="section events-section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Auspicious Celebrations</span>
+        <h2 class="section-title text-gold-gradient">The Wedding Itinerary</h2>
+        <div class="ornament-divider" aria-hidden="true">
+          <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
+        </div>
+        <p class="section-subtitle">
+          Join us as we celebrate these sacred rites and joyous moments
+        </p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Reception Card -->
+        <article class="event-card">
+          <span class="card-flourish top-left" aria-hidden="true"></span>
+          <span class="card-flourish top-right" aria-hidden="true"></span>
+          <span class="card-flourish bottom-left" aria-hidden="true"></span>
+          <span class="card-flourish bottom-right" aria-hidden="true"></span>
+
+          <div class="event-header">
+            <span class="event-badge">Eve of the Union</span>
+            <h3 class="event-title">Wedding Reception</h3>
+          </div>
+
+          <div class="event-date-box">
+            <span class="event-day-name">Saturday</span>
+            <span class="event-day-number text-gold-shimmer">05</span>
+            <span class="event-month-year">December 2026</span>
+          </div>
+
+          <ul class="event-details-list">
+            <li class="event-detail-item">
+              <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span><strong>Time:</strong> 7:30 PM onwards</span>
+            </li>
+            <li class="event-detail-item">
+              <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span><strong>Venue:</strong> Daivajna Kalyana Mantapa</span>
+            </li>
+            <li class="event-detail-item">
+              <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <span>An evening of warm felicitations, joy &amp; dinner</span>
+            </li>
+          </ul>
+
+          <div class="event-actions">
+            <button class="btn-secondary" data-calendar-event="reception">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Add Reception to Calendar
+            </button>
+          </div>
+        </article>
+
+        <!-- Wedding Muhurtham Card (Featured) -->
+        <article class="event-card featured-card">
+          <span class="card-flourish top-left" aria-hidden="true"></span>
+          <span class="card-flourish top-right" aria-hidden="true"></span>
+          <span class="card-flourish bottom-left" aria-hidden="true"></span>
+          <span class="card-flourish bottom-right" aria-hidden="true"></span>
+
+          <div class="event-header">
+            <span class="event-badge">Sacred Muhurtham</span>
+            <h3 class="event-title">The Wedding Ceremony</h3>
+          </div>
+
+          <div class="event-date-box">
+            <span class="event-day-name">Sunday</span>
+            <span class="event-day-number text-gold-shimmer">06</span>
+            <span class="event-month-year">December 2026</span>
+          </div>
+
+          <ul class="event-details-list">
+            <li class="event-detail-item">
+              <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span><strong>Muhurtham:</strong> 8:30 AM – 9:25 AM</span>
+            </li>
+            <li class="event-detail-item">
+              <div class="lagna-highlight">
+                <strong>Auspicious Lagna:</strong> Dhanusu Lagna
+              </div>
+            </li>
+            <li class="event-detail-item">
+              <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span><strong>Venue:</strong> Daivajna Kalyana Mantapa</span>
+            </li>
+          </ul>
+
+          <div class="event-actions">
+            <button class="btn-primary" data-calendar-event="wedding" style="width: 100%;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Add Wedding to Calendar
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. LIVE WEDDING COUNTDOWN
+       ========================================================================= -->
+  <section class="section countdown-section" id="countdown">
+    <div class="container container-narrow">
+      <span class="section-tagline">Counting Down The Moments</span>
+      <h2 class="section-title text-gold-gradient">To The Sacred Muhurtham</h2>
+      <div class="ornament-divider" aria-hidden="true">
+        <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
+      </div>
+      <p id="countdown-status" class="section-subtitle">
+        6 December 2026 &bull; 8:30 AM IST
+      </p>
+
+      <div class="countdown-grid" role="timer" aria-live="polite">
+        <div class="countdown-box">
+          <div class="countdown-number" id="count-days">--</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="count-hours">--</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="count-minutes">--</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="count-seconds">--</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. VENUE & DIRECTIONS
+       ========================================================================= -->
+  <section class="section venue-section" id="venue">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Location &amp; Directions</span>
+        <h2 class="section-title text-gold-gradient">The Kalyana Mantapa</h2>
+        <div class="ornament-divider" aria-hidden="true">
+          <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
+        </div>
+        <p class="section-subtitle">
+          Daivajna Kalyana Mantapa, Davanagere, Karnataka
+        </p>
+      </div>
+
+      <div class="venue-card-wrapper">
+        <div class="venue-card-inner">
+          <h3 class="venue-kalyana-name text-gold-shimmer">Daivajna Kalyana Mantapa</h3>
+          <p class="venue-address-text">
+            Renuka Layout, P.B. Road, Davanagere – 577 002, Karnataka
+          </p>
+
+          <div class="venue-actions">
+            <a href="https://maps.google.com/?q=Daivajna+Kalyana+Mantapa+Renuka+Layout+PB+Road+Davanagere+577002" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              Get Directions on Google Maps
+            </a>
+            <button class="btn-secondary" id="copy-address-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Full Address
+            </button>
+          </div>
+        </div>
+
+        <!-- Embedded Interactive Map View -->
+        <div class="venue-map-container">
+          <iframe 
+            title="Daivajna Kalyana Mantapa Map Location"
+            src="https://maps.google.com/maps?q=Daivajna+Kalyana+Mantapa+PB+Road+Davanagere&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. TRADITIONAL CLOSING & GRATITUDE
+       ========================================================================= -->
+  <footer class="footer-section">
+    <div class="container container-narrow">
+      <div class="footer-blessing-shloka">
+        || Maangalyam Tantunaanena Mama Jeevana Hetunaa ||<br>
+        || Kanthe Badhnaami Subhage Tvam Jeeva Sharadaam Shatam ||
+      </div>
+      <div class="ornament-divider" aria-hidden="true">
+        <img src="assets/images/rangoli-motif.svg" alt="" class="divider-icon">
+      </div>
+      <p class="footer-gratitude">
+        We eagerly await the pleasure of welcoming you and your family.
+      </p>
+      <div class="footer-names text-gold-shimmer">
+        Amrutha &amp; Mohan Kumar
+      </div>
+      <p class="footer-family-blessings">
+        With the affectionate blessings of our parents &amp; family
+      </p>
+      <p class="footer-copy">
+        Davanagere, Karnataka &bull; December 2026
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       FLOATING CONTROLS & UTILITIES
+       ========================================================================= -->
+
+  <!-- Auspicious Classical Music Pill Button -->
+  <button id="audio-toggle-btn" class="floating-audio-btn" aria-label="Play Auspicious Background Music">
+    <div class="audio-icon-wrap" aria-hidden="true">
+      <div class="audio-waves">
+        <span class="audio-wave-bar"></span>
+        <span class="audio-wave-bar"></span>
+        <span class="audio-wave-bar"></span>
+      </div>
+    </div>
+    <span class="audio-label" id="audio-toggle-text">Music: Play</span>
+  </button>
+
+  <!-- Optional HTML5 audio source if an MP3 file is placed locally -->
+  <audio id="wedding-bg-audio" preload="none" aria-hidden="true">
+    <source src="assets/audio/wedding-bg.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Toast Notification -->
+  <div id="toast-notice" class="toast-notice" role="status" aria-live="polite">
+    <span id="toast-text">Notification message</span>
+  </div>
+
+  <!-- Calendar Selection Modal Dialog -->
+  <div id="calendar-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-event-title">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <h3 class="modal-title" id="modal-event-title">Save to Calendar</h3>
+      <p class="modal-desc">Select your preferred calendar service to add this celebration:</p>
+
+      <div class="calendar-options-list">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-option-item" id="google-cal-link">
+          <span>Google Calendar</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+
+        <a href="#" class="calendar-option-item" id="ical-download-btn">
+          <span>Apple Calendar / Outlook (.ics file)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP Animation Core & ScrollTrigger from Cloudflare CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/petals.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

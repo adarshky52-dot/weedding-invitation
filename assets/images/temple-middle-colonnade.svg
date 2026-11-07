@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" fill="none">
+  <defs>
+    <!-- Warm Temple Granite Gradients matching sunset lighting -->
+    <linearGradient id="midStoneGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#140A07" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#28170F" stop-opacity="0.92"/>
+      <stop offset="65%" stop-color="#462B1D" stop-opacity="0.88"/>
+      <stop offset="88%" stop-color="#6E482F" stop-opacity="0.85"/>
+      <stop offset="97%" stop-color="#C59D35" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFEFA8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="midStoneGradRight" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#140A07" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#28170F" stop-opacity="0.92"/>
+      <stop offset="65%" stop-color="#462B1D" stop-opacity="0.88"/>
+      <stop offset="88%" stop-color="#6E482F" stop-opacity="0.85"/>
+      <stop offset="97%" stop-color="#C59D35" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFEFA8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="midGoldTrim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2E4CE" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#D99A59" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#765044" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="plinthGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#422919" stop-opacity="0.9"/>
+      <stop offset="25%" stop-color="#2A1910" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#140905" stop-opacity="0.98"/>
+    </linearGradient>
+    <!-- Warm Flame Glow Filter -->
+    <filter id="lampGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <radialGradient id="diyaWarmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F2E4CE" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#E8B58D" stop-opacity="0.75"/>
+      <stop offset="70%" stop-color="#D99A59" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#D99A59" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- =======================================================================
+       LEFT SECONDARY PILLAR (Middle Ground Colonnade - Positioned at X=160..250)
+       ======================================================================= -->
+  <g id="mid-pillar-left">
+    <!-- Capital Corbel Bracket -->
+    <path d="M160 120 L270 120 C250 145 230 160 195 165 L190 190 L180 190 C180 205 170 215 160 218 Z" fill="url(#midStoneGrad)"/>
+    <path d="M195 165 C220 168 250 188 245 204 C225 198 208 188 190 188 Z" fill="url(#midGoldTrim)"/>
+    <circle cx="238" cy="206" r="3" fill="#FFEFA8"/>
+
+    <!-- Capital / Kumbha & Phalaka -->
+    <path d="M160 218 L210 218 L216 230 L204 245 L160 245 Z" fill="url(#midStoneGrad)"/>
+    <rect x="160" y="245" width="44" height="8" fill="url(#midGoldTrim)"/>
+    <path d="M160 253 L204 253 C200 266 190 276 178 276 L160 276 Z" fill="url(#midStoneGrad)"/>
+
+    <!-- Pillar Shaft (Stambha) -->
+    <rect x="160" y="276" width="34" height="480" fill="url(#midStoneGrad)"/>
+    <!-- Shaft Fluting -->
+    <line x1="168" y1="276" x2="168" y2="756" stroke="#0E0503" stroke-width="1.5"/>
+    <line x1="170" y1="276" x2="170" y2="756" stroke="#5E3D29" stroke-width="1.2"/>
+    <line x1="180" y1="276" x2="180" y2="756" stroke="#0E0503" stroke-width="1.5"/>
+    <line x1="182" y1="276" x2="182" y2="756" stroke="#7A533A" stroke-width="1.2"/>
+    <line x1="192" y1="276" x2="192" y2="756" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
+
+    <!-- Mid-Shaft Medallion Band -->
+    <rect x="160" y="490" width="38" height="22" fill="url(#midGoldTrim)"/>
+    <circle cx="177" cy="501" r="6" fill="#1C100A" stroke="#FFEFA8" stroke-width="1"/>
+
+    <!-- Base Plinth -->
+    <path d="M160 756 L202 756 L210 780 L198 800 L160 800 Z" fill="url(#midStoneGrad)"/>
+    <rect x="160" y="800" width="55" height="40" fill="url(#midStoneGrad)"/>
+  </g>
+
+  <!-- =======================================================================
+       RIGHT SECONDARY PILLAR (Middle Ground Colonnade - Positioned at X=1350..1440)
+       ======================================================================= -->
+  <g id="mid-pillar-right" transform="translate(1600, 0) scale(-1, 1)">
+    <!-- Capital Corbel Bracket -->
+    <path d="M160 120 L270 120 C250 145 230 160 195 165 L190 190 L180 190 C180 205 170 215 160 218 Z" fill="url(#midStoneGradRight)"/>
+    <path d="M195 165 C220 168 250 188 245 204 C225 198 208 188 190 188 Z" fill="url(#midGoldTrim)"/>
+    <circle cx="238" cy="206" r="3" fill="#FFEFA8"/>
+
+    <!-- Capital / Kumbha & Phalaka -->
+    <path d="M160 218 L210 218 L216 230 L204 245 L160 245 Z" fill="url(#midStoneGradRight)"/>
+    <rect x="160" y="245" width="44" height="8" fill="url(#midGoldTrim)"/>
+    <path d="M160 253 L204 253 C200 266 190 276 178 276 L160 276 Z" fill="url(#midStoneGradRight)"/>
+
+    <!-- Pillar Shaft -->
+    <rect x="160" y="276" width="34" height="480" fill="url(#midStoneGradRight)"/>
+    <!-- Shaft Fluting -->
+    <line x1="168" y1="276" x2="168" y2="756" stroke="#0E0503" stroke-width="1.5"/>
+    <line x1="170" y1="276" x2="170" y2="756" stroke="#5E3D29" stroke-width="1.2"/>
+    <line x1="180" y1="276" x2="180" y2="756" stroke="#0E0503" stroke-width="1.5"/>
+    <line x1="182" y1="276" x2="182" y2="756" stroke="#7A533A" stroke-width="1.2"/>
+    <line x1="192" y1="276" x2="192" y2="756" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
+
+    <!-- Mid-Shaft Medallion Band -->
+    <rect x="160" y="490" width="38" height="22" fill="url(#midGoldTrim)"/>
+    <circle cx="177" cy="501" r="6" fill="#1C100A" stroke="#FFEFA8" stroke-width="1"/>
+
+    <!-- Base Plinth -->
+    <path d="M160 756 L202 756 L210 780 L198 800 L160 800 Z" fill="url(#midStoneGradRight)"/>
+    <rect x="160" y="800" width="55" height="40" fill="url(#midStoneGradRight)"/>
+  </g>
+
+  <!-- =======================================================================
+       MIDDLE GROUND TEMPLE PLINTH & COURTYARD BALUSTRADE (Adhisthana)
+       Spans across lower courtyard with open center for steps
+       ======================================================================= -->
+  <!-- Left Side Balustrade -->
+  <path d="M140 810 L480 810 L490 835 L475 870 L140 870 Z" fill="url(#plinthGrad)"/>
+  <rect x="140" y="808" width="340" height="4" fill="url(#midGoldTrim)"/>
+  <rect x="140" y="866" width="335" height="3" fill="url(#midGoldTrim)"/>
+
+  <!-- Right Side Balustrade -->
+  <path d="M1120 810 L1460 810 L1460 870 L1125 870 L1110 835 Z" fill="url(#plinthGrad)"/>
+  <rect x="1120" y="808" width="340" height="4" fill="url(#midGoldTrim)"/>
+  <rect x="1125" y="866" width="335" height="3" fill="url(#midGoldTrim)"/>
+
+  <!-- =======================================================================
+       TRADITIONAL BRASS KUTHUVILAKKU OIL LAMPS (Glowing on Mid-Pillars)
+       ======================================================================= -->
+  <!-- Left Brass Lamp -->
+  <g transform="translate(230, 720)" filter="url(#lampGlow)">
+    <circle cx="0" cy="-28" r="24" fill="url(#diyaWarmGlow)"/>
+    <!-- Flame -->
+    <path d="M0 -38 C-5 -28 -4 -20 0 -16 C4 -20 5 -28 0 -38 Z" fill="#FFFBE6"/>
+    <!-- Brass Cup & Stand -->
+    <path d="M-14 -14 C-14 -18 14 -18 14 -14 C14 -4 7 0 0 0 C-7 0 -14 -4 -14 -14 Z" fill="#D4AF37"/>
+    <rect x="-2.5" y="0" width="5" height="28" fill="#D4AF37"/>
+    <ellipse cx="0" cy="28" rx="14" ry="4" fill="#C59D35"/>
+  </g>
+
+  <!-- Right Brass Lamp -->
+  <g transform="translate(1370, 720)" filter="url(#lampGlow)">
+    <circle cx="0" cy="-28" r="24" fill="url(#diyaWarmGlow)"/>
+    <!-- Flame -->
+    <path d="M0 -38 C-5 -28 -4 -20 0 -16 C4 -20 5 -28 0 -38 Z" fill="#FFFBE6"/>
+    <!-- Brass Cup & Stand -->
+    <path d="M-14 -14 C-14 -18 14 -18 14 -14 C14 -4 7 0 0 0 C-7 0 -14 -4 -14 -14 Z" fill="#D4AF37"/>
+    <rect x="-2.5" y="0" width="5" height="28" fill="#D4AF37"/>
+    <ellipse cx="0" cy="28" rx="14" ry="4" fill="#C59D35"/>
+  </g>
+</svg>
+

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="1200" height="90" fill="none">
+  <defs>
+    <linearGradient id="toranaGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A2F08" stop-opacity="0.4"/>
+      <stop offset="15%" stop-color="#D4AF37" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#FFF5D6" stop-opacity="0.98"/>
+      <stop offset="85%" stop-color="#D4AF37" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4A2F08" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="archBeamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E0204" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#2D050C" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="bellGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Top Solid Architrave Lintel Beam -->
+  <rect x="0" y="0" width="1200" height="12" fill="url(#archBeamGrad)"/>
+  <rect x="0" y="12" width="1200" height="3" fill="url(#toranaGold)"/>
+
+  <!-- Ornate Auspicious Centerpiece (Kalasha / Sacred Lotus Medallion) -->
+  <g transform="translate(600, 15)" filter="url(#bellGlow)">
+    <circle cx="0" cy="12" r="13" fill="#1A0408" stroke="#D4AF37" stroke-width="1.5"/>
+    <circle cx="0" cy="12" r="9" fill="#3D0812"/>
+    <circle cx="0" cy="12" r="3.5" fill="#FFF5D6"/>
+    <!-- Crest finials -->
+    <path d="M0 -1 L2.5 7 L-2.5 7 Z" fill="#FFE89E"/>
+    <path d="M-8 4 L-2 7 L-6 10 Z" fill="#D4AF37"/>
+    <path d="M8 4 L6 10 L2 7 Z" fill="#D4AF37"/>
+  </g>
+
+  <!-- Flowing Garland Swag (Double scalloped traditional torana) -->
+  <path d="M40 15 C200 42 420 56 560 36 C575 32 625 32 640 36 C780 56 1000 42 1160 15" stroke="url(#toranaGold)" stroke-width="2.5" fill="none"/>
+  <path d="M80 15 C240 54 420 68 555 48 C570 44 630 44 645 48 C780 68 960 54 1120 15" stroke="url(#toranaGold)" stroke-width="1.2" stroke-dasharray="6,4" fill="none" opacity="0.8"/>
+
+  <!-- Symmetrical Hanging Sacred Temple Bells & Mango Leaf Tassels (Ghanta) -->
+  <!-- Center-Left Bell -->
+  <g transform="translate(480, 48)" filter="url(#bellGlow)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
+    <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
+    <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
+  </g>
+
+  <!-- Mid-Left Bell -->
+  <g transform="translate(320, 40)" filter="url(#bellGlow)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
+    <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
+    <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
+  </g>
+
+  <!-- Outer-Left Bell -->
+  <g transform="translate(180, 28)" filter="url(#bellGlow)">
+    <line x1="0" y1="0" x2="0" y2="16" stroke="#D4AF37" stroke-width="1.5"/>
+    <polygon points="-5,16 5,16 0,25" fill="url(#toranaGold)"/>
+    <circle cx="0" cy="27" r="2" fill="#FFF5D6"/>
+  </g>
+
+  <!-- Center-Right Bell -->
+  <g transform="translate(720, 48)" filter="url(#bellGlow)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
+    <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
+    <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
+  </g>
+
+  <!-- Mid-Right Bell -->
+  <g transform="translate(880, 40)" filter="url(#bellGlow)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#D4AF37" stroke-width="1.5"/>
+    <polygon points="-6,18 6,18 0,28" fill="url(#toranaGold)"/>
+    <circle cx="0" cy="30" r="2.2" fill="#FFF5D6"/>
+  </g>
+
+  <!-- Outer-Right Bell -->
+  <g transform="translate(1020, 28)" filter="url(#bellGlow)">
+    <line x1="0" y1="0" x2="0" y2="16" stroke="#D4AF37" stroke-width="1.5"/>
+    <polygon points="-5,16 5,16 0,25" fill="url(#toranaGold)"/>
+    <circle cx="0" cy="27" r="2" fill="#FFF5D6"/>
+  </g>
+</svg>

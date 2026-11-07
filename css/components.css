@@ -1,0 +1,1402 @@
+/* ==========================================================================
+   Component Styles
+   Amrutha & Mohan Kumar Wedding Invitation
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Floating Petals Canvas
+   -------------------------------------------------------------------------- */
+#petals-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: var(--z-canvas-petals);
+}
+
+/* --------------------------------------------------------------------------
+   2. Cinematic Parallax Hero Section
+   -------------------------------------------------------------------------- */
+.hero-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--maroon-950);
+  perspective: 1200px; /* Enables realistic 3D perspective depth */
+}
+
+/* Parallax 3D Scene Wrapper (hosts multi-depth layers and subtle perspective tilt) */
+.parallax-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Parallax Layers with Realistic Depth */
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Layer 1: Atmospheric Golden Sunset Sky Horizon (Movement: ~4px) */
+.layer-sky {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sky-sunset-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  transform: scale(1.08); /* Pre-scale prevents edge clipping on parallax moves */
+  filter: brightness(0.97) contrast(1.02) saturate(1.05); /* Tamed brightest highlight behind typography */
+  will-change: transform;
+  animation: skyAmbientDrift 36s ease-in-out infinite alternate;
+}
+
+/* Animated Volumetric Sunrise Light Rays (God Rays radiating from dawn horizon) */
+.layer-light-rays {
+  z-index: 2;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.light-ray {
+  position: absolute;
+  top: -25%;
+  transform-origin: top center;
+  height: 170%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 240, 205, 0.22) 0%,
+    rgba(232, 181, 141, 0.12) 40%,
+    rgba(217, 154, 89, 0.04) 65%,
+    transparent 85%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+  animation: lightRayDrift 18s ease-in-out infinite alternate;
+}
+
+.light-ray.ray-1 {
+  left: 54%;
+  width: clamp(120px, 15vw, 260px);
+  animation-duration: 22s;
+  animation-delay: -3s;
+}
+
+.light-ray.ray-2 {
+  left: 68%;
+  width: clamp(160px, 20vw, 340px);
+  animation-duration: 18s;
+}
+
+.light-ray.ray-3 {
+  left: 82%;
+  width: clamp(100px, 12vw, 220px);
+  animation-duration: 25s;
+  animation-delay: -8s;
+}
+
+/* Soft, subtle sunrise horizon glow (Non-blinding ambient dawn light) */
+.golden-sun-orb {
+  position: absolute;
+  top: 25%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  width: clamp(200px, 24vw, 360px);
+  height: clamp(200px, 24vw, 360px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(242, 228, 206, 0.20) 0%,   /* Soft warm ivory */
+    rgba(232, 181, 141, 0.08) 40%,  /* Warm sunset peach */
+    transparent 75%
+  );
+  filter: blur(44px);
+  opacity: 0.25;
+  animation: sunPulse 7s ease-in-out infinite alternate;
+}
+
+/* Layer 2: Central Temple Gopuram & Sanctum (Dominant High-Res Photograph) */
+.layer-temple-photo {
+  z-index: 2;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.temple-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%; /* Perfectly frames soaring gopuram kalasam & courtyard */
+  filter: brightness(1.02) contrast(1.02) saturate(1.04); /* Pristine natural illumination */
+  transform: scale(1.05); /* Slight pre-scale prevents edge clipping on parallax moves */
+  transform-origin: center center;
+  /* Seamless upper-right sky blend: reveals Layer 1 sunrise sky while keeping left gopuram & courtyard 100% solid */
+  -webkit-mask-image: radial-gradient(
+    ellipse 65% 55% at 75% 20%,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.85) 75%,
+    black 90%,
+    black 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 65% 55% at 75% 20%,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.85) 75%,
+    black 90%,
+    black 100%
+  );
+}
+
+/* Warm Peach & Golden-Hour Ambient Lighting Tint */
+.layer-golden-light {
+  z-index: 3;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 60% 32%,
+    rgba(232, 181, 141, 0.15) 0%,   /* #E8B58D warm sunset peach aligned with photo's sunset */
+    rgba(217, 154, 89, 0.06) 45%,   /* #D99A59 soft antique gold */
+    transparent 78%
+  );
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+/* Layer 5: Subtle Ambient Cursor-Follow Light Glow (Movement: ~30px) */
+.layer-cursor-glow {
+  z-index: 4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(380px, 48vw, 680px);
+  height: clamp(380px, 48vw, 680px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(242, 228, 206, 0.14) 0%,   /* #F2E4CE warm ivory */
+    rgba(232, 181, 141, 0.07) 38%,  /* #E8B58D warm sunset peach */
+    transparent 70%
+  );
+  filter: blur(52px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.65;
+  will-change: transform;
+}
+
+/* Layer 3: Middle Architectural Layer (Hidden so authentic photograph remains visually dominant) */
+.layer-middle-colonnade {
+  display: none;
+}
+
+/* Layer 3B: Middle Architectural Torana Mandapam Arch with Hanging Bells */
+.layer-arch {
+  z-index: 6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0.90;
+  transform-origin: top center;
+  will-change: transform;
+}
+
+.layer-arch img {
+  width: 100%;
+  max-width: 1300px;
+  height: auto;
+  max-height: 70px;
+  object-fit: contain;
+  object-position: top center;
+  filter: drop-shadow(0 4px 12px rgba(28, 16, 14, 0.7));
+  transform-origin: top center;
+  animation: toranaSway 7.5s ease-in-out infinite alternate;
+}
+
+/* Natural Temple Scrim / Light Atmosphere Vignette (Protects text readability while revealing full temple architecture & courtyard) */
+.layer-scrim {
+  z-index: 7;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 48%,
+    rgba(24, 15, 13, 0.16) 0%,      /* Soft, minimal translucent center veil */
+    rgba(20, 13, 11, 0.08) 50%,      /* Clears out so gopuram and golden sky shine through */
+    rgba(14, 9, 8, 0.32) 100%        /* Soft natural edge vignette */
+  ),
+  linear-gradient(
+    180deg,
+    rgba(18, 12, 14, 0.15) 0%,       /* Gentle top shading for invocation */
+    transparent 16%,
+    transparent 76%,
+    rgba(18, 11, 10, 0.32) 100%      /* Lifted shadows: temple courtyard & devotees remain clearly visible */
+  );
+  pointer-events: none;
+}
+
+/* Layer 4: Foreground Symmetrical Dravidian Stone Framing Pillars (Organic Horizontal Dissolve into Photograph) */
+.layer-pillar-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  width: clamp(38px, 4.6vw, 75px);
+  height: 100%;
+  z-index: 8;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.45));
+  opacity: 0.65;
+  transform-origin: left center;
+  will-change: transform;
+  /* Smooth horizontal dissolve into the temple photograph - eliminates any rectangular panel edge */
+  -webkit-mask-image: linear-gradient(to right, black 25%, rgba(0, 0, 0, 0.7) 65%, transparent 100%);
+  mask-image: linear-gradient(to right, black 25%, rgba(0, 0, 0, 0.7) 65%, transparent 100%);
+}
+
+.layer-pillar-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  width: clamp(38px, 4.6vw, 75px);
+  height: 100%;
+  z-index: 8;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.45));
+  opacity: 0.65;
+  transform-origin: right center;
+  will-change: transform;
+  /* Smooth horizontal dissolve into the temple photograph - eliminates any rectangular panel edge */
+  -webkit-mask-image: linear-gradient(to left, black 25%, rgba(0, 0, 0, 0.7) 65%, transparent 100%);
+  mask-image: linear-gradient(to left, black 25%, rgba(0, 0, 0, 0.7) 65%, transparent 100%);
+}
+
+.layer-pillar-left img,
+.layer-pillar-right img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+/* Foreground Auspicious Temple Deepams (Sacred Flickering Oil Lamps) */
+.foreground-diya {
+  position: absolute;
+  bottom: clamp(1.2rem, 3.2vh, 2.5rem);
+  z-index: 9;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.75));
+  will-change: transform;
+}
+
+.foreground-diya.diya-left {
+  left: clamp(1.2rem, 3.5vw, 3.5rem);
+}
+
+.foreground-diya.diya-right {
+  right: clamp(1.2rem, 3.5vw, 3.5rem);
+}
+
+.foreground-diya img {
+  width: clamp(38px, 4.2vw, 56px);
+  height: auto;
+  display: block;
+}
+
+/* Warm breathing aura behind the deepam flame */
+.foreground-diya::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(50px, 7vw, 90px);
+  height: clamp(50px, 7vw, 90px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 110, 0.40) 0%,
+    rgba(217, 154, 89, 0.18) 40%,
+    transparent 70%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+  animation: diyaAuraPulse 3.8s ease-in-out infinite alternate;
+}
+
+/* Hero Content: Spacious Luxury Wedding Editorial Composition */
+.hero-content {
+  position: relative;
+  z-index: var(--z-content);
+  text-align: center;
+  padding: clamp(1.75rem, 4.5vh, 4rem) clamp(1.25rem, 4vw, 3.5rem);
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Localized warm translucent contrast backing behind central typography (Feathered - never looks like a box) */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 740px;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 58% 52% at 50% 50%,
+    rgba(24, 14, 12, 0.38) 0%,
+    rgba(20, 12, 10, 0.22) 50%,
+    rgba(16, 10, 9, 0.08) 75%,
+    transparent 90%
+  );
+  filter: blur(34px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.38rem 1.3rem;
+  border-radius: var(--radius-pill);
+  background: rgba(113, 60, 56, 0.45); /* Muted wedding maroon #713C38 glass accent */
+  border: 1px solid rgba(217, 154, 89, 0.45); /* Soft antique gold #D99A59 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-title);
+  font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-ivory); /* #F2E4CE warm ivory */
+  margin-bottom: clamp(0.85rem, 2vh, 1.6rem);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), inset 0 0 10px rgba(217, 154, 89, 0.12);
+}
+
+.couple-names-wrapper {
+  margin: clamp(0.2rem, 0.8vh, 0.6rem) 0 clamp(0.3rem, 1vh, 0.8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.couple-name {
+  display: block;
+  font-family: var(--font-names);
+  font-size: clamp(2.5rem, 1.8rem + 3.6vw, 4.8rem);
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.05;
+  color: #FFFFFF;
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #F7EFE4 22%,       /* Luminous warm ivory */
+    #E8B58D 45%,       /* Soft warm sunset peach */
+    #FFFFFF 55%,       /* Soft gold shimmer glint */
+    #C68444 75%,       /* Rich antique gold with depth */
+    #9E5D24 100%       /* Deep burnished antique bronze-gold definition */
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmerSweep 9s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.98))
+          drop-shadow(0 4px 14px rgba(18, 9, 8, 0.92))
+          drop-shadow(0 8px 30px rgba(0, 0, 0, 0.65));
+}
+
+.couple-ampersand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-names);
+  font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.9rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--antique-gold); /* #D99A59 */
+  margin: -0.1rem 0;
+  opacity: 0.95;
+  position: relative;
+}
+
+.couple-ampersand::before,
+.couple-ampersand::after {
+  content: '';
+  display: inline-block;
+  width: clamp(22px, 3.5vw, 48px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--antique-gold));
+  margin: 0 clamp(0.5rem, 1.2vw, 1rem);
+}
+
+.couple-ampersand::after {
+  background: linear-gradient(90deg, var(--antique-gold), transparent);
+}
+
+.invitation-quote {
+  font-family: var(--font-title);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+  color: var(--warm-ivory); /* #F2E4CE */
+  font-style: italic;
+  font-weight: 400;
+  max-width: 540px;
+  margin: 0 auto clamp(1rem, 2.4vh, 2rem);
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+  text-shadow: 0 2px 10px rgba(18, 10, 8, 0.95), 0 0 22px rgba(35, 18, 14, 0.6);
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: clamp(1rem, 2.5vh, 2.2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: var(--z-content);
+  color: var(--antique-gold);
+  font-family: var(--font-title);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity var(--duration-normal);
+  text-decoration: none;
+}
+
+.scroll-hint:hover {
+  opacity: 1;
+}
+
+.scroll-hint-mouse {
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid var(--antique-gold);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-hint-mouse::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 6px;
+  background-color: var(--antique-gold);
+  border-radius: 2px;
+  animation: scrollWheel 2s ease infinite;
+}
+
+/* --------------------------------------------------------------------------
+   3. Buttons & Interactive Controls
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  background: linear-gradient(135deg, #F2E4CE 0%, #D99A59 45%, #B98A45 100%);
+  color: #2F1412; /* Deep muted temple maroon text */
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(185, 138, 69, 0.4);
+  box-shadow: 0 8px 25px rgba(185, 138, 69, 0.28), 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all var(--duration-normal) var(--ease-cinematic);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+}
+
+.btn-primary:hover::after {
+  left: 140%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(185, 138, 69, 0.45), 0 4px 10px rgba(0, 0, 0, 0.25);
+  color: #1F0D0C;
+}
+
+/* Secondary Button: Refined Warm Ivory Parchment with Antique Gold Border */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  background: rgba(247, 240, 229, 0.95);
+  color: var(--color-deep-text);
+  border: 1.5px solid var(--color-antique-gold);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--duration-normal) var(--ease-cinematic);
+  box-shadow: 0 4px 15px rgba(118, 80, 68, 0.08);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--color-muted-maroon);
+  border-color: var(--color-muted-maroon);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(113, 60, 56, 0.35);
+}
+
+/* Hero Section Specialization: Preserves Approved Translucent Maroon Glass Styling in Hero */
+.hero-actions .btn-secondary {
+  background: rgba(113, 60, 56, 0.55);
+  color: var(--warm-ivory);
+  border: 1px solid rgba(217, 154, 89, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-actions .btn-secondary:hover {
+  background: rgba(113, 60, 56, 0.85);
+  border-color: var(--antique-gold);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(113, 60, 56, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   4. Section Headers & Ornamental Layout
+   -------------------------------------------------------------------------- */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vh, 3.5rem);
+  position: relative;
+}
+
+.section-tagline {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.85rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-antique-gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  color: var(--color-deep-text);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-title);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+  color: var(--color-temple-brown);
+  font-style: italic;
+  max-width: 620px;
+  margin: 0.4rem auto 0;
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   5. Family Lineage & Divine Blessings Section
+   -------------------------------------------------------------------------- */
+.family-section {
+  position: relative;
+  background: linear-gradient(180deg, #FBF7F0 0%, var(--color-ivory) 45%, #F4EADB 100%);
+  border-top: 1px solid rgba(185, 138, 69, 0.28);
+  border-bottom: 1px solid rgba(185, 138, 69, 0.28);
+  padding: clamp(3.5rem, 7vh, 6rem) 0;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  margin-top: var(--space-lg);
+}
+
+.family-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 138, 69, 0.35);
+  outline: 1px solid rgba(185, 138, 69, 0.18);
+  outline-offset: -8px;
+  border-radius: var(--radius-md);
+  padding: clamp(2.5rem, 5vw, 3.75rem) clamp(1.75rem, 4vw, 3rem);
+  text-align: center;
+  box-shadow: 0 12px 35px -8px rgba(118, 80, 68, 0.08), 0 2px 6px rgba(118, 80, 68, 0.04);
+  transition: transform var(--duration-normal) var(--ease-cinematic), box-shadow var(--duration-normal) ease;
+  overflow: hidden;
+}
+
+.family-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-antique-gold), transparent);
+}
+
+.family-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -10px rgba(118, 80, 68, 0.14), 0 0 1px 1px rgba(185, 138, 69, 0.4);
+}
+
+.family-card-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 1.25rem;
+  filter: drop-shadow(0 2px 6px rgba(185, 138, 69, 0.3));
+  opacity: 0.95;
+}
+
+.family-side {
+  font-family: var(--font-title);
+  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem);
+  color: var(--color-antique-gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.child-name {
+  font-family: var(--font-names);
+  font-size: clamp(2rem, 1.8rem + 1vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  color: var(--color-deep-text);
+  margin-bottom: 0.4rem;
+}
+
+.relation-label {
+  font-family: var(--font-title);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-temple-brown);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.relation-label::before,
+.relation-label::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: rgba(185, 138, 69, 0.35);
+  vertical-align: middle;
+  margin: 0 0.6rem;
+}
+
+.parents-names {
+  font-family: var(--font-title);
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+  color: var(--color-deep-text);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.015em;
+}
+
+/* Delicate Antique Gold Corner Flourishes */
+.card-flourish {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.card-flourish.top-left {
+  top: 14px;
+  left: 14px;
+  border-top: 1.5px solid var(--color-antique-gold);
+  border-left: 1.5px solid var(--color-antique-gold);
+}
+
+.card-flourish.top-right {
+  top: 14px;
+  right: 14px;
+  border-top: 1.5px solid var(--color-antique-gold);
+  border-right: 1.5px solid var(--color-antique-gold);
+}
+
+.card-flourish.bottom-left {
+  bottom: 14px;
+  left: 14px;
+  border-bottom: 1.5px solid var(--color-antique-gold);
+  border-left: 1.5px solid var(--color-antique-gold);
+}
+
+.card-flourish.bottom-right {
+  bottom: 14px;
+  right: 14px;
+  border-bottom: 1.5px solid var(--color-antique-gold);
+  border-right: 1.5px solid var(--color-antique-gold);
+}
+
+/* --------------------------------------------------------------------------
+   6. Auspicious Wedding Events & Sacred Muhurtham Section
+   -------------------------------------------------------------------------- */
+.events-section {
+  position: relative;
+  background: linear-gradient(180deg, #F4EADB 0%, var(--color-champagne) 50%, #F1E2CD 100%);
+  padding: clamp(3.5rem, 7vh, 6rem) 0;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-top: var(--space-xl);
+}
+
+.event-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 138, 69, 0.4);
+  outline: 1px solid rgba(185, 138, 69, 0.2);
+  outline-offset: -8px;
+  border-radius: var(--radius-md);
+  padding: clamp(2.5rem, 4.5vw, 3.5rem) clamp(1.8rem, 3.5vw, 2.75rem);
+  box-shadow: 0 15px 35px -8px rgba(118, 80, 68, 0.1), 0 0 1px 1px rgba(185, 138, 69, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration-normal) var(--ease-cinematic), box-shadow var(--duration-normal) ease;
+  overflow: hidden;
+}
+
+.event-card.featured-card {
+  border: 1.5px solid var(--color-antique-gold);
+  outline: 1px solid rgba(185, 138, 69, 0.35);
+  outline-offset: -8px;
+  box-shadow: 0 20px 45px -8px rgba(118, 80, 68, 0.16), 0 0 20px rgba(185, 138, 69, 0.15);
+}
+
+.event-card.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #D99A59 0%, #B98A45 50%, #713C38 100%);
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px -10px rgba(118, 80, 68, 0.18), 0 0 25px rgba(185, 138, 69, 0.25);
+}
+
+.event-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.event-badge {
+  display: inline-block;
+  padding: 0.35rem 1.15rem;
+  font-family: var(--font-title);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-temple-brown);
+  background: rgba(185, 138, 69, 0.12);
+  border: 1px solid rgba(185, 138, 69, 0.35);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.featured-card .event-badge {
+  background: var(--color-muted-maroon);
+  color: #F7F0E5;
+  border-color: var(--color-muted-maroon);
+  box-shadow: 0 3px 10px rgba(113, 60, 56, 0.3);
+}
+
+.event-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.2vw, 2.4rem);
+  color: var(--color-deep-text);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.event-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 240, 229, 0.65);
+  border: 1px dashed rgba(185, 138, 69, 0.45);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  margin: var(--space-md) 0;
+  text-align: center;
+}
+
+.event-day-name {
+  font-family: var(--font-title);
+  font-size: var(--text-sm);
+  color: var(--color-antique-gold);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.event-day-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.2vw, 3.8rem);
+  color: var(--color-antique-gold);
+  font-weight: 600;
+  line-height: 1;
+  margin: 0.25rem 0;
+  text-shadow: 0 1px 2px rgba(118, 80, 68, 0.15);
+}
+
+.event-month-year {
+  font-family: var(--font-title);
+  font-size: var(--text-base);
+  color: var(--color-temple-brown);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.event-details-list {
+  list-style: none;
+  margin: var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  flex-grow: 1;
+}
+
+.event-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-deep-text);
+  line-height: 1.5;
+}
+
+.event-detail-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-antique-gold);
+}
+
+.lagna-highlight {
+  background: rgba(232, 212, 181, 0.45);
+  border-left: 3.5px solid var(--color-antique-gold);
+  padding: 0.75rem 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--color-deep-text);
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+}
+
+.event-actions {
+  margin-top: var(--space-md);
+}
+
+.event-actions .btn-secondary,
+.event-actions .btn-primary {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   7. Live Wedding Countdown Section
+   -------------------------------------------------------------------------- */
+.countdown-section {
+  position: relative;
+  text-align: center;
+  padding: clamp(3.5rem, 7vh, 5.5rem) 0;
+  background: linear-gradient(180deg, #F1E2CD 0%, var(--color-ivory) 50%, #F5EDE0 100%);
+  border-top: 1px solid rgba(185, 138, 69, 0.28);
+  border-bottom: 1px solid rgba(185, 138, 69, 0.28);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  max-width: 680px;
+  margin: clamp(1.5rem, 3.5vh, 2.5rem) auto 0;
+}
+
+.countdown-box {
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 138, 69, 0.4);
+  outline: 1px solid rgba(185, 138, 69, 0.2);
+  outline-offset: -5px;
+  border-radius: var(--radius-md);
+  padding: clamp(1.2rem, 3vw, 2rem) clamp(0.6rem, 1.8vw, 1.4rem);
+  box-shadow: 0 8px 24px -4px rgba(118, 80, 68, 0.08), inset 0 0 10px rgba(232, 212, 181, 0.25);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-cinematic);
+}
+
+.countdown-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -6px rgba(118, 80, 68, 0.14);
+}
+
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--color-antique-gold);
+}
+
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  color: var(--color-antique-gold);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 2px rgba(118, 80, 68, 0.15);
+}
+
+.countdown-label {
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 0.65rem + 0.15vw, 0.8rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-temple-brown);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. Venue & Location Section
+   -------------------------------------------------------------------------- */
+.venue-section {
+  position: relative;
+  padding: clamp(3.5rem, 7vh, 6rem) 0;
+  background: linear-gradient(180deg, #F5EDE0 0%, var(--color-champagne) 50%, #EBDBC2 100%);
+}
+
+.venue-card-wrapper {
+  max-width: 860px;
+  margin: var(--space-lg) auto 0;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 138, 69, 0.4);
+  outline: 1px solid rgba(185, 138, 69, 0.2);
+  outline-offset: -8px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 45px -8px rgba(118, 80, 68, 0.12);
+  overflow: hidden;
+  position: relative;
+}
+
+.venue-card-inner {
+  padding: clamp(2.2rem, 5vw, 3.5rem) clamp(1.75rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.venue-kalyana-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  color: var(--color-deep-text);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.venue-address-text {
+  font-family: var(--font-title);
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+  color: var(--color-temple-brown);
+  line-height: 1.65;
+  max-width: 580px;
+  margin: 0 auto clamp(1.25rem, 3vh, 2rem);
+}
+
+.venue-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: var(--space-md);
+}
+
+.venue-map-container {
+  width: 100%;
+  height: clamp(280px, 40vh, 400px);
+  position: relative;
+  background: #E8D4B5;
+  border-top: 1px solid rgba(185, 138, 69, 0.35);
+}
+
+.venue-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: contrast(1.02) saturate(0.95);
+}
+
+/* --------------------------------------------------------------------------
+   9. Floating Audio Controller & Utilities
+   -------------------------------------------------------------------------- */
+.floating-audio-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: var(--z-floating-ui);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.25rem;
+  background: rgba(247, 240, 229, 0.94);
+  border: 1.5px solid var(--color-antique-gold);
+  border-radius: var(--radius-pill);
+  color: var(--color-deep-text);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(118, 80, 68, 0.18), 0 0 1px 1px rgba(185, 138, 69, 0.35);
+  transition: all var(--duration-normal) var(--ease-cinematic);
+}
+
+.floating-audio-btn:hover {
+  transform: scale(1.05);
+  background: #FFFFFF;
+  border-color: var(--color-muted-maroon);
+  color: var(--color-muted-maroon);
+  box-shadow: 0 10px 30px rgba(113, 60, 56, 0.22);
+}
+
+.audio-icon-wrap {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.audio-waves {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.audio-wave-bar {
+  width: 2px;
+  background: var(--color-antique-gold);
+  border-radius: 1px;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+
+.audio-playing .audio-wave-bar:nth-child(1) {
+  animation: waveAnim 1s ease-in-out infinite 0.1s alternate;
+}
+.audio-playing .audio-wave-bar:nth-child(2) {
+  animation: waveAnim 1.2s ease-in-out infinite 0.25s alternate;
+}
+.audio-playing .audio-wave-bar:nth-child(3) {
+  animation: waveAnim 0.8s ease-in-out infinite 0.4s alternate;
+}
+
+.audio-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   10. Toast Notification Alert
+   -------------------------------------------------------------------------- */
+.toast-notice {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  z-index: var(--z-modal);
+  background: rgba(247, 240, 229, 0.96);
+  border: 1.5px solid var(--color-antique-gold);
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.6rem;
+  color: var(--color-deep-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(118, 80, 68, 0.2), 0 0 1px 1px rgba(185, 138, 69, 0.35);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s var(--ease-cinematic), opacity 0.4s ease;
+}
+
+.toast-notice.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   11. Calendar Selection Modal Dialog
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: rgba(57, 44, 39, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 480px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-antique-gold);
+  outline: 1px solid rgba(185, 138, 69, 0.25);
+  outline-offset: -8px;
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 2.75rem);
+  box-shadow: 0 25px 60px rgba(57, 44, 39, 0.3), 0 0 25px rgba(185, 138, 69, 0.2);
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s var(--ease-cinematic);
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  color: var(--color-temple-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(185, 138, 69, 0.15);
+  color: var(--color-deep-text);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-deep-text);
+  margin-bottom: 0.5rem;
+}
+
+.modal-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-temple-brown);
+  margin-bottom: 1.5rem;
+}
+
+.calendar-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.calendar-option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1.25rem;
+  background: var(--color-ivory);
+  border: 1px solid rgba(185, 138, 69, 0.35);
+  border-radius: var(--radius-md);
+  color: var(--color-deep-text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.calendar-option-item:hover {
+  background: var(--color-champagne);
+  border-color: var(--color-antique-gold);
+  color: var(--color-muted-maroon);
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer & Traditional Closing Section
+   -------------------------------------------------------------------------- */
+.footer-section {
+  position: relative;
+  text-align: center;
+  padding: clamp(3.5rem, 7vh, 5.5rem) 0 clamp(2.5rem, 5vh, 3.5rem);
+  background: linear-gradient(180deg, #EBDBC2 0%, #E2CEB2 100%);
+  border-top: 1.5px solid rgba(185, 138, 69, 0.4);
+}
+
+.footer-blessing-shloka {
+  font-family: var(--font-title);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+  color: var(--color-temple-brown);
+  letter-spacing: 0.12em;
+  line-height: 1.85;
+  margin-bottom: var(--space-sm);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.footer-gratitude {
+  font-family: var(--font-title);
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+  color: var(--color-deep-text);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.footer-names {
+  font-family: var(--font-names);
+  font-size: clamp(2.2rem, 1.8rem + 1.6vw, 3.2rem);
+  font-weight: 600;
+  color: var(--color-deep-text);
+  margin-bottom: 0.5rem;
+}
+
+.footer-family-blessings {
+  font-family: var(--font-title);
+  font-size: var(--text-sm);
+  color: var(--color-temple-brown);
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+}
+
+.footer-copy {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.68rem + 0.15vw, 0.8rem);
+  color: var(--color-temple-brown);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+

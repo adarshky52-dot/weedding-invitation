@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Base Styles & Reset
+   Amrutha & Mohan Kumar Wedding Invitation
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-ivory);
+  color: var(--color-deep-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  selection-background-color: var(--color-antique-gold);
+  selection-color: #FFFFFF;
+}
+
+::selection {
+  background: var(--color-antique-gold);
+  color: #FFFFFF;
+}
+
+/* Subtle background traditional paper warmth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 25%, rgba(185, 138, 69, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(118, 80, 68, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(118, 80, 68, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: var(--z-bg);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-deep-text);
+  letter-spacing: 0.03em;
+}
+
+p {
+  color: var(--color-temple-brown);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-antique-gold);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+a:hover, a:focus-visible {
+  color: var(--color-muted-maroon);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gold-300);
+  outline-offset: 4px;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.container-narrow {
+  max-width: 840px;
+}
+
+/* Section Wrapper */
+.section {
+  position: relative;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  overflow: hidden;
+}
+
+/* Golden text styling */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #5C3224 0%, #B98A45 50%, #765044 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #B98A45 0%,
+    #D99A59 25%,
+    #F7F0E5 50%,
+    #B98A45 75%,
+    #765044 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 7s linear infinite;
+  display: inline-block;
+}
+
+/* Subtle traditional decorative divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: var(--space-md) auto;
+  max-width: 320px;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-antique-gold), transparent);
+}
+
+.ornament-divider .divider-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  opacity: 0.90;
+  filter: drop-shadow(0 1px 4px rgba(118, 80, 68, 0.25));
+}
+
+/* Sacred Sanskrit Invocation header */
+.sacred-invocation {
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.88rem);
+  letter-spacing: 0.18em;
+  color: #F7EFE2; /* Crisp warm ivory */
+  opacity: 0.98;
+  text-transform: uppercase;
+  margin-bottom: clamp(0.6rem, 1.4vh, 1.1rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: rgba(22, 13, 11, 0.42); /* Localized translucent warm backing */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(217, 154, 89, 0.30);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
