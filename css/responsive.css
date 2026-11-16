@@ -36,6 +36,10 @@
    Mobile Devices (<= 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
   .section {
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);

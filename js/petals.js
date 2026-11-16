@@ -37,9 +37,9 @@
 
   // Dynamic device-based density tuning (keeps 60fps and elegant whisper-light density)
   const isMobile = width <= 768;
-  const PETAL_COUNT = isMobile ? 5 : 9;
-  const MOTE_COUNT = isMobile ? 16 : 28;
-  const MAX_TRAIL_SPARKS = isMobile ? 10 : 16;
+  const PETAL_COUNT = isMobile ? 3 : 9;
+  const MOTE_COUNT = isMobile ? 8 : 28;
+  const MAX_TRAIL_SPARKS = isMobile ? 0 : 16;
 
   // Petal Palette - Soft, translucent and elegant (Warm Sunset Temple Palette)
   const PETAL_TYPES = [
@@ -376,8 +376,10 @@
     }, 450);
   }
 
-  window.addEventListener('mousemove', handlePointerMove, { passive: true });
-  window.addEventListener('touchmove', handlePointerMove, { passive: true });
+  // Only desktop mouse spawns trail sparks; mobile touch scrolling remains completely unburdened
+  if (!isMobile) {
+    window.addEventListener('mousemove', handlePointerMove, { passive: true });
+  }
 
   // Handle Resize
   window.addEventListener('resize', () => {

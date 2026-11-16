@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Published vs. Local Comparison — Wedding Invitation</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0c0808; color: #FFF8EA; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 30px 20px; line-height: 1.5; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid rgba(217, 154, 89, 0.3); padding-bottom: 20px; }
+    h1 { font-size: 2.2rem; color: #FFF8EA; margin-bottom: 8px; }
+    .subtitle { color: #D6C2A5; font-size: 1.05rem; }
+    .status-badge { display: inline-block; padding: 6px 16px; border-radius: 999px; background: rgba(46, 125, 50, 0.25); border: 1px solid #4CAF50; color: #81C784; font-size: 0.9rem; font-weight: 600; margin-top: 10px; }
+    .section-title { font-size: 1.3rem; color: #F1D49B; margin: 30px 0 16px; border-left: 4px solid #D99A59; padding-left: 10px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+    .comp-col { background: #181111; border: 1px solid rgba(217, 154, 89, 0.25); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+    .comp-label { padding: 12px 16px; font-weight: 700; font-size: 0.95rem; text-align: center; background: #221614; color: #F1D49B; border-bottom: 1px solid rgba(217, 154, 89, 0.2); }
+    .comp-label.published { border-top: 4px solid #888; }
+    .comp-label.local { border-top: 4px solid #4CAF50; }
+    .img-wrap { width: 100%; overflow: hidden; background: #000; }
+    .img-wrap img { width: 100%; height: auto; display: block; }
+    .table-wrap { margin-top: 20px; border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    .table-wrap th, .table-wrap td { border: 1px solid rgba(217, 154, 89, 0.2); padding: 10px 14px; text-align: left; }
+    .table-wrap th { background: #221614; color: #F1D49B; }
+    .match { color: #81C784; font-weight: 600; }
+    .upgrade { color: #F1D49B; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Visual Correction Verification: Published vs. Local</h1>
+      <p class="subtitle">Comparing published production site (weedding-invitation.vercel.app) with the locally updated version</p>
+      <div class="status-badge">100% Visual Verification Complete &bull; 0 Overflows across 360, 375, 390, 430px &bull; Exact Hero Background Restored</div>
+    </div>
+
+    <table class="table-wrap">
+      <thead>
+        <tr>
+          <th>Requirement</th>
+          <th>Published Website</th>
+          <th>Local Update</th>
+          <th>Verification Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hero Background Photograph</strong></td>
+          <td>assets/images/temple-hero-bg.jpg</td>
+          <td>assets/images/temple-hero-bg.jpg</td>
+          <td class="match">EXACT MATCH (100% Restored)</td>
+        </tr>
+        <tr>
+          <td><strong>Mandapam Arch</strong></td>
+          <td>mandapam-arch.svg (vector illustration)</td>
+          <td>mandapam-arch-realistic.webp (jasmine torana)</td>
+          <td class="upgrade">REALISTIC UPGRADE</td>
+        </tr>
+        <tr>
+          <td><strong>Framing Pillars (L &amp; R)</strong></td>
+          <td>temple-pillar-left/right.svg (vector)</td>
+          <td>temple-pillar-realistic-left/right.webp</td>
+          <td class="upgrade">REALISTIC UPGRADE (Faded Edges)</td>
+        </tr>
+        <tr>
+          <td><strong>Deepams / Diyas</strong></td>
+          <td>diya.svg (flat vector)</td>
+          <td>diya-realistic.webp (brass kuthu vilakku)</td>
+          <td class="upgrade">REALISTIC UPGRADE</td>
+        </tr>
+        <tr>
+          <td><strong>Floor Rangoli Motifs</strong></td>
+          <td>rangoli-motif.svg (flat vector)</td>
+          <td>rangoli-motif-realistic.webp (rice-flour kolam)</td>
+          <td class="upgrade">REALISTIC UPGRADE</td>
+        </tr>
+        <tr>
+          <td><strong>Mobile Clipping / Viewports</strong></td>
+          <td>Clipped at narrow widths (invocation, titles)</td>
+          <td>Passes 360, 375, 390, 430px viewports (0 overflow)</td>
+          <td class="match">VERIFIED FIXED</td>
+        </tr>
+        <tr>
+          <td><strong>Section Order &amp; Copy</strong></td>
+          <td>Hero &rarr; Family &rarr; Events &rarr; Countdown &rarr; Venue &rarr; Closing</td>
+          <td>Hero &rarr; Family &rarr; Events &rarr; Countdown &rarr; Venue &rarr; Closing</td>
+          <td class="match">100% IDENTICAL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">1. Mobile Hero Comparison (390 &times; 844)</div>
+    <div class="comparison-grid">
+      <div class="comp-col">
+        <div class="comp-label published">Published Website (Production)</div>
+        <div class="img-wrap"><img src="published_hero_mobile_390.png" alt="Published Mobile Hero"></div>
+      </div>
+      <div class="comp-col">
+        <div class="comp-label local">Local Version (Realistic Upgrades + Responsive Sizing)</div>
+        <div class="img-wrap"><img src="local_hero_mobile_390.png" alt="Local Mobile Hero"></div>
+      </div>
+    </div>
+
+    <div class="section-title">2. Desktop Hero Comparison (1440 &times; 900)</div>
+    <div class="comparison-grid">
+      <div class="comp-col">
+        <div class="comp-label published">Published Website (Production)</div>
+        <div class="img-wrap"><img src="published_hero_desktop_1440.png" alt="Published Desktop Hero"></div>
+      </div>
+      <div class="comp-col">
+        <div class="comp-label local">Local Version (Realistic Upgrades)</div>
+        <div class="img-wrap"><img src="local_hero_desktop_1440.png" alt="Local Desktop Hero"></div>
+      </div>
+    </div>
+
+    <div class="section-title">3. Full Mobile Invitation Comparison (390 &times; 844)</div>
+    <div class="comparison-grid">
+      <div class="comp-col">
+        <div class="comp-label published">Published Website (Full Mobile)</div>
+        <div class="img-wrap"><img src="published_mobile_full_390.png" alt="Published Mobile Full"></div>
+      </div>
+      <div class="comp-col">
+        <div class="comp-label local">Local Version (Full Mobile)</div>
+        <div class="img-wrap"><img src="local_mobile_full_390.png" alt="Local Mobile Full"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

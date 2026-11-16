@@ -125,7 +125,10 @@
 
     // Main 60fps RAF loop
     function animateHeroEnvironment(timestamp) {
-      if (!heroVisible) return;
+      if (!heroVisible) {
+        rafId = null;
+        return;
+      }
 
       // Smooth interpolation towards mouse/device target
       currentX = lerp(currentX, targetX, 0.055);
@@ -237,6 +240,19 @@
     // Start ambient animation loop
     rafId = requestAnimationFrame(animateHeroEnvironment);
 
+    // Pause hero ambient animation when scrolled out of view to save CPU/GPU resources
+    if (heroStage && 'IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          heroVisible = entry.isIntersecting;
+          if (heroVisible && !rafId) {
+            rafId = requestAnimationFrame(animateHeroEnvironment);
+          }
+        });
+      }, { threshold: 0.05 });
+      heroObserver.observe(heroStage);
+    }
+
     // ------------------------------------------------------------------------
     // 5. Scroll-Triggered Section Entrances (IntersectionObserver)
     // ------------------------------------------------------------------------
@@ -262,7 +278,7 @@
     }
 
     // ------------------------------------------------------------------------
-    // 6. PHASE 7: Connected Cinematic Viewport Stage & Continuous Camera Flow
+    // 6. Connected Cinematic Viewport Stage & Smooth Continuous Crossfades
     // ------------------------------------------------------------------------
     const stageScene1 = document.getElementById('stage-scene-1');
     const stageScene2 = document.getElementById('stage-scene-2');
@@ -271,231 +287,86 @@
     const stageScene5 = document.getElementById('stage-scene-5');
     const stageScene6 = document.getElementById('stage-scene-6');
 
+    const scenes = [stageScene1, stageScene2, stageScene3, stageScene4, stageScene5, stageScene6];
+
+    const secHero = document.getElementById('hero');
     const secFamily = document.getElementById('family');
     const secEvents = document.getElementById('events');
     const secCountdown = document.getElementById('countdown');
     const secVenue = document.getElementById('venue');
     const secClosing = document.getElementById('closing');
 
-    const stagePillars = document.querySelectorAll('.stage-framing-pillar');
+    const sectionElements = [secHero, secFamily, secEvents, secCountdown, secVenue, secClosing];
 
-    if (stageScene1 && stageScene2 && stageScene3 && stageScene4 && stageScene5 && stageScene6) {
+    if (scenes.every(Boolean)) {
       let isStageTicking = false;
+      let sectionOffsets = [];
 
       function clamp(min, max, val) {
         return Math.max(min, Math.min(max, val));
       }
 
+      function refreshSectionPositions() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        sectionOffsets = sectionElements.map(el => {
+          if (!el) return { top: 0, height: window.innerHeight };
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + scrollY;
+          const height = rect.height;
+          return { top, height };
+        });
+      }
+
       function updateCinematicStage() {
+        if (!sectionOffsets.length || !sectionOffsets[1] || sectionOffsets[1].top === 0) {
+          refreshSectionPositions();
+        }
+
         const vh = window.innerHeight;
+        const scrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
 
-        // Transition progress points (0.0 = previous scene fully active, 1.0 = next scene fully active)
-        // Transition 1: Hero -> Family
-        const famRect = secFamily ? secFamily.getBoundingClientRect() : { top: vh * 2 };
-        const t1 = clamp(0, 1, (vh - famRect.top) / (0.85 * vh));
+        // Smooth continuous crossfades between adjacent sections
+        const transitions = [];
+        const zone = Math.max(280, vh * 0.70);
 
-        // Transition 2: Family -> Events
-        const eveRect = secEvents ? secEvents.getBoundingClientRect() : { top: vh * 2 };
-        const t2 = clamp(0, 1, (vh - eveRect.top) / (0.85 * vh));
+        for (let i = 1; i < sectionOffsets.length; i++) {
+          const boundary = sectionOffsets[i].top;
+          // Progress goes smoothly 0.0 -> 1.0 as the section scrolls into the viewport
+          const p = clamp(0, 1, (scrollY + vh * 0.65 - boundary) / zone);
+          transitions.push(p);
+        }
 
-        // Transition 3: Events -> Countdown
-        const countRect = secCountdown ? secCountdown.getBoundingClientRect() : { top: vh * 2 };
-        const t3 = clamp(0, 1, (vh - countRect.top) / (0.85 * vh));
+        // Monotonic continuous opacity distribution (sums to 1.0 at all times)
+        const opacities = [
+          1 - transitions[0],
+          transitions[0] * (1 - transitions[1]),
+          transitions[1] * (1 - transitions[2]),
+          transitions[2] * (1 - transitions[3]),
+          transitions[3] * (1 - transitions[4]),
+          transitions[4]
+        ];
 
-        // Transition 4: Countdown -> Venue
-        const venRect = secVenue ? secVenue.getBoundingClientRect() : { top: vh * 2 };
-        const t4 = clamp(0, 1, (vh - venRect.top) / (0.85 * vh));
-
-        // Transition 5: Venue -> Closing
-        const closeRect = secClosing ? secClosing.getBoundingClientRect() : { top: vh * 2 };
-        const t5 = clamp(0, 1, (vh - closeRect.top) / (0.85 * vh));
-
-        if (prefersReducedMotion) {
-          // Accessibility fallback: Simple clean opacities without camera translation
-          if (t1 < 0.5) {
-            stageScene1.style.opacity = '1'; stageScene2.style.opacity = '0';
-            stageScene3.style.opacity = '0'; stageScene4.style.opacity = '0';
-            stageScene5.style.opacity = '0'; stageScene6.style.opacity = '0';
-          } else if (t2 < 0.5) {
-            stageScene1.style.opacity = '0'; stageScene2.style.opacity = '1';
-            stageScene3.style.opacity = '0'; stageScene4.style.opacity = '0';
-            stageScene5.style.opacity = '0'; stageScene6.style.opacity = '0';
-          } else if (t3 < 0.5) {
-            stageScene1.style.opacity = '0'; stageScene2.style.opacity = '0';
-            stageScene3.style.opacity = '1'; stageScene4.style.opacity = '0';
-            stageScene5.style.opacity = '0'; stageScene6.style.opacity = '0';
-          } else if (t4 < 0.5) {
-            stageScene1.style.opacity = '0'; stageScene2.style.opacity = '0';
-            stageScene3.style.opacity = '0'; stageScene4.style.opacity = '1';
-            stageScene5.style.opacity = '0'; stageScene6.style.opacity = '0';
-          } else if (t5 < 0.5) {
-            stageScene1.style.opacity = '0'; stageScene2.style.opacity = '0';
-            stageScene3.style.opacity = '0'; stageScene4.style.opacity = '0';
-            stageScene5.style.opacity = '1'; stageScene6.style.opacity = '0';
+        // Apply opacities synchronously with zero transform overhead
+        for (let i = 0; i < scenes.length; i++) {
+          const sc = scenes[i];
+          const op = clamp(0, 1, opacities[i]);
+          if (op <= 0.005) {
+            if (sc.style.opacity !== '0') {
+              sc.style.opacity = '0';
+              sc.style.visibility = 'hidden';
+              sc.classList.remove('is-active');
+            }
           } else {
-            stageScene1.style.opacity = '0'; stageScene2.style.opacity = '0';
-            stageScene3.style.opacity = '0'; stageScene4.style.opacity = '0';
-            stageScene5.style.opacity = '0'; stageScene6.style.opacity = '1';
-          }
-          isStageTicking = false;
-          return;
-        }
-
-        // ====================================================================
-        // REAL CONNECTED ARCHITECTURAL CAMERA SCROLL FLOW (Continuous Progression)
-        // ====================================================================
-
-        const famImg = stageScene2.querySelector('.stage-scene-img');
-        const eveImg = stageScene3.querySelector('.stage-scene-img');
-        const countImg = stageScene4.querySelector('.stage-scene-img');
-        const venImg = stageScene5.querySelector('.stage-scene-img');
-        const closeImg = stageScene6.querySelector('.stage-scene-img');
-
-        // Update continuous pillar & arch scroll offsets for unified 3D camera
-        scrollPillarOffset = 45 * clamp(0, 1, t1);
-        scrollArchOffset = 35 * clamp(0, 1, t1);
-
-        // Scene 1 -> Scene 2: Outer Gateway Walk-In & Aisle Perspective Push (Smooth Illumination Crossfade)
-        if (t1 < 1) {
-          const s1Opacity = clamp(0, 1, 1 - Math.pow(t1, 1.4));
-          const s2Opacity = clamp(0, 1, Math.pow(t1, 0.75));
-
-          stageScene1.style.opacity = s1Opacity.toFixed(3);
-          stageScene2.style.opacity = s2Opacity.toFixed(3);
-          stageScene3.style.opacity = '0';
-          stageScene4.style.opacity = '0';
-          stageScene5.style.opacity = '0';
-          stageScene6.style.opacity = '0';
-
-          stageScene1.classList.toggle('is-active', s1Opacity > 0.02);
-          stageScene2.classList.toggle('is-active', s2Opacity > 0.02);
-
-          // Camera push forward into gateway
-          const pushScale = (1.0 + 0.08 * t1).toFixed(3);
-          const pushY = (-24 * t1).toFixed(1);
-          stageScene1.style.transform = `scale(${pushScale}) translate3d(0, ${pushY}px, 0)`;
-
-          // Inner Mahamandapa colonnade emerges from depth
-          if (famImg) {
-            const famScale = (0.95 + 0.05 * t1).toFixed(3);
-            const famY = (25 * (1 - t1)).toFixed(1);
-            famImg.style.transform = `scale(${famScale}) translate3d(0, ${famY}px, 0)`;
-          }
-        }
-        // Scene 2 -> Scene 3: Colonnade Aisle Track -> Wedding Mandapam
-        else if (t2 < 1) {
-          const s2Opacity = clamp(0, 1, 1 - Math.pow(t2, 1.4));
-          const s3Opacity = clamp(0, 1, Math.pow(t2, 0.75));
-
-          stageScene1.style.opacity = '0';
-          stageScene2.style.opacity = s2Opacity.toFixed(3);
-          stageScene3.style.opacity = s3Opacity.toFixed(3);
-          stageScene4.style.opacity = '0';
-          stageScene5.style.opacity = '0';
-          stageScene6.style.opacity = '0';
-
-          stageScene2.classList.toggle('is-active', s2Opacity > 0.02);
-          stageScene3.classList.toggle('is-active', s3Opacity > 0.02);
-
-          // Camera tracks down colonnade aisle
-          if (famImg) {
-            const famScale = (1.0 + 0.06 * t2).toFixed(3);
-            const famY = (-20 * t2).toFixed(1);
-            famImg.style.transform = `scale(${famScale}) translate3d(0, ${famY}px, 0)`;
-          }
-
-          // Altar with marigolds and lamps arrives into focus
-          if (eveImg) {
-            const eveScale = (0.96 + 0.04 * t2).toFixed(3);
-            const eveY = (20 * (1 - t2)).toFixed(1);
-            eveImg.style.transform = `scale(${eveScale}) translate3d(0, ${eveY}px, 0)`;
-          }
-        }
-        // Scene 3 -> Scene 4: Covered Mandapam -> Sunlit Golden Courtyard
-        else if (t3 < 1) {
-          const s3Opacity = clamp(0, 1, 1 - Math.pow(t3, 1.4));
-          const s4Opacity = clamp(0, 1, Math.pow(t3, 0.75));
-
-          stageScene1.style.opacity = '0';
-          stageScene2.style.opacity = '0';
-          stageScene3.style.opacity = s3Opacity.toFixed(3);
-          stageScene4.style.opacity = s4Opacity.toFixed(3);
-          stageScene5.style.opacity = '0';
-          stageScene6.style.opacity = '0';
-
-          stageScene3.classList.toggle('is-active', s3Opacity > 0.02);
-          stageScene4.classList.toggle('is-active', s4Opacity > 0.02);
-
-          // Lateral camera pan out into open courtyard
-          if (eveImg) {
-            const eveX = (-45 * t3).toFixed(1);
-            const eveScale = (1.0 + 0.03 * t3).toFixed(3);
-            eveImg.style.transform = `translate3d(${eveX}px, 0, 0) scale(${eveScale})`;
-          }
-
-          // Sunlit courtyard colonnade slides in gracefully from right
-          if (countImg) {
-            const countX = (45 * (1 - t3)).toFixed(1);
-            const countScale = (0.97 + 0.03 * t3).toFixed(3);
-            countImg.style.transform = `translate3d(${countX}px, 0, 0) scale(${countScale})`;
-          }
-        }
-        // Scene 4 -> Scene 5: Courtyard -> Stone Pavilion Entrance
-        else if (t4 < 1) {
-          const s4Opacity = clamp(0, 1, 1 - Math.pow(t4, 1.4));
-          const s5Opacity = clamp(0, 1, Math.pow(t4, 0.75));
-
-          stageScene1.style.opacity = '0';
-          stageScene2.style.opacity = '0';
-          stageScene3.style.opacity = '0';
-          stageScene4.style.opacity = s4Opacity.toFixed(3);
-          stageScene5.style.opacity = s5Opacity.toFixed(3);
-          stageScene6.style.opacity = '0';
-
-          stageScene4.classList.toggle('is-active', s4Opacity > 0.02);
-          stageScene5.classList.toggle('is-active', s5Opacity > 0.02);
-
-          // Step along the courtyard stone plinth
-          if (countImg) {
-            const countScale = (1.0 + 0.05 * t4).toFixed(3);
-            const countY = (-20 * t4).toFixed(1);
-            countImg.style.transform = `scale(${countScale}) translate3d(0, ${countY}px, 0)`;
-          }
-
-          // Grand Dravidian stone pavilion entrance anchors
-          if (venImg) {
-            const venScale = (0.96 + 0.04 * t4).toFixed(3);
-            const venY = (24 * (1 - t4)).toFixed(1);
-            venImg.style.transform = `scale(${venScale}) translate3d(0, ${venY}px, 0)`;
-          }
-        }
-        // Scene 5 -> Scene 6: Pavilion Plinth -> Twilight Sunset Sky & Horizon
-        else {
-          const s5Opacity = clamp(0, 1, 1 - Math.pow(t5, 1.4));
-          const s6Opacity = clamp(0, 1, Math.pow(t5, 0.75));
-
-          stageScene1.style.opacity = '0';
-          stageScene2.style.opacity = '0';
-          stageScene3.style.opacity = '0';
-          stageScene4.style.opacity = '0';
-          stageScene5.style.opacity = s5Opacity.toFixed(3);
-          stageScene6.style.opacity = s6Opacity.toFixed(3);
-
-          stageScene5.classList.toggle('is-active', s5Opacity > 0.02);
-          stageScene6.classList.toggle('is-active', s6Opacity > 0.02);
-
-          // Camera tilts skyward: Pavilion plinth descends gently
-          if (venImg) {
-            const venY = (45 * t5).toFixed(1);
-            const venScale = (1.0 + 0.02 * t5).toFixed(3);
-            venImg.style.transform = `translate3d(0, ${venY}px, 0) scale(${venScale})`;
-          }
-
-          // Peach sunset sky & temple silhouette descend into position
-          if (closeImg) {
-            const closeY = (-30 * (1 - t5)).toFixed(1);
-            const closeScale = (0.98 + 0.02 * t5).toFixed(3);
-            closeImg.style.transform = `translate3d(0, ${closeY}px, 0) scale(${closeScale})`;
+            const opStr = op.toFixed(3);
+            if (sc.style.opacity !== opStr) {
+              sc.style.opacity = opStr;
+            }
+            if (sc.style.visibility !== 'visible') {
+              sc.style.visibility = 'visible';
+            }
+            if (!sc.classList.contains('is-active')) {
+              sc.classList.add('is-active');
+            }
           }
         }
 
@@ -509,7 +380,29 @@
         }
       }, { passive: true });
 
-      // Run immediately on page load to configure initial scene state
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          refreshSectionPositions();
+          updateCinematicStage();
+        }, 150);
+      }, { passive: true });
+
+      // Refresh on full window load to account for deferred font/image loading
+      window.addEventListener('load', () => {
+        refreshSectionPositions();
+        updateCinematicStage();
+      });
+
+      // Expose for verification and testing
+      window.WeddingAnimations = {
+        updateCinematicStage: updateCinematicStage,
+        refreshSectionPositions: refreshSectionPositions,
+        getSectionOffsets: function() { return sectionOffsets; }
+      };
+
+      refreshSectionPositions();
       updateCinematicStage();
     }
   }

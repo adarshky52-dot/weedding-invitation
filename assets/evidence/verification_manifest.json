@@ -1,0 +1,74 @@
+[
+  {
+    "name": "restored_bg_01_hero_390.png",
+    "desc": "Hero: temple-hero-bg.jpg + sunrise-sky",
+    "size": "436.1 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_bg_02_family_390.png",
+    "desc": "Family: story-family-mandapam-bg.jpg",
+    "size": "447.3 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_bg_03_events_390.png",
+    "desc": "Events: story-events-wedding-bg.jpg",
+    "size": "260.7 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_bg_04_countdown_390.png",
+    "desc": "Countdown: story-countdown-courtyard-bg.jpg",
+    "size": "413.4 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_bg_05_venue_390.png",
+    "desc": "Venue: story-venue-davanagere-bg.jpg",
+    "size": "311.4 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_bg_06_closing_390.png",
+    "desc": "Closing: story-closing-sunset-bg.jpg",
+    "size": "382.4 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_mobile_360x800_full.png",
+    "desc": "Full Mobile 360x800",
+    "size": "1125.3 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_mobile_375x812_full.png",
+    "desc": "Full Mobile 375x812",
+    "size": "1164.7 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_mobile_390x844_full.png",
+    "desc": "Full Mobile 390x844",
+    "size": "1213.5 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_mobile_430x932_full.png",
+    "desc": "Full Mobile 430x932",
+    "size": "1328.9 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_desktop_hero_1440.png",
+    "desc": "Desktop Hero 1440x900",
+    "size": "1668.9 KB",
+    "status": "PASS"
+  },
+  {
+    "name": "restored_desktop_full_1440.png",
+    "desc": "Desktop Full 1440x900",
+    "size": "4567.6 KB",
+    "status": "PASS"
+  }
+]

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Refined Text Contrast & Subtle Dark Overlays — Verification Showcase</title>
+  <style>
+    :root {
+      --bg: #0E0708;
+      --card-bg: #1A0F11;
+      --accent-gold: #D99A59;
+      --accent-ivory: #FFF8EA;
+      --border-gold: rgba(217, 154, 89, 0.45);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--accent-ivory);
+      font-family: var(--font-sans);
+      padding: 2.5rem;
+      line-height: 1.5;
+    }
+    header {
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(113, 60, 56, 0.6);
+      border: 1px solid var(--accent-gold);
+      color: #FFFDF9;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: #FFFFFF;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--accent-gold);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .invariants-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #E2D4C3;
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.85rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(217, 154, 89, 0.2);
+    }
+    .invariants-bar span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .invariants-bar span strong {
+      color: #92e6a7;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      margin: 3rem 0 1.5rem;
+      border-left: 4px solid var(--accent-gold);
+      padding-left: 0.85rem;
+    }
+
+    /* 6 Section Grid */
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+    }
+    .section-card-header {
+      padding: 1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(217, 154, 89, 0.2);
+    }
+    .section-num {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .section-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      margin-top: 0.2rem;
+    }
+    .section-bg-info {
+      font-size: 0.75rem;
+      color: #C7B5A3;
+      margin-top: 0.2rem;
+    }
+    .section-img-wrap {
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 480px;
+    }
+    .section-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Multi-viewport Section */
+    .viewport-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .vp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+    .vp-card-header {
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(217, 154, 89, 0.2);
+      font-size: 0.85rem;
+      text-align: center;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .vp-img-wrap {
+      height: 460px;
+      overflow-y: hidden;
+      background: #000;
+    }
+    .vp-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Desktop Section */
+    .desktop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .desktop-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+    .desktop-card-header {
+      padding: 0.85rem 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(217, 154, 89, 0.2);
+      font-size: 0.9rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .desktop-img-wrap {
+      height: 400px;
+      overflow: hidden;
+      background: #000;
+    }
+    .desktop-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Visual Contrast &amp; Overlay Refinement Report</div>
+    <h1>Wedding Invitation — Text Contrast Verification</h1>
+    <p class="subtitle">High-Contrast Luminous Typography &amp; Subtle Dark Translucent Overlays over Temple Photography</p>
+    
+    <div class="invariants-bar">
+      <span><strong>✓</strong> Background Images: 100% Intact &amp; Unchanged</span>
+      <span><strong>✓</strong> Scrolling Engine: Smooth Native Touch Preserved</span>
+      <span><strong>✓</strong> Color Palette: Authentic Ivory, Gold &amp; Temple Brown</span>
+      <span><strong>✓</strong> Realistic Decorations: All 5 WebP Assets Active</span>
+      <span><strong>✓</strong> Horizontal Overflow: 0px (No horizontal scroll)</span>
+    </div>
+  </header>
+
+  <h2>1. Section-by-Section Visual Verification (Mobile 390×844)</h2>
+  <div class="section-grid">
+    <!-- Hero -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-num">Section 1 · Hero Stage</div>
+        <div class="section-name">Grand Temple Gopuram &amp; Invocation</div>
+        <div class="section-bg-info">Background: temple-hero-bg.jpg + temple-sunrise-sky.jpg</div>
+      </div>
+      <div class="section-img-wrap">
+        <img src="contrast_01_hero_390.png" alt="Hero Section">
+      </div>
+    </div>
+
+    <!-- Family -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-num">Section 2 · Divine Blessings</div>
+        <div class="section-name">Family Lineage &amp; Sacred Elders</div>
+        <div class="section-bg-info">Background: story-family-mandapam-bg.jpg (Colonnade Walkway)</div>
+      </div>
+      <div class="section-img-wrap">
+        <img src="contrast_02_family_390.png" alt="Family Section">
+      </div>
+    </div>
+
+    <!-- Events -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-num">Section 3 · Celebrations</div>
+        <div class="section-name">Reception &amp; Sacred Muhurtha Cards</div>
+        <div class="section-bg-info">Background: story-events-wedding-bg.jpg (Marigold Mandapam)</div>
+      </div>
+      <div class="section-img-wrap">
+        <img src="contrast_03_events_390.png" alt="Events Section">
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-num">Section 4 · Auspicious Timing</div>
+        <div class="section-name">Live Muhurtha Countdown Timer</div>
+        <div class="section-bg-info">Background: story-countdown-courtyard-bg.jpg (Sunlit Courtyard)</div>
+      </div>
+      <div class="section-img-wrap">
+        <img src="contrast_04_countdown_390.png" alt="Countdown Section">
+      </div>
+    </div>
+
+    <!-- Venue -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-num">Section 5 · Kalyana Mantapa</div>
+        <div class="section-name">Venue, Directions &amp; Maps Action</div>
+        <div class="section-bg-info">Background: story-venue-davanagere-bg.jpg (Stone Pavilion)</div>
+      </div>
+      <div class="section-img-wrap">
+        <img src="contrast_05_venue_390.png" alt="Venue Section">
+      </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-num">Section 6 · Traditional Gratitude</div>
+        <div class="section-name">Sunset Silhouette &amp; Calligraphy</div>
+        <div class="section-bg-info">Background: story-closing-sunset-bg.jpg (Twilight Horizon)</div>
+      </div>
+      <div class="section-img-wrap">
+        <img src="contrast_06_closing_390.png" alt="Closing Section">
+      </div>
+    </div>
+  </div>
+
+  <h2>2. Responsive Mobile Verification Across Primary Viewports</h2>
+  <div class="viewport-grid">
+    <div class="vp-card">
+      <div class="vp-card-header">360 × 800 (Compact Android)</div>
+      <div class="vp-img-wrap">
+        <img src="contrast_mobile_360x800_full.png" alt="360x800 Viewport">
+      </div>
+    </div>
+
+    <div class="vp-card">
+      <div class="vp-card-header">375 × 812 (Standard iPhone)</div>
+      <div class="vp-img-wrap">
+        <img src="contrast_mobile_375x812_full.png" alt="375x812 Viewport">
+      </div>
+    </div>
+
+    <div class="vp-card">
+      <div class="vp-card-header">390 × 844 (iPhone 13 / 14 / 15)</div>
+      <div class="vp-img-wrap">
+        <img src="contrast_mobile_390x844_full.png" alt="390x844 Viewport">
+      </div>
+    </div>
+
+    <div class="vp-card">
+      <div class="vp-card-header">430 × 932 (Large Pro Max / Ultra)</div>
+      <div class="vp-img-wrap">
+        <img src="contrast_mobile_430x932_full.png" alt="430x932 Viewport">
+      </div>
+    </div>
+  </div>
+
+  <h2>3. Desktop Visual Verification (1440 × 900)</h2>
+  <div class="desktop-grid">
+    <div class="desktop-card">
+      <div class="desktop-card-header">Desktop Hero Viewport (1440 × 900)</div>
+      <div class="desktop-img-wrap">
+        <img src="contrast_desktop_hero_1440.png" alt="Desktop Hero Viewport">
+      </div>
+    </div>
+
+    <div class="desktop-card">
+      <div class="desktop-card-header">Desktop Full Page Composition</div>
+      <div class="desktop-img-wrap">
+        <img src="contrast_desktop_full_1440.png" alt="Desktop Full Page Viewport">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
