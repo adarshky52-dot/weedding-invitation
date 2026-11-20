@@ -181,15 +181,30 @@
   }
 
   function toggleAudio() {
-    // If an external MP3 file is present, loaded, and has a ready source
-    if (bgAudioElement && bgAudioElement.currentSrc && bgAudioElement.readyState >= 2 && !bgAudioElement.error) {
+    const hasSource = bgAudioElement && (
+      bgAudioElement.src ||
+      bgAudioElement.currentSrc ||
+      bgAudioElement.querySelector('source')
+    );
+
+    // If an external MP3 file is configured, use HTML5 audio
+    if (hasSource && !bgAudioElement.error) {
       if (bgAudioElement.paused) {
-        bgAudioElement.play().then(() => {
+        stopDrone();
+        bgAudioElement.volume = 0.75;
+        const playPromise = bgAudioElement.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            isPlaying = true;
+            updateAudioUI(true);
+          }).catch(err => {
+            console.warn('Audio element play failed, falling back to synth:', err);
+            fallbackToSynth();
+          });
+        } else {
           isPlaying = true;
           updateAudioUI(true);
-        }).catch(() => {
-          fallbackToSynth();
-        });
+        }
       } else {
         bgAudioElement.pause();
         isPlaying = false;
@@ -227,6 +242,23 @@
     }
   }
 
+  if (bgAudioElement) {
+    bgAudioElement.addEventListener('play', () => {
+      isPlaying = true;
+      updateAudioUI(true);
+    });
+    bgAudioElement.addEventListener('pause', () => {
+      isPlaying = false;
+      updateAudioUI(false);
+    });
+    bgAudioElement.addEventListener('ended', () => {
+      if (!bgAudioElement.loop) {
+        isPlaying = false;
+        updateAudioUI(false);
+      }
+    });
+  }
+
   if (audioBtn) {
     audioBtn.addEventListener('click', toggleAudio);
   }
@@ -236,7 +268,15 @@
     toggle: toggleAudio,
     isPlaying: () => isPlaying,
     start: () => { if (!isPlaying) toggleAudio(); },
-    stop: () => { if (isPlaying) toggleAudio(); },
+    stop: () => {
+      if (bgAudioElement && !bgAudioElement.paused) {
+        bgAudioElement.pause();
+      }
+      stopDrone();
+      isPlaying = false;
+      updateAudioUI(false);
+    },
+    getAudioElement: () => bgAudioElement,
     getContext: () => audioCtx
   };
 })();

@@ -425,8 +425,10 @@
     <span class="audio-label" id="audio-toggle-text">Music: Play</span>
   </button>
 
-  <!-- Optional HTML5 audio container if an MP3 file is supplied locally -->
-  <audio id="wedding-bg-audio" preload="none" aria-hidden="true"></audio>
+  <!-- Auspicious Wedding Background Music -->
+  <audio id="wedding-bg-audio" preload="auto" loop aria-hidden="true">
+    <source src="assets/audio/wedding-music.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- Toast Notification -->
   <div id="toast-notice" class="toast-notice" role="status" aria-live="polite">
